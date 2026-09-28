@@ -1971,12 +1971,14 @@ async function updateAppointmentStatus(
         }
 
         /*
-         * Nuk përdorim më .select("id,status")
-         * sepse RLS mund të lejojë UPDATE,
-         * por të mos lejojë kthimin e rreshtit.
+         * UPDATE u krye me sukses.
+         * Nuk përdorim .select() pas UPDATE,
+         * sepse RLS mund të lejojë UPDATE
+         * por të bllokojë kthimin e rreshtit.
          */
 
-        selectElement.dataset.previousStatus = newStatus;
+        selectElement.dataset.previousStatus =
+            newStatus;
 
         const newClass =
             getStatusClass(newStatus);
@@ -1989,6 +1991,7 @@ async function updateAppointmentStatus(
 
         /*
          * Rifresko agjendën nga databaza
+         * për të verifikuar gjendjen e re.
          */
         await loadAppointments();
 
