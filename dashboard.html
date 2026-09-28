@@ -1951,38 +1951,44 @@ async function updateAppointmentStatus(
     selectElement,
     cardElement
 ){
+    const previousStatus = selectElement.dataset.previousStatus || selectElement.value;
 
     try{
+        selectElement.disabled = true;
 
-        const {
-            error
-        } =
-        await supabaseClient
+        const { data, error } = await supabaseClient
             .from("appointments")
-            .update({
-                status:newStatus
-            })
-            .eq(
-                "id",
-                id
-            );
-
+            .update({ status: newStatus })
+            .eq("id", id)
+            .select("id,status");
 
         if(error){
             throw error;
         }
 
+        // Nëse nuk u kthye asnjë rresht, UPDATE nuk u aplikua
+        // (zakonisht për shkak të RLS policy).
+        if(!data || data.length === 0){
+            throw new Error(
+                "Statusi nuk u ruajt në databazë. Kontrolloni politikën UPDATE (RLS) të tabelës appointments në Supabase."
+            );
+        }
 
-        const newClass =
-            getStatusClass(newStatus);
+        const savedStatus = data[0].status;
 
+        if(savedStatus !== newStatus){
+            throw new Error("Statusi nuk u ruajt siç u zgjodh.");
+        }
+
+        selectElement.dataset.previousStatus = savedStatus;
+
+        const newClass = getStatusClass(savedStatus);
 
         selectElement.className =
             "status-select " + newClass;
 
         cardElement.className =
             "appointment " + newClass;
-
 
     }catch(error){
 
@@ -1991,18 +1997,20 @@ async function updateAppointmentStatus(
             error
         );
 
+        // Kthe dropdown-in te statusi i mëparshëm.
+        if(previousStatus){
+            selectElement.value = previousStatus;
+            selectElement.className =
+                "status-select " + getStatusClass(previousStatus);
+        }
+
         alert(
             error.message ||
             "Statusi nuk u ndryshua."
         );
 
-        await loadAppointments();
-
     }finally{
-
-        selectElement.disabled =
-            false;
-
+        selectElement.disabled = false;
     }
 }
 
