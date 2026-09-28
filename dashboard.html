@@ -10,9 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 html,body{
     margin:0;
@@ -21,50 +19,21 @@ html,body{
 }
 
 body{
-    font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eef6fa 0%,
-            #f7fbfd 48%,
-            #e9f3f7 100%
-        );
-
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    background:linear-gradient(135deg,#eef6fa 0%,#f7fbfd 48%,#e9f3f7 100%);
     color:#17384b;
 }
 
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 .topbar{
     height:82px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #063e61,
-            #075b7e
-        );
-
+    background:linear-gradient(135deg,#063e61,#075b7e);
     color:white;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 34px;
-
-    box-shadow:
-        0 6px 25px rgba(4,55,82,.16);
-
+    box-shadow:0 6px 25px rgba(4,55,82,.16);
     position:sticky;
     top:0;
     z-index:50;
@@ -79,26 +48,19 @@ body{
 .brand-logo{
     width:48px;
     height:48px;
-
     border-radius:14px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     background:rgba(255,255,255,.14);
-
     border:1px solid rgba(255,255,255,.20);
-
     font-size:17px;
     font-weight:800;
-
     letter-spacing:-1px;
 }
 
 .brand-text h1{
     margin:0;
-
     font-size:20px;
     font-weight:750;
     letter-spacing:-.3px;
@@ -106,42 +68,28 @@ body{
 
 .brand-text p{
     margin:3px 0 0;
-
     font-size:12px;
-
     color:rgba(255,255,255,.72);
 }
 
 .logout-btn{
     border:1px solid rgba(255,255,255,.20);
-
     background:rgba(255,255,255,.10);
-
     color:white;
-
     padding:10px 17px;
-
     border-radius:11px;
-
     cursor:pointer;
-
     font-size:13px;
     font-weight:650;
-
-    transition:.2s;
 }
 
 .logout-btn:hover{
     background:rgba(255,255,255,.18);
 }
 
-/* =========================
-   MAIN
-========================= */
-
+/* MAIN */
 .page{
     width:min(1500px,calc(100% - 40px));
-
     margin:30px auto 50px;
 }
 
@@ -149,25 +97,19 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
-
     margin-bottom:25px;
 }
 
 .page-title h2{
     margin:0;
-
     font-size:28px;
-
     color:#083f61;
-
     letter-spacing:-.7px;
 }
 
 .page-title p{
     margin:7px 0 0;
-
     color:#718795;
-
     font-size:14px;
 }
 
@@ -175,66 +117,41 @@ body{
     display:flex;
     align-items:center;
     gap:8px;
-
     padding:9px 14px;
-
     background:white;
-
     border:1px solid #dce9ef;
-
     border-radius:12px;
-
     font-size:12px;
     font-weight:700;
-
     color:#477083;
-
     box-shadow:0 4px 15px rgba(20,70,90,.05);
 }
 
 .status-dot{
     width:8px;
     height:8px;
-
     border-radius:50%;
-
     background:#28a879;
 }
 
-/* =========================
-   LAYOUT
-========================= */
-
+/* LAYOUT */
 .layout{
     display:grid;
-
-    grid-template-columns:
-        390px
-        minmax(0,1fr);
-
+    grid-template-columns:390px minmax(0,1fr);
     gap:24px;
-
     align-items:start;
 }
 
-/* =========================
-   FORM CARD
-========================= */
-
+/* CARDS */
 .card{
     background:white;
-
     border:1px solid #dfeaf0;
-
     border-radius:20px;
-
-    box-shadow:
-        0 12px 35px rgba(23,66,86,.07);
+    box-shadow:0 12px 35px rgba(23,66,86,.07);
 }
 
 .form-card{
     padding:25px;
-
     position:sticky;
     top:106px;
 }
@@ -243,56 +160,43 @@ body{
     display:flex;
     align-items:center;
     gap:12px;
-
     margin-bottom:22px;
 }
 
 .heading-icon{
     width:42px;
     height:42px;
-
     border-radius:12px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     background:#e8f5fa;
-
     color:#087fa8;
-
     font-size:20px;
 }
 
 .card-heading h3{
     margin:0;
-
     font-size:17px;
-
     color:#17455b;
 }
 
 .card-heading p{
     margin:3px 0 0;
-
     font-size:11px;
-
     color:#8a9da7;
 }
 
+/* FORM */
 .form-group{
     margin-bottom:17px;
 }
 
 .form-label{
     display:block;
-
     margin-bottom:7px;
-
     font-size:12px;
-
     font-weight:750;
-
     color:#36586a;
 }
 
@@ -304,36 +208,23 @@ input,
 select,
 textarea{
     width:100%;
-
     border:1px solid #d6e4ea;
-
     background:#f9fcfd;
-
     color:#17384b;
-
     border-radius:11px;
-
     outline:none;
-
     font-family:inherit;
-
     font-size:14px;
-
-    transition:.15s;
 }
 
-input,
-select{
+input,select{
     height:47px;
-
     padding:0 13px;
 }
 
 textarea{
     min-height:85px;
-
     resize:vertical;
-
     padding:12px 13px;
 }
 
@@ -341,22 +232,14 @@ input:focus,
 select:focus,
 textarea:focus{
     border-color:#1290b8;
-
     background:white;
-
-    box-shadow:
-        0 0 0 3px rgba(18,144,184,.09);
+    box-shadow:0 0 0 3px rgba(18,144,184,.09);
 }
 
-/* =========================
-   EXAM TYPE
-========================= */
-
+/* MRI / CT */
 .exam-options{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:10px;
 }
 
@@ -366,74 +249,44 @@ textarea:focus{
 
 .exam-option input{
     position:absolute;
-
     opacity:0;
-
     pointer-events:none;
 }
 
 .exam-label{
     height:58px;
-
     border:1px solid #d7e5eb;
-
     border-radius:12px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:8px;
-
     cursor:pointer;
-
     background:#f9fcfd;
-
     color:#466575;
-
     font-size:14px;
-
     font-weight:750;
-
-    transition:.15s;
-}
-
-.exam-label:hover{
-    border-color:#9ecbd9;
 }
 
 .exam-option input:checked + .exam-label{
     background:#e9f7fb;
-
     border-color:#087fa8;
-
     color:#056789;
-
-    box-shadow:
-        inset 0 0 0 1px #087fa8;
+    box-shadow:inset 0 0 0 1px #087fa8;
 }
 
 .exam-symbol{
     font-size:16px;
 }
 
-/* =========================
-   CONTRAST
-========================= */
-
+/* CONTRAST */
 .contrast-section{
     display:none;
-
     margin-top:2px;
-
+    margin-bottom:17px;
     padding:14px;
-
     background:#f6fafc;
-
     border:1px solid #e1edf1;
-
     border-radius:13px;
 }
 
@@ -443,23 +296,16 @@ textarea:focus{
 
 .contrast-title{
     font-size:11px;
-
     color:#6c8290;
-
     font-weight:750;
-
     margin-bottom:9px;
-
     text-transform:uppercase;
-
     letter-spacing:.4px;
 }
 
 .contrast-options{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:8px;
 }
 
@@ -469,79 +315,43 @@ textarea:focus{
 
 .contrast-option input{
     position:absolute;
-
     opacity:0;
 }
 
 .contrast-label{
     height:42px;
-
     border-radius:9px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     border:1px solid #d6e4ea;
-
     background:white;
-
     cursor:pointer;
-
     font-size:12px;
-
     font-weight:700;
-
     color:#55717e;
 }
 
 .contrast-option input:checked + .contrast-label{
     border-color:#087fa8;
-
     color:#087fa8;
-
     background:#edf9fc;
-
-    box-shadow:
-        inset 0 0 0 1px #087fa8;
+    box-shadow:inset 0 0 0 1px #087fa8;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
+/* BUTTON */
 .save-btn{
     width:100%;
-
     height:50px;
-
     margin-top:4px;
-
     border:0;
-
     border-radius:12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #087fa8,
-            #07537c
-        );
-
+    background:linear-gradient(135deg,#087fa8,#07537c);
     color:white;
-
     font-size:14px;
-
     font-weight:750;
-
     cursor:pointer;
-
-    box-shadow:
-        0 9px 20px rgba(7,91,126,.20);
-
-    transition:.15s;
+    box-shadow:0 9px 20px rgba(7,91,126,.20);
 }
 
 .save-btn:hover{
@@ -550,19 +360,14 @@ textarea:focus{
 
 .save-btn:disabled{
     opacity:.60;
-
     cursor:not-allowed;
 }
 
 .message{
     min-height:18px;
-
     margin-top:12px;
-
     font-size:12px;
-
     font-weight:650;
-
     text-align:center;
 }
 
@@ -574,201 +379,124 @@ textarea:focus{
     color:#18825f;
 }
 
-/* =========================
-   AGENDA
-========================= */
-
+/* AGENDA */
 .agenda-card{
     padding:25px;
-
     min-width:0;
 }
 
 .agenda-top{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:20px;
-
     margin-bottom:20px;
 }
 
 .agenda-heading h3{
     margin:0;
-
     font-size:19px;
-
     color:#16445a;
 }
 
 .agenda-heading p{
     margin:4px 0 0;
-
     color:#82949d;
-
     font-size:12px;
 }
 
 .date-controls{
     display:flex;
-
     align-items:center;
-
     gap:8px;
 }
 
 .date-btn{
     width:38px;
     height:38px;
-
     border:1px solid #d8e6eb;
-
     background:#f8fbfc;
-
     border-radius:10px;
-
     color:#326176;
-
     cursor:pointer;
-
     font-size:18px;
-}
-
-.date-btn:hover{
-    background:#edf6f9;
 }
 
 .date-input{
     width:160px;
-
     height:38px;
-
     border-radius:10px;
-
     background:#f8fbfc;
-
     font-size:13px;
-
     font-weight:650;
 }
 
-/* =========================
-   DAY HEADER
-========================= */
-
+/* DAY HEADER */
 .day-header{
     padding:15px 17px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f1f8fb,
-            #f8fbfc
-        );
-
+    background:linear-gradient(135deg,#f1f8fb,#f8fbfc);
     border:1px solid #dfebf0;
-
     border-radius:13px;
-
     margin-bottom:13px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 }
 
 .day-title{
     font-size:14px;
-
     font-weight:750;
-
     color:#235269;
 }
 
 .day-count{
     padding:5px 9px;
-
     border-radius:8px;
-
     background:#e5f3f8;
-
     color:#087fa8;
-
     font-size:11px;
-
     font-weight:750;
 }
 
-/* =========================
-   TIME GRID
-========================= */
-
+/* SCHEDULE */
 .schedule{
     display:flex;
-
     flex-direction:column;
-
     gap:7px;
 }
 
 .time-row{
-    min-height:64px;
-
+    min-height:72px;
     display:grid;
-
     grid-template-columns:82px minmax(0,1fr);
-
     gap:10px;
 }
 
 .time{
     display:flex;
-
     align-items:flex-start;
-
     justify-content:center;
-
-    padding-top:14px;
-
+    padding-top:16px;
     color:#78909c;
-
     font-size:12px;
-
     font-weight:700;
 }
 
 .slot{
     border:1px solid #e0eaee;
-
     background:#fbfdfe;
-
     border-radius:12px;
-
     min-width:0;
-
     padding:7px;
-
     display:flex;
-
     align-items:stretch;
-
-    transition:.12s;
 }
 
 .slot.empty{
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     color:#b2c0c7;
-
     font-size:11px;
 }
 
@@ -776,135 +504,146 @@ textarea:focus{
     content:"Orar i lirë";
 }
 
+/* APPOINTMENT */
 .appointment{
     width:100%;
-
     display:grid;
-
-    grid-template-columns:
-        minmax(170px,1.1fr)
-        minmax(130px,.8fr)
-        minmax(160px,1fr)
-        90px;
-
+    grid-template-columns:minmax(160px,1.05fr) minmax(140px,.85fr) minmax(180px,1fr) 150px 42px;
     align-items:center;
-
     gap:12px;
-
     padding:9px 11px;
-
     border-radius:9px;
-
     background:white;
-
     border:1px solid #d8e8ed;
-
-    box-shadow:
-        0 3px 10px rgba(30,75,90,.05);
+    box-shadow:0 3px 10px rgba(30,75,90,.05);
 }
 
+/* status border */
+.appointment.status-waiting{
+    border-left:4px solid #d7a62d;
+}
+
+.appointment.status-arrived{
+    border-left:4px solid #2ba66f;
+}
+
+.appointment.status-finished{
+    border-left:4px solid #287fb1;
+}
+
+.appointment.status-cancelled{
+    border-left:4px solid #cf5b58;
+    opacity:.78;
+}
+
+/* PATIENT */
 .patient{
     min-width:0;
 }
 
 .patient-name{
     font-size:13px;
-
     font-weight:750;
-
     color:#204c61;
-
     white-space:nowrap;
-
     overflow:hidden;
-
     text-overflow:ellipsis;
 }
 
 .patient-phone{
     margin-top:3px;
-
     font-size:10px;
-
     color:#8a9da6;
 }
 
+/* EXAM */
 .exam-info{
     min-width:0;
 }
 
 .exam-main{
     display:flex;
-
     align-items:center;
-
     gap:7px;
 }
 
 .exam-badge{
     padding:4px 7px;
-
     border-radius:6px;
-
     background:#e8f5fa;
-
     color:#087fa8;
-
     font-size:10px;
-
     font-weight:800;
 }
 
 .contrast-badge{
     padding:4px 7px;
-
     border-radius:6px;
-
     background:#f0f4f6;
-
     color:#647984;
-
     font-size:9px;
-
     font-weight:700;
 }
 
 .exam-name{
     margin-top:5px;
-
     font-size:11px;
-
     color:#647b86;
-
     white-space:nowrap;
-
     overflow:hidden;
-
     text-overflow:ellipsis;
 }
 
-.card-number{
-    color:#7b9099;
-
-    font-size:11px;
+/* STATUS */
+.status-wrapper{
+    min-width:0;
 }
 
+.status-select{
+    width:100%;
+    height:36px;
+    border-radius:9px;
+    padding:0 9px;
+    font-size:11px;
+    font-weight:750;
+    cursor:pointer;
+    background:white;
+}
+
+.status-select.status-waiting{
+    color:#99751c;
+    border-color:#e6d69b;
+    background:#fffaf0;
+}
+
+.status-select.status-arrived{
+    color:#17734d;
+    border-color:#a9dcc5;
+    background:#f0fbf6;
+}
+
+.status-select.status-finished{
+    color:#21658b;
+    border-color:#acd1e4;
+    background:#f1f9fd;
+}
+
+.status-select.status-cancelled{
+    color:#a84744;
+    border-color:#e4b7b5;
+    background:#fff5f5;
+}
+
+/* DELETE */
 .delete-btn{
     width:34px;
     height:34px;
-
     border:1px solid #eadfe0;
-
     background:#fff8f8;
-
     color:#c66a67;
-
     border-radius:9px;
-
     cursor:pointer;
-
     font-size:15px;
-
     justify-self:end;
 }
 
@@ -912,33 +651,33 @@ textarea:focus{
     background:#fff0f0;
 }
 
-/* =========================
-   EMPTY / LOADING
-========================= */
-
+/* LOADING */
 .loading{
     padding:30px;
-
     text-align:center;
-
     color:#8a9ca5;
-
     font-size:13px;
 }
 
 .no-results{
     padding:35px 15px;
-
     text-align:center;
-
     color:#9aaab1;
-
     font-size:12px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
+@media(max-width:1200px){
+
+    .appointment{
+        grid-template-columns:
+            minmax(140px,1fr)
+            minmax(120px,1fr)
+            minmax(140px,1fr)
+            135px
+            42px;
+    }
+}
 
 @media(max-width:1050px){
 
@@ -955,7 +694,8 @@ textarea:focus{
             1fr
             1fr
             1fr
-            45px;
+            135px
+            42px;
     }
 }
 
@@ -975,7 +715,6 @@ textarea:focus{
 
     .page{
         width:calc(100% - 20px);
-
         margin-top:15px;
     }
 
@@ -985,13 +724,11 @@ textarea:focus{
 
     .system-badge{
         display:inline-flex;
-
         margin-top:15px;
     }
 
     .agenda-top{
         flex-direction:column;
-
         align-items:flex-start;
     }
 
@@ -1003,14 +740,17 @@ textarea:focus{
         grid-template-columns:1fr 42px;
     }
 
-    .exam-info,
-    .card-number{
+    .exam-info{
+        grid-column:1;
+    }
+
+    .status-wrapper{
         grid-column:1;
     }
 
     .delete-btn{
         grid-column:2;
-        grid-row:1 / span 2;
+        grid-row:1 / span 3;
     }
 }
 </style>
@@ -1068,11 +808,8 @@ textarea:focus{
     </div>
 
     <div class="system-badge">
-
         <span class="status-dot"></span>
-
         Sistemi aktiv
-
     </div>
 
 </div>
@@ -1080,9 +817,7 @@ textarea:focus{
 
 <div class="layout">
 
-    <!-- =====================
-         FORMULARI
-    ====================== -->
+    <!-- FORMULARI -->
 
     <section class="card form-card">
 
@@ -1109,8 +844,6 @@ textarea:focus{
 
         <form id="appointmentForm">
 
-            <!-- EMRI -->
-
             <div class="form-group">
 
                 <label
@@ -1131,8 +864,6 @@ textarea:focus{
 
             </div>
 
-
-            <!-- TELEFONI -->
 
             <div class="form-group">
 
@@ -1156,8 +887,6 @@ textarea:focus{
             </div>
 
 
-            <!-- DATA -->
-
             <div class="form-group">
 
                 <label
@@ -1177,8 +906,6 @@ textarea:focus{
             </div>
 
 
-            <!-- ORARI -->
-
             <div class="form-group">
 
                 <label
@@ -1193,17 +920,13 @@ textarea:focus{
                     id="appointmentTime"
                     required
                 >
-
                     <option value="">
                         Zgjidhni orarin
                     </option>
-
                 </select>
 
             </div>
 
-
-            <!-- MRI / CT -->
 
             <div class="form-group">
 
@@ -1227,13 +950,8 @@ textarea:focus{
                             class="exam-label"
                             for="examMRI"
                         >
-
-                            <span class="exam-symbol">
-                                ◉
-                            </span>
-
+                            <span class="exam-symbol">◉</span>
                             MRI
-
                         </label>
 
                     </div>
@@ -1252,13 +970,8 @@ textarea:focus{
                             class="exam-label"
                             for="examCT"
                         >
-
-                            <span class="exam-symbol">
-                                ⊙
-                            </span>
-
+                            <span class="exam-symbol">⊙</span>
                             CT
-
                         </label>
 
                     </div>
@@ -1267,8 +980,6 @@ textarea:focus{
 
             </div>
 
-
-            <!-- KONTRASTI -->
 
             <div
                 id="contrastSection"
@@ -1323,8 +1034,6 @@ textarea:focus{
             </div>
 
 
-            <!-- LLOJI I EKZAMINIMIT -->
-
             <div class="form-group">
 
                 <label
@@ -1363,9 +1072,7 @@ textarea:focus{
     </section>
 
 
-    <!-- =====================
-         AGJENDA
-    ====================== -->
+    <!-- AGJENDA -->
 
     <section class="card agenda-card">
 
@@ -1464,7 +1171,6 @@ const SUPABASE_URL =
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_y4UFkA3_mfVuZuyQTXogvw_ueg4Ge7b";
 
-
 const supabaseClient =
     window.supabase.createClient(
         SUPABASE_URL,
@@ -1523,7 +1229,7 @@ const logoutBtn =
 
 
 /* =====================================================
-   DATA E SOTME
+   DATA
 ===================================================== */
 
 function getToday(){
@@ -1547,7 +1253,7 @@ function getToday(){
 
 /* =====================================================
    ORARET 08:00 - 19:00
-   CDO 30 MINUTA
+   ÇDO 30 MINUTA
 ===================================================== */
 
 function buildTimeOptions(){
@@ -1582,7 +1288,6 @@ function buildTimeOptions(){
             document.createElement("option");
 
         option.value = value;
-
         option.textContent = label;
 
         appointmentTimeInput.appendChild(option);
@@ -1633,6 +1338,7 @@ document
                         input.checked = false;
 
                     });
+
             }
         );
 
@@ -1697,20 +1403,49 @@ function formatDateAlbanian(dateString){
 
 
 /* =====================================================
-   SHFAQ MESAZH
+   MESAZH
 ===================================================== */
 
-function showMessage(
-    text,
-    type
-){
+function showMessage(text,type){
 
     message.textContent =
         text;
 
     message.className =
         "message " + type;
+}
 
+
+/* =====================================================
+   STATUSI
+===================================================== */
+
+const STATUS = {
+
+    WAITING: "Në pritje",
+    ARRIVED: "Ka ardhur",
+    FINISHED: "Ka mbaruar",
+    CANCELLED: "Anulluar"
+
+};
+
+
+function getStatusClass(status){
+
+    switch(status){
+
+        case STATUS.ARRIVED:
+            return "status-arrived";
+
+        case STATUS.FINISHED:
+            return "status-finished";
+
+        case STATUS.CANCELLED:
+            return "status-cancelled";
+
+        default:
+            return "status-waiting";
+    }
 }
 
 
@@ -1724,28 +1459,20 @@ async function loadAppointments(){
         agendaDateInput.value;
 
     if(!selectedDate){
-
         return;
-
     }
-
 
     schedule.innerHTML =
         `<div class="loading">
             Duke ngarkuar agjendën...
         </div>`;
 
-
     dayTitle.textContent =
-        formatDateAlbanian(
-            selectedDate
-        );
+        formatDateAlbanian(selectedDate);
 
     agendaSubtitle.textContent =
         "Ekzaminimet për "
-        + formatDateAlbanian(
-            selectedDate
-        );
+        + formatDateAlbanian(selectedDate);
 
 
     try{
@@ -1770,9 +1497,7 @@ async function loadAppointments(){
 
 
         if(error){
-
             throw error;
-
         }
 
 
@@ -1794,9 +1519,7 @@ async function loadAppointments(){
                 <br><br>
                 ${escapeHtml(error.message || "")}
             </div>`;
-
     }
-
 }
 
 
@@ -1804,9 +1527,7 @@ async function loadAppointments(){
    RENDER AGJENDA
 ===================================================== */
 
-function renderSchedule(
-    appointments
-){
+function renderSchedule(appointments){
 
     schedule.innerHTML = "";
 
@@ -1835,6 +1556,7 @@ function renderSchedule(
             String(hours).padStart(2,"0")
             + ":"
             + String(mins).padStart(2,"0");
+
 
         const row =
             document.createElement("div");
@@ -1905,7 +1627,6 @@ function renderSchedule(
         );
 
     }
-
 }
 
 
@@ -1913,16 +1634,23 @@ function renderSchedule(
    KARTELA E EKZAMINIMIT
 ===================================================== */
 
-function createAppointmentCard(
-    appointment
-){
+function createAppointmentCard(appointment){
 
     const card =
         document.createElement("div");
 
-    card.className =
-        "appointment";
+    const currentStatus =
+        appointment.status ||
+        STATUS.WAITING;
 
+    const statusClass =
+        getStatusClass(currentStatus);
+
+    card.className =
+        "appointment " + statusClass;
+
+
+    /* PACIENTI */
 
     const patient =
         document.createElement("div");
@@ -1954,14 +1682,11 @@ function createAppointmentCard(
         : "Nr. telefoni nuk është vendosur";
 
 
-    patient.appendChild(
-        name
-    );
+    patient.appendChild(name);
+    patient.appendChild(phone);
 
-    patient.appendChild(
-        phone
-    );
 
+    /* EKZAMINIMI */
 
     const examInfo =
         document.createElement("div");
@@ -1984,8 +1709,7 @@ function createAppointmentCard(
         "exam-badge";
 
     examBadge.textContent =
-        appointment.exam_type
-        || "—";
+        appointment.exam_type || "—";
 
 
     const contrastBadge =
@@ -1999,13 +1723,8 @@ function createAppointmentCard(
         || "Pa specifikuar";
 
 
-    examMain.appendChild(
-        examBadge
-    );
-
-    examMain.appendChild(
-        contrastBadge
-    );
+    examMain.appendChild(examBadge);
+    examMain.appendChild(contrastBadge);
 
 
     const examName =
@@ -2019,27 +1738,82 @@ function createAppointmentCard(
         || "Lloj ekzaminimi i paspecifikuar";
 
 
-    examInfo.appendChild(
-        examMain
-    );
-
-    examInfo.appendChild(
-        examName
-    );
+    examInfo.appendChild(examMain);
+    examInfo.appendChild(examName);
 
 
-    const cardNumber =
+    /* STATUSI */
+
+    const statusWrapper =
         document.createElement("div");
 
-    cardNumber.className =
-        "card-number";
+    statusWrapper.className =
+        "status-wrapper";
 
-    cardNumber.textContent =
-        appointment.card_number
-        ? "Kartelë: "
-          + appointment.card_number
-        : "";
 
+    const statusSelect =
+        document.createElement("select");
+
+    statusSelect.className =
+        "status-select "
+        + statusClass;
+
+
+    const statuses = [
+        STATUS.WAITING,
+        STATUS.ARRIVED,
+        STATUS.FINISHED,
+        STATUS.CANCELLED
+    ];
+
+
+    statuses.forEach(function(status){
+
+        const option =
+            document.createElement("option");
+
+        option.value =
+            status;
+
+        option.textContent =
+            status;
+
+        if(status === currentStatus){
+            option.selected = true;
+        }
+
+        statusSelect.appendChild(option);
+
+    });
+
+
+    statusSelect.addEventListener(
+        "change",
+        async function(){
+
+            const newStatus =
+                statusSelect.value;
+
+            statusSelect.disabled =
+                true;
+
+            await updateAppointmentStatus(
+                appointment.id,
+                newStatus,
+                statusSelect,
+                card
+            );
+
+        }
+    );
+
+
+    statusWrapper.appendChild(
+        statusSelect
+    );
+
+
+    /* FSHI */
 
     const deleteButton =
         document.createElement("button");
@@ -2070,7 +1844,6 @@ function createAppointmentCard(
                 return;
             }
 
-
             await deleteAppointment(
                 appointment.id
             );
@@ -2079,21 +1852,10 @@ function createAppointmentCard(
     );
 
 
-    card.appendChild(
-        patient
-    );
-
-    card.appendChild(
-        examInfo
-    );
-
-    card.appendChild(
-        cardNumber
-    );
-
-    card.appendChild(
-        deleteButton
-    );
+    card.appendChild(patient);
+    card.appendChild(examInfo);
+    card.appendChild(statusWrapper);
+    card.appendChild(deleteButton);
 
 
     return card;
@@ -2101,7 +1863,73 @@ function createAppointmentCard(
 
 
 /* =====================================================
-   RUJ EKZAMINIMIN
+   NDRYSHO STATUSIN
+===================================================== */
+
+async function updateAppointmentStatus(
+    id,
+    newStatus,
+    selectElement,
+    cardElement
+){
+
+    try{
+
+        const {
+            error
+        } =
+        await supabaseClient
+            .from("appointments")
+            .update({
+                status:newStatus
+            })
+            .eq(
+                "id",
+                id
+            );
+
+
+        if(error){
+            throw error;
+        }
+
+
+        const newClass =
+            getStatusClass(newStatus);
+
+
+        selectElement.className =
+            "status-select " + newClass;
+
+        cardElement.className =
+            "appointment " + newClass;
+
+
+    }catch(error){
+
+        console.error(
+            "Gabim gjatë ndryshimit të statusit:",
+            error
+        );
+
+        alert(
+            error.message ||
+            "Statusi nuk u ndryshua."
+        );
+
+        await loadAppointments();
+
+    }finally{
+
+        selectElement.disabled =
+            false;
+
+    }
+}
+
+
+/* =====================================================
+   RUAJ EKZAMINIMIN
 ===================================================== */
 
 appointmentForm.addEventListener(
@@ -2231,9 +2059,7 @@ appointmentForm.addEventListener(
 
 
             if(existingError){
-
                 throw existingError;
-
             }
 
 
@@ -2245,12 +2071,10 @@ appointmentForm.addEventListener(
                 );
 
                 return;
-
             }
 
 
             const {
-                data,
                 error
             } =
             await supabaseClient
@@ -2276,17 +2100,16 @@ appointmentForm.addEventListener(
                         contrastElement.value,
 
                     exam_name:
-                        examName
+                        examName,
 
-                })
-                .select()
-                .single();
+                    status:
+                        STATUS.WAITING
+
+                });
 
 
             if(error){
-
                 throw error;
-
             }
 
 
@@ -2342,9 +2165,7 @@ appointmentForm.addEventListener(
    FSHI EKZAMINIM
 ===================================================== */
 
-async function deleteAppointment(
-    id
-){
+async function deleteAppointment(id){
 
     try{
 
@@ -2361,9 +2182,7 @@ async function deleteAppointment(
 
 
         if(error){
-
             throw error;
-
         }
 
 
@@ -2383,7 +2202,6 @@ async function deleteAppointment(
         );
 
     }
-
 }
 
 
@@ -2436,9 +2254,7 @@ document
     );
 
 
-function changeDate(
-    amount
-){
+function changeDate(amount){
 
     const current =
         new Date(
@@ -2478,7 +2294,6 @@ function changeDate(
 
 
     loadAppointments();
-
 }
 
 
@@ -2500,7 +2315,7 @@ logoutBtn.addEventListener(
 
 
 /* =====================================================
-   SIGURO SESIONIN
+   SESIONI
 ===================================================== */
 
 async function checkSession(){
@@ -2544,7 +2359,6 @@ async function checkSession(){
         return false;
 
     }
-
 }
 
 
@@ -2552,32 +2366,14 @@ async function checkSession(){
    ESCAPE HTML
 ===================================================== */
 
-function escapeHtml(
-    value
-){
+function escapeHtml(value){
 
     return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 }
 
 
