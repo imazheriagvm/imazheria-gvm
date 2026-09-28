@@ -3,20 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>GVM Care & Research — Imazheria</title>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-*{
-  box-sizing:border-box;
-}
-
+*{box-sizing:border-box}
 :root{
   --navy:#073f63;
   --blue:#087fa8;
-  --light:#eef7fb;
   --border:#dce8ee;
   --text:#17384b;
   --muted:#718794;
@@ -24,7 +18,6 @@
   --orange:#d9822b;
   --red:#c83d3d;
 }
-
 body{
   margin:0;
   min-height:100vh;
@@ -32,9 +25,6 @@ body{
   background:#eef5f8;
   color:var(--text);
 }
-
-/* SIDEBAR */
-
 .sidebar{
   position:fixed;
   left:0;
@@ -45,66 +35,24 @@ body{
   color:#fff;
   padding:28px 18px;
 }
-
 .brand{
   padding:0 12px 28px;
   border-bottom:1px solid rgba(255,255,255,.12);
 }
-
-.brand-main{
-  font-size:20px;
-  font-weight:800;
-}
-
-.brand-sub{
-  margin-top:6px;
-  font-size:12px;
-  color:#a9d1df;
-}
-
-.menu{
-  margin-top:25px;
-}
-
-.menu-item{
-  padding:13px 14px;
-  border-radius:11px;
-  margin-bottom:8px;
-  font-size:14px;
-}
-
-.menu-item.active{
-  background:rgba(255,255,255,.12);
-}
-
-/* MAIN */
-
-.main{
-  margin-left:245px;
-  padding:30px;
-}
-
-/* HEADER */
-
+.brand-main{font-size:20px;font-weight:800}
+.brand-sub{margin-top:6px;font-size:12px;color:#a9d1df}
+.menu{margin-top:25px}
+.menu-item{padding:13px 14px;border-radius:11px;margin-bottom:8px;font-size:14px}
+.menu-item.active{background:rgba(255,255,255,.12)}
+.main{margin-left:245px;padding:30px}
 .topbar{
   display:flex;
   align-items:center;
   justify-content:space-between;
   margin-bottom:25px;
 }
-
-.page-title h1{
-  margin:0;
-  font-size:28px;
-  color:var(--navy);
-}
-
-.page-title p{
-  margin:7px 0 0;
-  color:var(--muted);
-  font-size:14px;
-}
-
+.page-title h1{margin:0;font-size:28px;color:var(--navy)}
+.page-title p{margin:7px 0 0;color:var(--muted);font-size:14px}
 .logout{
   border:1px solid var(--border);
   background:#fff;
@@ -114,9 +62,6 @@ body{
   cursor:pointer;
   font-weight:700;
 }
-
-/* DATE */
-
 .datebar{
   background:#fff;
   border:1px solid var(--border);
@@ -127,7 +72,6 @@ body{
   justify-content:space-between;
   margin-bottom:20px;
 }
-
 .date-btn{
   width:42px;
   height:40px;
@@ -138,32 +82,15 @@ body{
   font-size:20px;
   color:var(--navy);
 }
-
-.date-center{
-  text-align:center;
-}
-
+.date-center{text-align:center}
 .date-label{
   font-weight:800;
   color:var(--navy);
   font-size:18px;
   text-transform:capitalize;
 }
-
-.date-small{
-  margin-top:4px;
-  color:var(--muted);
-  font-size:12px;
-}
-
-/* ACTION */
-
-.action-row{
-  display:flex;
-  justify-content:flex-end;
-  margin-bottom:14px;
-}
-
+.date-small{margin-top:4px;color:var(--muted);font-size:12px}
+.action-row{display:flex;justify-content:flex-end;margin-bottom:14px}
 .add-btn{
   border:0;
   background:linear-gradient(135deg,var(--blue),var(--navy));
@@ -173,23 +100,18 @@ body{
   font-weight:800;
   cursor:pointer;
 }
-
-/* AGENDA */
-
 .agenda{
   background:#fff;
   border:1px solid var(--border);
   border-radius:18px;
   overflow:hidden;
 }
-
 .agenda-head{
   display:grid;
   grid-template-columns:100px 1fr;
   background:#f7fafb;
   border-bottom:1px solid var(--border);
 }
-
 .agenda-head div{
   padding:14px 18px;
   font-size:12px;
@@ -197,18 +119,13 @@ body{
   color:#66808e;
   text-transform:uppercase;
 }
-
 .slot{
   display:grid;
   grid-template-columns:100px 1fr;
   min-height:82px;
   border-bottom:1px solid #edf2f5;
 }
-
-.slot:last-child{
-  border-bottom:0;
-}
-
+.slot:last-child{border-bottom:0}
 .time{
   padding:20px 18px;
   font-weight:800;
@@ -216,11 +133,7 @@ body{
   background:#fbfdfe;
   border-right:1px solid #edf2f5;
 }
-
-.slot-content{
-  padding:12px 16px;
-}
-
+.slot-content{padding:12px 16px}
 .empty{
   height:55px;
   border:1px dashed #d7e4ea;
@@ -232,7 +145,6 @@ body{
   font-size:13px;
   cursor:pointer;
 }
-
 .appointment{
   min-height:58px;
   border:1px solid #d9e7ed;
@@ -244,27 +156,15 @@ body{
   justify-content:space-between;
   background:#fbfdfe;
 }
-
-.patient{
-  font-weight:800;
-  color:var(--navy);
-}
-
-.details{
-  margin-top:5px;
-  font-size:12px;
-  color:var(--muted);
-}
-
+.patient{font-weight:800;color:var(--navy)}
+.details{margin-top:5px;font-size:12px;color:var(--muted)}
 .status{
   padding:7px 10px;
   border-radius:20px;
   font-size:11px;
   font-weight:800;
+  white-space:nowrap;
 }
-
-/* MODAL */
-
 .modal-bg{
   position:fixed;
   inset:0;
@@ -273,8 +173,8 @@ body{
   align-items:center;
   justify-content:center;
   padding:20px;
+  z-index:1000;
 }
-
 .modal{
   width:min(540px,100%);
   background:#fff;
@@ -282,28 +182,10 @@ body{
   padding:27px;
   box-shadow:0 25px 70px rgba(0,0,0,.2);
 }
-
-.modal h2{
-  margin:0;
-  color:var(--navy);
-}
-
-.modal-sub{
-  margin:6px 0 22px;
-  color:var(--muted);
-  font-size:13px;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-}
-
-.field.full{
-  grid-column:1 / -1;
-}
-
+.modal h2{margin:0;color:var(--navy)}
+.modal-sub{margin:6px 0 22px;color:var(--muted);font-size:13px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field.full{grid-column:1/-1}
 .field label{
   display:block;
   font-size:12px;
@@ -311,10 +193,7 @@ body{
   color:#496676;
   margin-bottom:7px;
 }
-
-.field input,
-.field select,
-.field textarea{
+.field input,.field select,.field textarea{
   width:100%;
   border:1px solid var(--border);
   border-radius:10px;
@@ -322,20 +201,15 @@ body{
   font-size:14px;
   outline:none;
   background:#fff;
+  color:var(--text);
 }
-
-.field textarea{
-  min-height:80px;
-  resize:vertical;
-}
-
+.field textarea{min-height:80px;resize:vertical}
 .modal-actions{
   display:flex;
   justify-content:flex-end;
   gap:9px;
   margin-top:22px;
 }
-
 .cancel{
   border:1px solid var(--border);
   background:#fff;
@@ -343,7 +217,6 @@ body{
   border-radius:10px;
   cursor:pointer;
 }
-
 .save{
   border:0;
   background:var(--blue);
@@ -353,36 +226,13 @@ body{
   font-weight:800;
   cursor:pointer;
 }
-
-.message{
-  margin-top:13px;
-  font-size:13px;
-  display:none;
-}
-
+.message{margin-top:13px;font-size:13px;display:none}
 @media(max-width:800px){
-
-  .sidebar{
-    display:none;
-  }
-
-  .main{
-    margin-left:0;
-    padding:15px;
-  }
-
-  .page-title h1{
-    font-size:22px;
-  }
-
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .field.full{
-    grid-column:auto;
-  }
-
+  .sidebar{display:none}
+  .main{margin-left:0;padding:15px}
+  .page-title h1{font-size:22px}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
 }
 </style>
 </head>
@@ -390,346 +240,122 @@ body{
 <body>
 
 <aside class="sidebar">
-
   <div class="brand">
-
-    <div class="brand-main">
-      GVM Care & Research
-    </div>
-
-    <div class="brand-sub">
-      Imazheria
-    </div>
-
+    <div class="brand-main">GVM Care & Research</div>
+    <div class="brand-sub">Imazheria</div>
   </div>
-
   <div class="menu">
-
-    <div class="menu-item active">
-      📅 Agjenda
-    </div>
-
+    <div class="menu-item active">📅 Agjenda</div>
   </div>
-
 </aside>
-
 
 <main class="main">
 
   <div class="topbar">
-
     <div class="page-title">
-
       <h1>IMAZHERIA</h1>
-
-      <p>
-        Agjenda e ekzaminimeve imazherike
-      </p>
-
+      <p>Agjenda e ekzaminimeve imazherike</p>
     </div>
-
-    <button
-      class="logout"
-      onclick="logout()">
-      Dil
-    </button>
-
+    <button class="logout" onclick="logout()">Dil</button>
   </div>
-
-
-  <!-- DATA -->
 
   <div class="datebar">
-
-    <button
-      class="date-btn"
-      onclick="changeDate(-1)">
-      ‹
-    </button>
-
+    <button class="date-btn" onclick="changeDate(-1)">‹</button>
     <div class="date-center">
-
-      <div
-        id="dateLabel"
-        class="date-label">
-      </div>
-
-      <div
-        id="dateSmall"
-        class="date-small">
-      </div>
-
+      <div id="dateLabel" class="date-label"></div>
+      <div id="dateSmall" class="date-small"></div>
     </div>
-
-    <button
-      class="date-btn"
-      onclick="changeDate(1)">
-      ›
-    </button>
-
+    <button class="date-btn" onclick="changeDate(1)">›</button>
   </div>
-
-
-  <!-- ADD -->
 
   <div class="action-row">
-
-    <button
-      class="add-btn"
-      onclick="openModal()">
-
-      + Shto ekzaminim
-
-    </button>
-
+    <button class="add-btn" onclick="openModal()">+ Shto ekzaminim</button>
   </div>
 
-
-  <!-- AGENDA -->
-
   <section class="agenda">
-
     <div class="agenda-head">
-
-      <div>
-        Ora
-      </div>
-
-      <div>
-        Ekzaminimi
-      </div>
-
+      <div>Ora</div>
+      <div>Ekzaminimi</div>
     </div>
-
     <div id="agendaBody"></div>
-
   </section>
 
 </main>
 
-
-<!-- MODAL -->
-
-<div
-  id="modalBg"
-  class="modal-bg">
-
+<div id="modalBg" class="modal-bg">
   <div class="modal">
-
-    <h2>
-      Regjistro ekzaminim
-    </h2>
-
-    <div class="modal-sub">
-      Shto një ekzaminim të ri në agjendë
-    </div>
-
+    <h2>Regjistro ekzaminim</h2>
+    <div class="modal-sub">Shto një ekzaminim të ri në agjendë</div>
 
     <form id="appointmentForm">
-
       <div class="form-grid">
 
+        <div class="field full">
+          <label>Emër + Mbiemër</label>
+          <input id="patientName" autocomplete="off" required>
+        </div>
 
-        <!-- EMRI -->
+        <div class="field">
+          <label>Nr. kartelë</label>
+          <input id="cardNumber" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label>Orari</label>
+          <select id="appointmentTime" required></select>
+        </div>
+
+        <div class="field">
+          <label>Ekzaminimi</label>
+          <select id="examType" required>
+            <option value="">Zgjidh ekzaminimin</option>
+            <option value="CT">CT</option>
+            <option value="MRI">MRI</option>
+            <option value="Radiografi">Radiografi</option>
+            <option value="Ekografi">Ekografi</option>
+            <option value="Mamografi">Mamografi</option>
+            <option value="Densitometri">Densitometri</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Zona e trupit</label>
+          <input id="bodyArea" placeholder="p.sh. Toraks">
+        </div>
 
         <div class="field full">
-
-          <label>
-            Emër + Mbiemër
-          </label>
-
-          <input
-            id="patientName"
-            autocomplete="off"
-            required>
-
-        </div>
-
-
-        <!-- KARTELA -->
-
-        <div class="field">
-
-          <label>
-            Nr. kartelë
-          </label>
-
-          <input
-            id="cardNumber"
-            autocomplete="off">
-
-        </div>
-
-
-        <!-- ORARI -->
-
-        <div class="field">
-
-          <label>
-            Orari
-          </label>
-
-          <select
-            id="appointmentTime"
-            required>
-          </select>
-
-        </div>
-
-
-        <!-- EKZAMINIMI -->
-
-        <div class="field">
-
-          <label>
-            Ekzaminimi
-          </label>
-
-          <select
-            id="examType"
-            required>
-
-            <option value="">
-              Zgjidh ekzaminimin
-            </option>
-
-            <option value="CT">
-              CT
-            </option>
-
-            <option value="MRI">
-              MRI
-            </option>
-
-            <option value="Radiografi">
-              Radiografi
-            </option>
-
-            <option value="Ekografi">
-              Ekografi
-            </option>
-
-            <option value="Mamografi">
-              Mamografi
-            </option>
-
-            <option value="Densitometri">
-              Densitometri
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <!-- ZONA -->
-
-        <div class="field">
-
-          <label>
-            Zona e trupit
-          </label>
-
-          <input
-            id="bodyArea"
-            placeholder="p.sh. Toraks">
-
-        </div>
-
-
-        <!-- STATUS -->
-
-        <div class="field full">
-
-          <label>
-            Statusi
-          </label>
-
+          <label>Statusi</label>
           <select id="status">
-
-            <option value="Planifikuar">
-              Planifikuar
-            </option>
-
-            <option value="Në pritje">
-              Në pritje
-            </option>
-
-            <option value="Kryer">
-              Kryer
-            </option>
-
-            <option value="Anuluar">
-              Anuluar
-            </option>
-
+            <option value="Planifikuar">Planifikuar</option>
+            <option value="Në pritje">Në pritje</option>
+            <option value="Kryer">Kryer</option>
+            <option value="Anuluar">Anuluar</option>
           </select>
-
         </div>
-
-
-        <!-- SHENIME -->
 
         <div class="field full">
-
-          <label>
-            Shënime
-          </label>
-
+          <label>Shënime</label>
           <textarea id="notes"></textarea>
-
         </div>
 
       </div>
 
-
-      <div
-        id="message"
-        class="message">
-      </div>
-
+      <div id="message" class="message"></div>
 
       <div class="modal-actions">
-
-        <button
-          type="button"
-          class="cancel"
-          onclick="closeModal()">
-
-          Anulo
-
-        </button>
-
-
-        <button
-          type="submit"
-          class="save">
-
-          Ruaj ekzaminimin
-
-        </button>
-
+        <button type="button" class="cancel" onclick="closeModal()">Anulo</button>
+        <button type="submit" class="save">Ruaj ekzaminimin</button>
       </div>
-
     </form>
-
   </div>
-
 </div>
 
-
 <script>
-
-/* ==============================
-   SUPABASE
-============================== */
-
 const SUPABASE_URL =
   "https://wevrbiserxyqmnllallk.supabase.co";
 
 const SUPABASE_ANON_KEY =
   "sb_publishable_y4UFkA3_mfVuZuyQTXogvw_ueg4Ge7b";
-
 
 const supabaseClient =
   window.supabase.createClient(
@@ -737,36 +363,16 @@ const supabaseClient =
     SUPABASE_ANON_KEY
   );
 
-
-/* ==============================
-   DATE
-============================== */
-
-let currentDate =
-  new Date();
-
+let currentDate = new Date();
 
 function formatDateForDB(date){
-
-  const year =
-    date.getFullYear();
-
-  const month =
-    String(
-      date.getMonth() + 1
-    ).padStart(2,"0");
-
-  const day =
-    String(
-      date.getDate()
-    ).padStart(2,"0");
-
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2,"0");
+  const day = String(date.getDate()).padStart(2,"0");
   return `${year}-${month}-${day}`;
 }
 
-
 function updateDateLabel(){
-
   const label =
     currentDate.toLocaleDateString(
       "sq-AL",
@@ -778,436 +384,218 @@ function updateDateLabel(){
       }
     );
 
-  document.getElementById(
-    "dateLabel"
-  ).textContent = label;
-
-
-  document.getElementById(
-    "dateSmall"
-  ).textContent =
+  document.getElementById("dateLabel").textContent = label;
+  document.getElementById("dateSmall").textContent =
     formatDateForDB(currentDate);
 }
 
-
 function changeDate(amount){
-
   currentDate.setDate(
     currentDate.getDate() + amount
   );
-
   updateDateLabel();
-
   loadAppointments();
 }
 
-
-/* ==============================
-   ORARET
-   08:00 - 19:00
-   ÇDO 30 MINUTA
-============================== */
-
 function createTimes(){
-
   const select =
-    document.getElementById(
-      "appointmentTime"
-    );
+    document.getElementById("appointmentTime");
 
   select.innerHTML = "";
 
+  for(let hour=8; hour<=19; hour++){
+    for(let minute=0; minute<60; minute+=30){
 
-  for(
-    let hour = 8;
-    hour <= 19;
-    hour++
-  ){
-
-    for(
-      let minute = 0;
-      minute < 60;
-      minute += 30
-    ){
-
-      /*
-        Në 19:00 lejohet vetëm 19:00.
-        Nuk krijojmë 19:30.
-      */
-
-      if(
-        hour === 19 &&
-        minute > 0
-      ){
+      if(hour===19 && minute>0){
         continue;
       }
-
 
       const time =
         String(hour).padStart(2,"0") +
         ":" +
         String(minute).padStart(2,"0");
 
-
       const option =
-        document.createElement(
-          "option"
-        );
+        document.createElement("option");
 
+      option.value = time + ":00";
+      option.textContent = time;
 
-      option.value =
-        time + ":00";
-
-
-      option.textContent =
-        time;
-
-
-      select.appendChild(
-        option
-      );
-
+      select.appendChild(option);
     }
-
   }
-
 }
 
-
-/* ==============================
-   KRIJO AGJENDEN
-============================== */
-
 function createAgenda(){
-
   const body =
-    document.getElementById(
-      "agendaBody"
-    );
+    document.getElementById("agendaBody");
 
   body.innerHTML = "";
 
+  for(let hour=8; hour<=19; hour++){
+    for(let minute=0; minute<60; minute+=30){
 
-  for(
-    let hour = 8;
-    hour <= 19;
-    hour++
-  ){
-
-    for(
-      let minute = 0;
-      minute < 60;
-      minute += 30
-    ){
-
-      /*
-        Ora e fundit është 19:00.
-      */
-
-      if(
-        hour === 19 &&
-        minute > 0
-      ){
+      if(hour===19 && minute>0){
         continue;
       }
-
 
       const time =
         String(hour).padStart(2,"0") +
         ":" +
         String(minute).padStart(2,"0");
 
-
       const slot =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
-
-      slot.className =
-        "slot";
-
-
-      slot.dataset.time =
-        time + ":00";
-
+      slot.className = "slot";
+      slot.dataset.time = time + ":00";
 
       slot.innerHTML = `
-
-        <div class="time">
-          ${time}
-        </div>
-
+        <div class="time">${time}</div>
         <div class="slot-content">
-
-          <div
-            class="empty"
-            onclick="openModal('${time}:00')">
-
+          <div class="empty" onclick="openModal('${time}:00')">
             Orar i lirë
-
           </div>
-
         </div>
-
       `;
 
-
-      body.appendChild(
-        slot
-      );
-
+      body.appendChild(slot);
     }
-
   }
-
 }
 
-
-/* ==============================
-   LOAD APPOINTMENTS
-============================== */
-
 async function loadAppointments(){
-
   createAgenda();
 
-
   const date =
-    formatDateForDB(
-      currentDate
-    );
+    formatDateForDB(currentDate);
 
-
-  const {
-    data,
-    error
-  } =
+  const result =
     await supabaseClient
-      .from(
-        "imaging_appointments"
-      )
+      .from("imaging_appointments")
       .select("*")
-      .eq(
-        "appointment_date",
-        date
-      )
-      .order(
-        "appointment_time"
-      );
+      .eq("appointment_date",date)
+      .order("appointment_time");
 
+  const data = result.data;
+  const error = result.error;
 
   if(error){
-
-    console.error(
-      "Supabase error:",
-      error
-    );
-
+    console.error("Supabase error:",error);
     return;
   }
-
 
   if(!data){
     return;
   }
 
+  data.forEach(item => {
 
-  data.forEach(
-    item => {
+    const slot =
+      document.querySelector(
+        `.slot[data-time="${item.appointment_time}"]`
+      );
 
-      const slot =
-        document.querySelector(
-          `.slot[data-time="${item.appointment_time}"]`
-        );
+    if(!slot){
+      return;
+    }
 
+    const content =
+      slot.querySelector(".slot-content");
 
-      if(!slot){
-        return;
-      }
+    let statusStyle =
+      "background:#eef5fb;color:#087fa8;";
 
+    if(item.status === "Kryer"){
+      statusStyle =
+        "background:#eaf6f1;color:#16845b;";
+    }
 
-      const content =
-        slot.querySelector(
-          ".slot-content"
-        );
+    if(item.status === "Anuluar"){
+      statusStyle =
+        "background:#fff0f0;color:#c83d3d;";
+    }
 
+    if(item.status === "Në pritje"){
+      statusStyle =
+        "background:#fff6e8;color:#d9822b;";
+    }
 
-      let statusStyle =
-        "background:#eef5fb;color:#087fa8;";
+    content.innerHTML = `
+      <div class="appointment">
 
-
-      if(
-        item.status === "Kryer"
-      ){
-
-        statusStyle =
-          "background:#eaf6f1;color:#16845b;";
-
-      }
-
-
-      if(
-        item.status === "Anuluar"
-      ){
-
-        statusStyle =
-          "background:#fff0f0;color:#c83d3d;";
-
-      }
-
-
-      if(
-        item.status === "Në pritje"
-      ){
-
-        statusStyle =
-          "background:#fff6e8;color:#d9822b;";
-
-      }
-
-
-      content.innerHTML = `
-
-        <div class="appointment">
-
-          <div>
-
-            <div class="patient">
-
-              ${escapeHtml(
-                item.patient_name
-              )}
-
-            </div>
-
-
-            <div class="details">
-
-              ${escapeHtml(
-                item.exam_type || ""
-              )}
-
-              ${
-                item.body_area
-                ?
-                " · " +
-                escapeHtml(
-                  item.body_area
-                )
-                :
-                ""
-              }
-
-              ${
-                item.card_number
-                ?
-                " · Kartela: " +
-                escapeHtml(
-                  item.card_number
-                )
-                :
-                ""
-              }
-
-            </div>
-
+        <div>
+          <div class="patient">
+            ${escapeHtml(item.patient_name)}
           </div>
 
+          <div class="details">
+            ${escapeHtml(item.exam_type || "")}
 
-          <div
-            class="status"
-            style="${statusStyle}">
+            ${
+              item.body_area
+              ? " · " + escapeHtml(item.body_area)
+              : ""
+            }
 
-            ${escapeHtml(
-              item.status ||
-              "Planifikuar"
-            )}
-
+            ${
+              item.card_number
+              ? " · Kartela: " + escapeHtml(item.card_number)
+              : ""
+            }
           </div>
-
         </div>
 
-      `;
+        <div
+          class="status"
+          style="${statusStyle}">
+          ${escapeHtml(item.status || "Planifikuar")}
+        </div>
 
-    }
-  );
-
+      </div>
+    `;
+  });
 }
-
-
-/* ==============================
-   MODAL
-============================== */
 
 function openModal(time){
 
-  document.getElementById(
-    "modalBg"
-  ).style.display = "flex";
+  document.getElementById("modalBg")
+    .style.display = "flex";
 
-
-  document.getElementById(
-    "message"
-  ).style.display = "none";
-
+  document.getElementById("message")
+    .style.display = "none";
 
   if(time){
-
-    document.getElementById(
-      "appointmentTime"
-    ).value = time;
-
+    document.getElementById("appointmentTime")
+      .value = time;
   }
-
 }
-
 
 function closeModal(){
 
-  document.getElementById(
-    "modalBg"
-  ).style.display = "none";
+  document.getElementById("modalBg")
+    .style.display = "none";
 
-
-  document.getElementById(
-    "appointmentForm"
-  ).reset();
-
+  document.getElementById("appointmentForm")
+    .reset();
 }
 
-
-/* ==============================
-   SAVE
-============================== */
-
 document
-  .getElementById(
-    "appointmentForm"
-  )
+  .getElementById("appointmentForm")
   .addEventListener(
     "submit",
     async function(e){
 
       e.preventDefault();
 
-
       const message =
-        document.getElementById(
-          "message"
-        );
+        document.getElementById("message");
 
-
-      message.style.display =
-        "none";
-
+      message.style.display = "none";
 
       const record = {
-
         appointment_date:
-          formatDateForDB(
-            currentDate
-          ),
+          formatDateForDB(currentDate),
 
         appointment_time:
           document.getElementById(
@@ -1243,111 +631,52 @@ document
           document.getElementById(
             "notes"
           ).value.trim() || null
-
       };
 
-
-      const {
-        error
-      } =
+      const result =
         await supabaseClient
-          .from(
-            "imaging_appointments"
-          )
-          .insert(
-            record
-          );
+          .from("imaging_appointments")
+          .insert(record);
 
-
-      if(error){
+      if(result.error){
 
         console.error(
           "Insert error:",
-          error
+          result.error
         );
-
 
         message.textContent =
           "Gabim gjatë ruajtjes: " +
-          error.message;
+          result.error.message;
 
-
-        message.style.color =
-          "#b42318";
-
-
-        message.style.display =
-          "block";
-
+        message.style.color = "#b42318";
+        message.style.display = "block";
 
         return;
       }
 
-
       closeModal();
-
-
       await loadAppointments();
-
     }
   );
 
-
-/* ==============================
-   SECURITY
-============================== */
-
 function escapeHtml(value){
 
-  return String(
-    value ?? ""
-  )
-  .replaceAll(
-    "&",
-    "&amp;"
-  )
-  .replaceAll(
-    "<",
-    "&lt;"
-  )
-  .replaceAll(
-    ">",
-    "&gt;"
-  )
-  .replaceAll(
-    '"',
-    "&quot;"
-  )
-  .replaceAll(
-    "'",
-    "&#039;"
-  );
-
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 }
-
-
-/* ==============================
-   LOGOUT
-============================== */
 
 function logout(){
-
-  window.location.href =
-    "index.html";
-
+  window.location.href = "index.html";
 }
 
-
-/* ==============================
-   START
-============================== */
-
 updateDateLabel();
-
 createTimes();
-
 loadAppointments();
-
 </script>
 
 </body>
