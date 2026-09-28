@@ -1,5 +1,5 @@
+```html
 <!DOCTYPE html>
-
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
@@ -24,7 +24,63 @@ body{
     color:#17384b;
 }
 
+/* =========================
+   SIDEBAR
+========================= */
+
+.app-shell{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#083f61;
+    color:#fff;
+    padding:24px;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    z-index:100;
+}
+
+.sidebar-logo{
+    font-size:26px;
+    font-weight:800;
+    margin-bottom:30px;
+}
+
+.sidebar-menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar-menu a{
+    text-decoration:none;
+    color:#fff;
+    padding:14px;
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+    transition:.2s;
+}
+
+.sidebar-menu a:hover{
+    background:rgba(255,255,255,.16);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main-area{
+    margin-left:260px;
+    width:calc(100% - 260px);
+}
+
 /* HEADER */
+
 .topbar{
     height:82px;
     background:linear-gradient(135deg,#063e61,#075b7e);
@@ -56,14 +112,12 @@ body{
     border:1px solid rgba(255,255,255,.20);
     font-size:17px;
     font-weight:800;
-    letter-spacing:-1px;
 }
 
 .brand-text h1{
     margin:0;
     font-size:20px;
     font-weight:750;
-    letter-spacing:-.3px;
 }
 
 .brand-text p{
@@ -72,22 +126,8 @@ body{
     color:rgba(255,255,255,.72);
 }
 
-.logout-btn{
-    border:1px solid rgba(255,255,255,.20);
-    background:rgba(255,255,255,.10);
-    color:white;
-    padding:10px 17px;
-    border-radius:11px;
-    cursor:pointer;
-    font-size:13px;
-    font-weight:650;
-}
+/* PAGE */
 
-.logout-btn:hover{
-    background:rgba(255,255,255,.18);
-}
-
-/* MAIN */
 .page{
     width:min(1500px,calc(100% - 40px));
     margin:30px auto 50px;
@@ -134,7 +174,41 @@ body{
     background:#28a879;
 }
 
-/* LAYOUT */
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-bottom:24px;
+}
+
+.stat-card{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    border:1px solid #dfeaf0;
+}
+
+.stat-title{
+    color:#6b7f8a;
+    font-size:13px;
+}
+
+.stat-value{
+    font-size:34px;
+    font-weight:800;
+    color:#083f61;
+    margin-top:8px;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
 .layout{
     display:grid;
     grid-template-columns:390px minmax(0,1fr);
@@ -142,7 +216,10 @@ body{
     align-items:start;
 }
 
-/* CARDS */
+/* =========================
+   CARDS
+========================= */
+
 .card{
     background:white;
     border:1px solid #dfeaf0;
@@ -153,7 +230,7 @@ body{
 .form-card{
     padding:25px;
     position:sticky;
-    top:106px;
+    top:30px;
 }
 
 .card-heading{
@@ -187,7 +264,10 @@ body{
     color:#8a9da7;
 }
 
-/* FORM */
+/* =========================
+   FORM
+========================= */
+
 .form-group{
     margin-bottom:17px;
 }
@@ -236,7 +316,14 @@ textarea:focus{
     box-shadow:0 0 0 3px rgba(18,144,184,.09);
 }
 
+select:disabled{
+    color:#9aaab2;
+    background:#f1f5f7;
+    cursor:not-allowed;
+}
+
 /* MRI / CT */
+
 .exam-options{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -280,6 +367,7 @@ textarea:focus{
 }
 
 /* CONTRAST */
+
 .contrast-section{
     display:none;
     margin-top:2px;
@@ -340,6 +428,7 @@ textarea:focus{
 }
 
 /* BUTTON */
+
 .save-btn{
     width:100%;
     height:50px;
@@ -379,7 +468,10 @@ textarea:focus{
     color:#18825f;
 }
 
-/* AGENDA */
+/* =========================
+   AGENDA
+========================= */
+
 .agenda-card{
     padding:25px;
     min-width:0;
@@ -432,6 +524,7 @@ textarea:focus{
 }
 
 /* DAY HEADER */
+
 .day-header{
     padding:15px 17px;
     background:linear-gradient(135deg,#f1f8fb,#f8fbfc);
@@ -459,6 +552,7 @@ textarea:focus{
 }
 
 /* SCHEDULE */
+
 .schedule{
     display:flex;
     flex-direction:column;
@@ -505,10 +599,16 @@ textarea:focus{
 }
 
 /* APPOINTMENT */
+
 .appointment{
     width:100%;
     display:grid;
-    grid-template-columns:minmax(160px,1.05fr) minmax(140px,.85fr) minmax(180px,1fr) 150px 42px;
+    grid-template-columns:
+        minmax(160px,1.05fr)
+        minmax(140px,.85fr)
+        minmax(180px,1fr)
+        150px
+        42px;
     align-items:center;
     gap:12px;
     padding:9px 11px;
@@ -518,7 +618,6 @@ textarea:focus{
     box-shadow:0 3px 10px rgba(30,75,90,.05);
 }
 
-/* status border */
 .appointment.status-waiting{
     border-left:4px solid #d7a62d;
 }
@@ -537,6 +636,7 @@ textarea:focus{
 }
 
 /* PATIENT */
+
 .patient{
     min-width:0;
 }
@@ -557,6 +657,7 @@ textarea:focus{
 }
 
 /* EXAM */
+
 .exam-info{
     min-width:0;
 }
@@ -595,6 +696,7 @@ textarea:focus{
 }
 
 /* STATUS */
+
 .status-wrapper{
     min-width:0;
 }
@@ -635,6 +737,7 @@ textarea:focus{
 }
 
 /* DELETE */
+
 .delete-btn{
     width:34px;
     height:34px;
@@ -652,6 +755,7 @@ textarea:focus{
 }
 
 /* LOADING */
+
 .loading{
     padding:30px;
     text-align:center;
@@ -666,7 +770,10 @@ textarea:focus{
     font-size:12px;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media(max-width:1200px){
 
     .appointment{
@@ -680,6 +787,15 @@ textarea:focus{
 }
 
 @media(max-width:1050px){
+
+    .sidebar{
+        width:220px;
+    }
+
+    .main-area{
+        margin-left:220px;
+        width:calc(100% - 220px);
+    }
 
     .layout{
         grid-template-columns:1fr;
@@ -697,9 +813,34 @@ textarea:focus{
             135px
             42px;
     }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
 }
 
 @media(max-width:700px){
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+        padding:15px;
+    }
+
+    .sidebar-logo{
+        margin-bottom:15px;
+    }
+
+    .sidebar-menu{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .main-area{
+        margin-left:0;
+        width:100%;
+    }
 
     .topbar{
         padding:0 16px;
@@ -725,6 +866,10 @@ textarea:focus{
     .system-badge{
         display:inline-flex;
         margin-top:15px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
     }
 
     .agenda-top{
@@ -753,83 +898,14 @@ textarea:focus{
         grid-row:1 / span 3;
     }
 }
-    .app-shell{
-    display:flex;
-    min-height:100vh;
-}
-
-.sidebar{
-    width:260px;
-    background:#083f61;
-    color:#fff;
-    padding:24px;
-    position:fixed;
-    left:0;
-    top:0;
-    bottom:0;
-}
-
-.sidebar-logo{
-    font-size:26px;
-    font-weight:800;
-    margin-bottom:30px;
-}
-
-.sidebar-menu{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.sidebar-menu a{
-    text-decoration:none;
-    color:#fff;
-    padding:14px;
-    border-radius:12px;
-    background:rgba(255,255,255,.08);
-}
-
-.sidebar-menu a:hover{
-    background:rgba(255,255,255,.16);
-}
-
-.main-area{
-    margin-left:260px;
-    width:calc(100% - 260px);
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-    margin-bottom:24px;
-}
-
-.stat-card{
-    background:white;
-    border-radius:18px;
-    padding:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.06);
-}
-
-.stat-title{
-    color:#6b7f8a;
-    font-size:13px;
-}
-
-.stat-value{
-    font-size:34px;
-    font-weight:800;
-    color:#083f61;
-    margin-top:8px;
-}
 </style>
-
 </head>
 
 <body>
 
 <div class="app-shell">
+
+<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
@@ -838,23 +914,71 @@ textarea:focus{
     </div>
 
     <div class="sidebar-menu">
-        <a href="#">📅 Agjenda</a>
-        <a href="#">🧠 MRI</a>
-        <a href="#">🩻 CT</a>
-        <a href="#">📊 Raporte</a>
-        <a href="#" id="logoutBtn">🚪 Dil</a>
+
+        <a href="#">
+            📅 Agjenda
+        </a>
+
+        <a href="#">
+            🧠 MRI
+        </a>
+
+        <a href="#">
+            🩻 CT
+        </a>
+
+        <a href="#">
+            📊 Raporte
+        </a>
+
+        <a href="#" id="logoutBtn">
+            🚪 Dil
+        </a>
+
     </div>
 
 </aside>
 
+
+<!-- MAIN -->
+
 <div class="main-area">
+
+<!-- HEADER -->
+
+<div class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            GVM
+        </div>
+
+        <div class="brand-text">
+
+            <h1>
+                GVM Care & Research
+            </h1>
+
+            <p>
+                Departamenti i Imazherisë
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <main class="page">
 
-```
+<!-- TITLE -->
+
 <div class="page-title">
 
     <div>
+
         <h2>
             Agjenda e Imazherisë
         </h2>
@@ -862,381 +986,504 @@ textarea:focus{
         <p>
             Menaxhoni ekzaminimet MRI dhe CT sipas orarit.
         </p>
+
     </div>
 
     <div class="system-badge">
+
         <span class="status-dot"></span>
+
         Sistemi aktiv
+
     </div>
 
 </div>
+
+
+<!-- STATS -->
 
 <div class="stats">
 
     <div class="stat-card">
-        <div class="stat-title">Ekzaminime Sot</div>
-        <div class="stat-value" id="totalToday">0</div>
+
+        <div class="stat-title">
+            Ekzaminime Sot
+        </div>
+
+        <div
+            class="stat-value"
+            id="totalToday"
+        >
+            0
+        </div>
+
     </div>
 
-    <div class="stat-card">
-        <div class="stat-title">MRI</div>
-        <div class="stat-value" id="mriToday">0</div>
-    </div>
 
     <div class="stat-card">
-        <div class="stat-title">CT</div>
-        <div class="stat-value" id="ctToday">0</div>
+
+        <div class="stat-title">
+            MRI
+        </div>
+
+        <div
+            class="stat-value"
+            id="mriToday"
+        >
+            0
+        </div>
+
     </div>
 
+
     <div class="stat-card">
-        <div class="stat-title">Përfunduar</div>
-        <div class="stat-value" id="finishedToday">0</div>
+
+        <div class="stat-title">
+            CT
+        </div>
+
+        <div
+            class="stat-value"
+            id="ctToday"
+        >
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-title">
+            Përfunduar
+        </div>
+
+        <div
+            class="stat-value"
+            id="finishedToday"
+        >
+            0
+        </div>
+
     </div>
 
 </div>
+
+
+<!-- LAYOUT -->
+
 <div class="layout">
 
-    <!-- FORMULARI -->
 
-    <section class="card form-card">
+<!-- =========================
+     FORMULARI
+========================= -->
 
-        <div class="card-heading">
+<section class="card form-card">
 
-            <div class="heading-icon">
-                +
-            </div>
+    <div class="card-heading">
 
-            <div>
+        <div class="heading-icon">
+            +
+        </div>
 
-                <h3>
-                    Shto ekzaminim
-                </h3>
+        <div>
 
-                <p>
-                    Plotësoni të dhënat e pacientit
-                </p>
+            <h3>
+                Shto ekzaminim
+            </h3>
+
+            <p>
+                Plotësoni të dhënat e pacientit
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <form id="appointmentForm">
+
+
+        <!-- PACIENTI -->
+
+        <div class="form-group">
+
+            <label
+                class="form-label"
+                for="patientName"
+            >
+                Emër + Mbiemër
+                <span class="required">*</span>
+            </label>
+
+            <input
+                id="patientName"
+                type="text"
+                placeholder="Shkruani emrin dhe mbiemrin"
+                autocomplete="off"
+                required
+            >
+
+        </div>
+
+
+        <!-- TELEFONI -->
+
+        <div class="form-group">
+
+            <label
+                class="form-label"
+                for="phone"
+            >
+                Nr. telefoni
+
+                <span
+                    style="font-weight:500;color:#9aaab2;"
+                >
+                    (opsional)
+                </span>
+
+            </label>
+
+            <input
+                id="phone"
+                type="tel"
+                placeholder="06X XXX XXXX"
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- DATA -->
+
+        <div class="form-group">
+
+            <label
+                class="form-label"
+                for="appointmentDate"
+            >
+                Data
+                <span class="required">*</span>
+            </label>
+
+            <input
+                id="appointmentDate"
+                type="date"
+                required
+            >
+
+        </div>
+
+
+        <!-- ORARI -->
+
+        <div class="form-group">
+
+            <label
+                class="form-label"
+                for="appointmentTime"
+            >
+                Orari
+                <span class="required">*</span>
+            </label>
+
+            <select
+                id="appointmentTime"
+                required
+            >
+
+                <option value="">
+                    Zgjidhni orarin
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- MRI / CT -->
+
+        <div class="form-group">
+
+            <label class="form-label">
+
+                Ekzaminimi
+
+                <span class="required">
+                    *
+                </span>
+
+            </label>
+
+
+            <div class="exam-options">
+
+
+                <div class="exam-option">
+
+                    <input
+                        type="radio"
+                        id="examMRI"
+                        name="examType"
+                        value="MRI"
+                    >
+
+                    <label
+                        class="exam-label"
+                        for="examMRI"
+                    >
+
+                        <span class="exam-symbol">
+                            ◉
+                        </span>
+
+                        MRI
+
+                    </label>
+
+                </div>
+
+
+                <div class="exam-option">
+
+                    <input
+                        type="radio"
+                        id="examCT"
+                        name="examType"
+                        value="CT"
+                    >
+
+                    <label
+                        class="exam-label"
+                        for="examCT"
+                    >
+
+                        <span class="exam-symbol">
+                            ⊙
+                        </span>
+
+                        CT
+
+                    </label>
+
+                </div>
+
 
             </div>
 
         </div>
 
 
-        <form id="appointmentForm">
+        <!-- KONTRASTI -->
 
-            <div class="form-group">
+        <div
+            id="contrastSection"
+            class="contrast-section"
+        >
 
-                <label
-                    class="form-label"
-                    for="patientName"
-                >
-                    Emër + Mbiemër
-                    <span class="required">*</span>
-                </label>
-
-                <input
-                    id="patientName"
-                    type="text"
-                    placeholder="Shkruani emrin dhe mbiemrin"
-                    autocomplete="off"
-                    required
-                >
-
+            <div class="contrast-title">
+                Përzgjidhni kontrastin
             </div>
 
 
-            <div class="form-group">
-
-                <label
-                    class="form-label"
-                    for="phone"
-                >
-                    Nr. telefoni
-                    <span style="font-weight:500;color:#9aaab2;">
-                        (opsional)
-                    </span>
-                </label>
-
-                <input
-                    id="phone"
-                    type="tel"
-                    placeholder="06X XXX XXXX"
-                    autocomplete="off"
-                >
-
-            </div>
+            <div class="contrast-options">
 
 
-            <div class="form-group">
+                <div class="contrast-option">
 
-                <label
-                    class="form-label"
-                    for="appointmentDate"
-                >
-                    Data
-                    <span class="required">*</span>
-                </label>
+                    <input
+                        type="radio"
+                        id="contrastYes"
+                        name="contrast"
+                        value="Me kontrast"
+                    >
 
-                <input
-                    id="appointmentDate"
-                    type="date"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label
-                    class="form-label"
-                    for="appointmentTime"
-                >
-                    Orari
-                    <span class="required">*</span>
-                </label>
-
-                <select
-                    id="appointmentTime"
-                    required
-                >
-                    <option value="">
-                        Zgjidhni orarin
-                    </option>
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label class="form-label">
-                    Ekzaminimi
-                    <span class="required">*</span>
-                </label>
-
-                <div class="exam-options">
-
-                    <div class="exam-option">
-
-                        <input
-                            type="radio"
-                            id="examMRI"
-                            name="examType"
-                            value="MRI"
-                        >
-
-                        <label
-                            class="exam-label"
-                            for="examMRI"
-                        >
-                            <span class="exam-symbol">◉</span>
-                            MRI
-                        </label>
-
-                    </div>
-
-
-                    <div class="exam-option">
-
-                        <input
-                            type="radio"
-                            id="examCT"
-                            name="examType"
-                            value="CT"
-                        >
-
-                        <label
-                            class="exam-label"
-                            for="examCT"
-                        >
-                            <span class="exam-symbol">⊙</span>
-                            CT
-                        </label>
-
-                    </div>
+                    <label
+                        class="contrast-label"
+                        for="contrastYes"
+                    >
+                        Me kontrast
+                    </label>
 
                 </div>
 
-            </div>
 
+                <div class="contrast-option">
 
-            <div
-                id="contrastSection"
-                class="contrast-section"
-            >
+                    <input
+                        type="radio"
+                        id="contrastNo"
+                        name="contrast"
+                        value="Pa kontrast"
+                    >
 
-                <div class="contrast-title">
-                    Përzgjidhni kontrastin
-                </div>
-
-                <div class="contrast-options">
-
-                    <div class="contrast-option">
-
-                        <input
-                            type="radio"
-                            id="contrastYes"
-                            name="contrast"
-                            value="Me kontrast"
-                        >
-
-                        <label
-                            class="contrast-label"
-                            for="contrastYes"
-                        >
-                            Me kontrast
-                        </label>
-
-                    </div>
-
-
-                    <div class="contrast-option">
-
-                        <input
-                            type="radio"
-                            id="contrastNo"
-                            name="contrast"
-                            value="Pa kontrast"
-                        >
-
-                        <label
-                            class="contrast-label"
-                            for="contrastNo"
-                        >
-                            Pa kontrast
-                        </label>
-
-                    </div>
+                    <label
+                        class="contrast-label"
+                        for="contrastNo"
+                    >
+                        Pa kontrast
+                    </label>
 
                 </div>
 
-            </div>
-
-
-            <div class="form-group">
-
-                <label
-                    class="form-label"
-                    for="examName"
-                >
-                    Lloji i ekzaminimit
-                    <span class="required">*</span>
-                </label>
-
-                <textarea
-                    id="examName"
-                    placeholder="p.sh. MRI e trurit, CT toraksi, CT abdomen + pelvis..."
-                    required
-                ></textarea>
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="save-btn"
-                id="saveBtn"
-            >
-                Ruaj ekzaminimin
-            </button>
-
-
-            <div
-                id="message"
-                class="message"
-            ></div>
-
-        </form>
-
-    </section>
-
-
-    <!-- AGJENDA -->
-
-    <section class="card agenda-card">
-
-        <div class="agenda-top">
-
-            <div class="agenda-heading">
-
-                <h3>
-                    Agjenda ditore
-                </h3>
-
-                <p id="agendaSubtitle">
-                    Ekzaminimet e planifikuara
-                </p>
-
-            </div>
-
-
-            <div class="date-controls">
-
-                <button
-                    class="date-btn"
-                    id="previousDay"
-                    type="button"
-                    title="Dita paraardhëse"
-                >
-                    ‹
-                </button>
-
-                <input
-                    type="date"
-                    id="agendaDate"
-                    class="date-input"
-                >
-
-                <button
-                    class="date-btn"
-                    id="nextDay"
-                    type="button"
-                    title="Dita tjetër"
-                >
-                    ›
-                </button>
 
             </div>
 
         </div>
 
 
-        <div class="day-header">
+        <!-- LLOJI I EKZAMINIMIT -->
 
-            <div
-                class="day-title"
-                id="dayTitle"
-            >
-                Agjenda
-            </div>
+        <div class="form-group">
 
-            <div
-                class="day-count"
-                id="dayCount"
+            <label
+                class="form-label"
+                for="examName"
             >
-                0 ekzaminime
-            </div>
+
+                Lloji i ekzaminimit
+
+                <span class="required">
+                    *
+                </span>
+
+            </label>
+
+
+            <select
+                id="examName"
+                required
+                disabled
+            >
+
+                <option value="">
+                    Fillimisht zgjidhni MRI ose CT
+                </option>
+
+            </select>
 
         </div>
+
+
+        <!-- BUTTON -->
+
+        <button
+            type="submit"
+            class="save-btn"
+            id="saveBtn"
+        >
+
+            Ruaj ekzaminimin
+
+        </button>
 
 
         <div
-            id="schedule"
-            class="schedule"
-        >
+            id="message"
+            class="message"
+        ></div>
 
-            <div class="loading">
-                Duke ngarkuar agjendën...
-            </div>
+
+    </form>
+
+</section>
+
+
+<!-- =========================
+     AGJENDA
+========================= -->
+
+<section class="card agenda-card">
+
+
+    <div class="agenda-top">
+
+        <div class="agenda-heading">
+
+            <h3>
+                Agjenda ditore
+            </h3>
+
+            <p id="agendaSubtitle">
+                Ekzaminimet e planifikuara
+            </p>
 
         </div>
 
-    </section>
+
+        <div class="date-controls">
+
+            <button
+                class="date-btn"
+                id="previousDay"
+                type="button"
+            >
+                ‹
+            </button>
+
+
+            <input
+                type="date"
+                id="agendaDate"
+                class="date-input"
+            >
+
+
+            <button
+                class="date-btn"
+                id="nextDay"
+                type="button"
+            >
+                ›
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="day-header">
+
+        <div
+            class="day-title"
+            id="dayTitle"
+        >
+            Agjenda
+        </div>
+
+        <div
+            class="day-count"
+            id="dayCount"
+        >
+            0 ekzaminime
+        </div>
+
+    </div>
+
+
+    <div
+        id="schedule"
+        class="schedule"
+    >
+
+        <div class="loading">
+            Duke ngarkuar agjendën...
+        </div>
+
+    </div>
+
+
+</section>
 
 </div>
-```
 
 </main>
+
+</div>
+</div>
+
 
 <script>
 
@@ -1276,7 +1523,7 @@ const appointmentDateInput =
 const appointmentTimeInput =
     document.getElementById("appointmentTime");
 
-const examNameInput =
+const examNameSelect =
     document.getElementById("examName");
 
 const contrastSection =
@@ -1308,6 +1555,118 @@ const logoutBtn =
 
 
 /* =====================================================
+   LISTA E EKZAMINIMEVE MRI
+===================================================== */
+
+const MRI_EXAMS = [
+
+    "MRI e trurit",
+    "MRI e trurit + angio",
+    "MRI e hipofizës",
+    "MRI e orbitave",
+    "MRI e qafës",
+    "MRI e shtyllës cervikale",
+    "MRI e shtyllës torakale",
+    "MRI e shtyllës lumbare",
+    "MRI e abdomenit",
+    "MRI e abdomenit + pelvis",
+    "MRI e pelvisit",
+    "MRI e prostatës",
+    "MRI e gjirit",
+    "MRI e shpatullës",
+    "MRI e bërrylit",
+    "MRI e kyçit të dorës",
+    "MRI e dorës",
+    "MRI e legenit",
+    "MRI e ijes",
+    "MRI e gjurit",
+    "MRI e kyçit të këmbës",
+    "MRI e këmbës"
+
+];
+
+
+/* =====================================================
+   LISTA E EKZAMINIMEVE CT
+===================================================== */
+
+const CT_EXAMS = [
+
+    "CT e trurit",
+    "CT e trurit + angio",
+    "CT e sinuseve",
+    "CT e qafës",
+    "CT e toraksit",
+    "CT e toraksit + angio",
+    "CT e abdomenit",
+    "CT e abdomenit + pelvis",
+    "CT e pelvisit",
+    "CT abdomen + pelvis",
+    "CT e shtyllës cervikale",
+    "CT e shtyllës torakale",
+    "CT e shtyllës lumbare",
+    "CT e shpatullës",
+    "CT e bërrylit",
+    "CT e kyçit të dorës",
+    "CT e dorës",
+    "CT e legenit",
+    "CT e ijes",
+    "CT e gjurit",
+    "CT e këmbës"
+
+];
+
+
+/* =====================================================
+   POPULLO DROPDOWN-IN E EKZAMINIMIT
+===================================================== */
+
+function populateExamOptions(examType){
+
+    examNameSelect.innerHTML = "";
+
+    const placeholder =
+        document.createElement("option");
+
+    placeholder.value = "";
+
+    placeholder.textContent =
+        examType === "MRI"
+            ? "Zgjidhni ekzaminimin MRI"
+            : "Zgjidhni ekzaminimin CT";
+
+    examNameSelect.appendChild(
+        placeholder
+    );
+
+
+    const exams =
+        examType === "MRI"
+            ? MRI_EXAMS
+            : CT_EXAMS;
+
+
+    exams.forEach(function(exam){
+
+        const option =
+            document.createElement("option");
+
+        option.value = exam;
+
+        option.textContent = exam;
+
+        examNameSelect.appendChild(
+            option
+        );
+
+    });
+
+
+    examNameSelect.disabled = false;
+}
+
+
+/* =====================================================
    DATA
 ===================================================== */
 
@@ -1330,6 +1689,16 @@ function getToday(){
 }
 
 
+const today =
+    getToday();
+
+appointmentDateInput.value =
+    today;
+
+agendaDateInput.value =
+    today;
+
+
 /* =====================================================
    ORARET 08:00 - 19:00
    ÇDO 30 MINUTA
@@ -1338,7 +1707,9 @@ function getToday(){
 function buildTimeOptions(){
 
     appointmentTimeInput.innerHTML =
-        `<option value="">Zgjidhni orarin</option>`;
+        `<option value="">
+            Zgjidhni orarin
+        </option>`;
 
     for(
         let minutes = 8 * 60;
@@ -1367,25 +1738,14 @@ function buildTimeOptions(){
             document.createElement("option");
 
         option.value = value;
+
         option.textContent = label;
 
-        appointmentTimeInput.appendChild(option);
+        appointmentTimeInput.appendChild(
+            option
+        );
     }
 }
-
-
-/* =====================================================
-   INITIALIZIMI
-===================================================== */
-
-const today =
-    getToday();
-
-appointmentDateInput.value =
-    today;
-
-agendaDateInput.value =
-    today;
 
 buildTimeOptions();
 
@@ -1408,6 +1768,7 @@ document
                     .classList
                     .add("show");
 
+
                 document
                     .querySelectorAll(
                         'input[name="contrast"]'
@@ -1417,6 +1778,11 @@ document
                         input.checked = false;
 
                     });
+
+
+                populateExamOptions(
+                    this.value
+                );
 
             }
         );
@@ -1502,8 +1868,11 @@ function showMessage(text,type){
 const STATUS = {
 
     WAITING: "Në pritje",
+
     ARRIVED: "Ka ardhur",
+
     FINISHED: "Ka mbaruar",
+
     CANCELLED: "Anulluar"
 
 };
@@ -1584,6 +1953,11 @@ async function loadAppointments(){
             data || []
         );
 
+        updateTodayStats(
+            data || [],
+            selectedDate
+        );
+
 
     }catch(error){
 
@@ -1603,6 +1977,43 @@ async function loadAppointments(){
 
 
 /* =====================================================
+   STATISTIKAT
+===================================================== */
+
+function updateTodayStats(
+    appointments,
+    selectedDate
+){
+
+    if(selectedDate !== getToday()){
+        return;
+    }
+
+    document.getElementById("totalToday")
+        .textContent =
+        appointments.length;
+
+    document.getElementById("mriToday")
+        .textContent =
+        appointments.filter(
+            item => item.exam_type === "MRI"
+        ).length;
+
+    document.getElementById("ctToday")
+        .textContent =
+        appointments.filter(
+            item => item.exam_type === "CT"
+        ).length;
+
+    document.getElementById("finishedToday")
+        .textContent =
+        appointments.filter(
+            item => item.status === STATUS.FINISHED
+        ).length;
+}
+
+
+/* =====================================================
    RENDER AGJENDA
 ===================================================== */
 
@@ -1612,10 +2023,11 @@ function renderSchedule(appointments){
 
     dayCount.textContent =
         appointments.length
-        + (
+        +
+        (
             appointments.length === 1
-            ? " ekzaminim"
-            : " ekzaminime"
+                ? " ekzaminim"
+                : " ekzaminime"
         );
 
 
@@ -1673,7 +2085,6 @@ function renderSchedule(appointments){
                         .appointment_time
                         .substring(0,5)
                         === time;
-
                 }
             );
 
@@ -1688,7 +2099,9 @@ function renderSchedule(appointments){
 
         }else{
 
-            slot.classList.add("empty");
+            slot.classList.add(
+                "empty"
+            );
 
         }
 
@@ -1704,7 +2117,6 @@ function renderSchedule(appointments){
         schedule.appendChild(
             row
         );
-
     }
 }
 
@@ -1713,20 +2125,28 @@ function renderSchedule(appointments){
    KARTELA E EKZAMINIMIT
 ===================================================== */
 
-function createAppointmentCard(appointment){
+function createAppointmentCard(
+    appointment
+){
 
     const card =
         document.createElement("div");
+
 
     const currentStatus =
         appointment.status ||
         STATUS.WAITING;
 
+
     const statusClass =
-        getStatusClass(currentStatus);
+        getStatusClass(
+            currentStatus
+        );
+
 
     card.className =
-        "appointment " + statusClass;
+        "appointment " +
+        statusClass;
 
 
     /* PACIENTI */
@@ -1757,11 +2177,12 @@ function createAppointmentCard(appointment){
 
     phone.textContent =
         appointment.phone
-        ? appointment.phone
-        : "Nr. telefoni nuk është vendosur";
+            ? appointment.phone
+            : "Nr. telefoni nuk është vendosur";
 
 
     patient.appendChild(name);
+
     patient.appendChild(phone);
 
 
@@ -1788,7 +2209,8 @@ function createAppointmentCard(appointment){
         "exam-badge";
 
     examBadge.textContent =
-        appointment.exam_type || "—";
+        appointment.exam_type
+        || "—";
 
 
     const contrastBadge =
@@ -1802,8 +2224,13 @@ function createAppointmentCard(appointment){
         || "Pa specifikuar";
 
 
-    examMain.appendChild(examBadge);
-    examMain.appendChild(contrastBadge);
+    examMain.appendChild(
+        examBadge
+    );
+
+    examMain.appendChild(
+        contrastBadge
+    );
 
 
     const examName =
@@ -1817,8 +2244,13 @@ function createAppointmentCard(appointment){
         || "Lloj ekzaminimi i paspecifikuar";
 
 
-    examInfo.appendChild(examMain);
-    examInfo.appendChild(examName);
+    examInfo.appendChild(
+        examMain
+    );
+
+    examInfo.appendChild(
+        examName
+    );
 
 
     /* STATUSI */
@@ -1834,36 +2266,51 @@ function createAppointmentCard(appointment){
         document.createElement("select");
 
     statusSelect.className =
-        "status-select "
-        + statusClass;
+        "status-select " +
+        statusClass;
+
+
+    statusSelect.dataset.previousStatus =
+        currentStatus;
 
 
     const statuses = [
+
         STATUS.WAITING,
+
         STATUS.ARRIVED,
+
         STATUS.FINISHED,
+
         STATUS.CANCELLED
+
     ];
 
 
-    statuses.forEach(function(status){
+    statuses.forEach(
+        function(status){
 
-        const option =
-            document.createElement("option");
+            const option =
+                document.createElement("option");
 
-        option.value =
-            status;
+            option.value =
+                status;
 
-        option.textContent =
-            status;
+            option.textContent =
+                status;
 
-        if(status === currentStatus){
-            option.selected = true;
+            if(status === currentStatus){
+
+                option.selected =
+                    true;
+            }
+
+            statusSelect.appendChild(
+                option
+            );
+
         }
-
-        statusSelect.appendChild(option);
-
-    });
+    );
 
 
     statusSelect.addEventListener(
@@ -1872,9 +2319,6 @@ function createAppointmentCard(appointment){
 
             const newStatus =
                 statusSelect.value;
-
-            statusSelect.disabled =
-                true;
 
             await updateAppointmentStatus(
                 appointment.id,
@@ -1919,9 +2363,11 @@ function createAppointmentCard(appointment){
                     "Jeni të sigurt që dëshironi të fshini këtë ekzaminim?"
                 );
 
+
             if(!confirmed){
                 return;
             }
+
 
             await deleteAppointment(
                 appointment.id
@@ -1931,10 +2377,21 @@ function createAppointmentCard(appointment){
     );
 
 
-    card.appendChild(patient);
-    card.appendChild(examInfo);
-    card.appendChild(statusWrapper);
-    card.appendChild(deleteButton);
+    card.appendChild(
+        patient
+    );
+
+    card.appendChild(
+        examInfo
+    );
+
+    card.appendChild(
+        statusWrapper
+    );
+
+    card.appendChild(
+        deleteButton
+    );
 
 
     return card;
@@ -1951,49 +2408,59 @@ async function updateAppointmentStatus(
     selectElement,
     cardElement
 ){
+
     const previousStatus =
         selectElement.dataset.previousStatus ||
-        selectElement.value;
+        STATUS.WAITING;
+
 
     try{
 
-        selectElement.disabled = true;
+        selectElement.disabled =
+            true;
 
-        const { error } = await supabaseClient
+
+        const {
+            error
+        } =
+        await supabaseClient
             .from("appointments")
             .update({
                 status: newStatus
             })
-            .eq("id", id);
+            .eq(
+                "id",
+                id
+            );
+
 
         if(error){
             throw error;
         }
 
-        /*
-         * UPDATE u krye me sukses.
-         * Nuk përdorim .select() pas UPDATE,
-         * sepse RLS mund të lejojë UPDATE
-         * por të bllokojë kthimin e rreshtit.
-         */
 
         selectElement.dataset.previousStatus =
             newStatus;
 
+
         const newClass =
-            getStatusClass(newStatus);
+            getStatusClass(
+                newStatus
+            );
+
 
         selectElement.className =
-            "status-select " + newClass;
+            "status-select " +
+            newClass;
+
 
         cardElement.className =
-            "appointment " + newClass;
+            "appointment " +
+            newClass;
 
-        /*
-         * Rifresko agjendën nga databaza
-         * për të verifikuar gjendjen e re.
-         */
+
         await loadAppointments();
+
 
     }catch(error){
 
@@ -2002,25 +2469,31 @@ async function updateAppointmentStatus(
             error
         );
 
-        if(previousStatus){
 
-            selectElement.value =
-                previousStatus;
+        selectElement.value =
+            previousStatus;
 
-            selectElement.className =
-                "status-select " +
-                getStatusClass(previousStatus);
-        }
+
+        selectElement.className =
+            "status-select " +
+            getStatusClass(
+                previousStatus
+            );
+
 
         alert(
             "Statusi nuk u ruajt.\n\n" +
-            (error.message ||
-             "Gabim i panjohur.")
+            (
+                error.message ||
+                "Gabim i panjohur."
+            )
         );
+
 
     }finally{
 
-        selectElement.disabled = false;
+        selectElement.disabled =
+            false;
     }
 }
 
@@ -2039,28 +2512,36 @@ appointmentForm.addEventListener(
         const patientName =
             patientNameInput.value.trim();
 
+
         const phone =
             phoneInput.value.trim();
+
 
         const appointmentDate =
             appointmentDateInput.value;
 
+
         const appointmentTime =
             appointmentTimeInput.value;
+
 
         const examTypeElement =
             document.querySelector(
                 'input[name="examType"]:checked'
             );
 
+
         const contrastElement =
             document.querySelector(
                 'input[name="contrast"]:checked'
             );
 
-        const examName =
-            examNameInput.value.trim();
 
+        const examName =
+            examNameSelect.value;
+
+
+        /* VALIDIM */
 
         if(!patientName){
 
@@ -2120,7 +2601,7 @@ appointmentForm.addEventListener(
         if(!examName){
 
             showMessage(
-                "Ju lutem shkruani llojin e ekzaminimit.",
+                "Ju lutem zgjidhni llojin e ekzaminimit.",
                 "error"
             );
 
@@ -2223,6 +2704,16 @@ appointmentForm.addEventListener(
                 agendaDateInput.value;
 
 
+            examNameSelect.innerHTML =
+                `<option value="">
+                    Fillimisht zgjidhni MRI ose CT
+                </option>`;
+
+
+            examNameSelect.disabled =
+                true;
+
+
             contrastSection
                 .classList
                 .remove("show");
@@ -2238,11 +2729,13 @@ appointmentForm.addEventListener(
                 error
             );
 
+
             showMessage(
                 error.message ||
                 "Ekzaminimi nuk u ruajt.",
                 "error"
             );
+
 
         }finally{
 
@@ -2292,6 +2785,7 @@ async function deleteAppointment(id){
             "Gabim gjatë fshirjes:",
             error
         );
+
 
         alert(
             error.message ||
@@ -2359,6 +2853,7 @@ function changeDate(amount){
             + "T12:00:00"
         );
 
+
     current.setDate(
         current.getDate()
         + amount
@@ -2368,10 +2863,12 @@ function changeDate(amount){
     const year =
         current.getFullYear();
 
+
     const month =
         String(
             current.getMonth() + 1
         ).padStart(2,"0");
+
 
     const day =
         String(
@@ -2385,6 +2882,7 @@ function changeDate(amount){
 
     agendaDateInput.value =
         newDate;
+
 
     appointmentDateInput.value =
         newDate;
@@ -2434,7 +2932,6 @@ async function checkSession(){
                 "index.html";
 
             return false;
-
         }
 
 
@@ -2446,6 +2943,7 @@ async function checkSession(){
 
         return true;
 
+
     }catch(error){
 
         console.error(
@@ -2454,7 +2952,6 @@ async function checkSession(){
         );
 
         return false;
-
     }
 }
 
@@ -2483,6 +2980,7 @@ function escapeHtml(value){
     const loggedIn =
         await checkSession();
 
+
     if(loggedIn){
 
         await loadAppointments();
@@ -2492,7 +2990,7 @@ function escapeHtml(value){
 })();
 
 </script>
-</div>
-</div>
+
 </body>
 </html>
+```
