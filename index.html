@@ -1,38 +1,269 @@
-```html
 <!DOCTYPE html>
+
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GVM Care & Research — Imazheria</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 *{
   box-sizing:border-box;
 }
 
-body{
+html,body{
   margin:0;
+  padding:0;
+  min-height:100%;
+}
+
+body{
   min-height:100vh;
   font-family:Arial,Helvetica,sans-serif;
-  background:linear-gradient(135deg,#eef7fb,#dcecf4);
+  background:
+    linear-gradient(rgba(4,48,73,.58),rgba(4,48,73,.72)),
+    url("hospital-bg.png") center/cover no-repeat fixed;
   display:flex;
   align-items:center;
   justify-content:center;
   color:#12344a;
+  padding:20px;
 }
 
 .login-card{
-  width:min(430px,92%);
-  background:#ffffff;
-  border-radius:22px;
+  width:min(440px,100%);
+  background:rgba(255,255,255,.97);
+  border-radius:24px;
   padding:42px 38px;
-  box-shadow:0 20px 60px rgba(10,60,90,.15);
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
   text-align:center;
 }
 
 .logo{
-  width:72px;
-  height:72px;
-  margin:0
+  width:76px;
+  height:76px;
+  margin:0 auto 20px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#087fa8,#07517d);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:30px;
+  font-weight:700;
+  box-shadow:0 10px 25px rgba(7,81,125,.25);
+}
+
+h1{
+  margin:0;
+  color:#073f63;
+  font-size:27px;
+  letter-spacing:.2px;
+}
+
+.subtitle{
+  margin:8px 0 30px;
+  color:#6a7d89;
+  font-size:14px;
+}
+
+.form-group{
+  text-align:left;
+  margin-bottom:17px;
+}
+
+label{
+  display:block;
+  margin-bottom:7px;
+  color:#244b60;
+  font-size:13px;
+  font-weight:700;
+}
+
+input{
+  width:100%;
+  height:50px;
+  border:1px solid #d4e2e9;
+  border-radius:12px;
+  padding:0 15px;
+  font-size:15px;
+  color:#12344a;
+  background:#f8fbfd;
+  outline:none;
+  transition:.2s;
+}
+
+input:focus{
+  border-color:#087fa8;
+  background:white;
+  box-shadow:0 0 0 3px rgba(8,127,168,.10);
+}
+
+button{
+  width:100%;
+  height:51px;
+  margin-top:8px;
+  border:0;
+  border-radius:13px;
+  background:linear-gradient(135deg,#087fa8,#07517d);
+  color:white;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(7,81,125,.22);
+  transition:.2s;
+}
+
+button:hover{
+  transform:translateY(-1px);
+  box-shadow:0 13px 26px rgba(7,81,125,.27);
+}
+
+button:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.message{
+  min-height:20px;
+  margin-top:16px;
+  font-size:13px;
+  font-weight:600;
+}
+
+.error{
+  color:#c0392b;
+}
+
+.success{
+  color:#16805c;
+}
+
+.footer{
+  margin-top:28px;
+  color:#8a9aa4;
+  font-size:11px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="login-card">
+
+  <div class="logo">GVM</div>
+
+  <h1>GVM Care & Research</h1>
+
+  <div class="subtitle">
+    Imazheria — Sistemi i Agjendës
+  </div>
+
+  <form id="loginForm">
+
 ```
+<div class="form-group">
+  <label for="email">Email</label>
+  <input
+    type="email"
+    id="email"
+    placeholder="Shkruani email-in"
+    autocomplete="username"
+    required
+  >
+</div>
+
+<div class="form-group">
+  <label for="password">Fjalëkalimi</label>
+  <input
+    type="password"
+    id="password"
+    placeholder="Shkruani fjalëkalimin"
+    autocomplete="current-password"
+    required
+  >
+</div>
+
+<button type="submit" id="loginButton">
+  Hyr në sistem
+</button>
+```
+
+  </form>
+
+  <div id="message" class="message"></div>
+
+  <div class="footer">
+    GVM Care & Research
+  </div>
+
+</div>
+
+<script>
+const SUPABASE_URL = "https://ubpteaqdkxcriqyaxrux.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_y4UFkA3_mfVuZuyQTXogvw_ueg";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
+
+const loginForm = document.getElementById("loginForm");
+const loginButton = document.getElementById("loginButton");
+const message = document.getElementById("message");
+
+loginForm.addEventListener("submit", async function(event){
+
+  event.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  message.textContent = "";
+  message.className = "message";
+
+  loginButton.disabled = true;
+  loginButton.textContent = "Duke u identifikuar...";
+
+  try{
+
+    const { data, error } =
+      await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
+
+    if(error){
+      throw error;
+    }
+
+    message.textContent = "Hyrja u krye me sukses.";
+    message.className = "message success";
+
+    setTimeout(function(){
+      window.location.href = "dashboard.html";
+    }, 500);
+
+  }catch(error){
+
+    console.error("Login error:", error);
+
+    message.textContent =
+      error.message || "Email ose fjalëkalim i pasaktë.";
+
+    message.className = "message error";
+
+    loginButton.disabled = false;
+    loginButton.textContent = "Hyr në sistem";
+  }
+
+});
+</script>
+
+</body>
+</html>
