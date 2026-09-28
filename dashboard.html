@@ -1,9 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GVM Care & Research — Imazheria</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -16,10 +16,12 @@
 :root{
   --navy:#073f63;
   --blue:#087fa8;
+  --light:#eef7fb;
   --border:#dce8ee;
   --text:#17384b;
   --muted:#718794;
   --green:#16845b;
+  --orange:#d9822b;
   --red:#c83d3d;
 }
 
@@ -390,6 +392,7 @@ body{
 <aside class="sidebar">
 
   <div class="brand">
+
     <div class="brand-main">
       GVM Care & Research
     </div>
@@ -397,12 +400,15 @@ body{
     <div class="brand-sub">
       Imazheria
     </div>
+
   </div>
 
   <div class="menu">
+
     <div class="menu-item active">
       📅 Agjenda
     </div>
+
   </div>
 
 </aside>
@@ -413,47 +419,86 @@ body{
   <div class="topbar">
 
     <div class="page-title">
+
       <h1>IMAZHERIA</h1>
-      <p>Agjenda e ekzaminimeve imazherike</p>
+
+      <p>
+        Agjenda e ekzaminimeve imazherike
+      </p>
+
     </div>
 
-    <button class="logout" onclick="logout()">
+    <button
+      class="logout"
+      onclick="logout()">
       Dil
     </button>
 
   </div>
 
 
+  <!-- DATA -->
+
   <div class="datebar">
 
-    <button class="date-btn" onclick="changeDate(-1)">
+    <button
+      class="date-btn"
+      onclick="changeDate(-1)">
       ‹
     </button>
 
     <div class="date-center">
-      <div id="dateLabel" class="date-label"></div>
-      <div id="dateSmall" class="date-small"></div>
+
+      <div
+        id="dateLabel"
+        class="date-label">
+      </div>
+
+      <div
+        id="dateSmall"
+        class="date-small">
+      </div>
+
     </div>
 
-    <button class="date-btn" onclick="changeDate(1)">
+    <button
+      class="date-btn"
+      onclick="changeDate(1)">
       ›
     </button>
 
   </div>
 
 
+  <!-- ADD -->
+
   <div class="action-row">
-    <button class="add-btn" onclick="openModal()">
+
+    <button
+      class="add-btn"
+      onclick="openModal()">
+
       + Shto ekzaminim
+
     </button>
+
   </div>
 
+
+  <!-- AGENDA -->
 
   <section class="agenda">
 
     <div class="agenda-head">
-      <div>Ora</div>
-      <div>Ekzaminimi</div>
+
+      <div>
+        Ora
+      </div>
+
+      <div>
+        Ekzaminimi
+      </div>
+
     </div>
 
     <div id="agendaBody"></div>
@@ -463,75 +508,186 @@ body{
 </main>
 
 
-<div id="modalBg" class="modal-bg">
+<!-- MODAL -->
+
+<div
+  id="modalBg"
+  class="modal-bg">
 
   <div class="modal">
 
-    <h2>Regjistro ekzaminim</h2>
+    <h2>
+      Regjistro ekzaminim
+    </h2>
 
     <div class="modal-sub">
       Shto një ekzaminim të ri në agjendë
     </div>
 
+
     <form id="appointmentForm">
 
       <div class="form-grid">
 
+
+        <!-- EMRI -->
+
         <div class="field full">
-          <label>Emër + Mbiemër</label>
-          <input id="patientName" required>
+
+          <label>
+            Emër + Mbiemër
+          </label>
+
+          <input
+            id="patientName"
+            autocomplete="off"
+            required>
+
         </div>
 
+
+        <!-- KARTELA -->
+
         <div class="field">
-          <label>Nr. kartelë</label>
-          <input id="cardNumber">
+
+          <label>
+            Nr. kartelë
+          </label>
+
+          <input
+            id="cardNumber"
+            autocomplete="off">
+
         </div>
 
-        <div class="field">
-          <label>Orari</label>
-          <select id="appointmentTime" required></select>
-        </div>
+
+        <!-- ORARI -->
 
         <div class="field">
-          <label>Ekzaminimi</label>
 
-          <select id="examType" required>
-            <option value="">Zgjidh ekzaminimin</option>
-            <option>CT</option>
-            <option>MRI</option>
-            <option>Radiografi</option>
-            <option>Ekografi</option>
-            <option>Mamografi</option>
-            <option>Densitometri</option>
+          <label>
+            Orari
+          </label>
+
+          <select
+            id="appointmentTime"
+            required>
           </select>
 
         </div>
 
+
+        <!-- EKZAMINIMI -->
+
         <div class="field">
-          <label>Zona e trupit</label>
-          <input id="bodyArea" placeholder="p.sh. Toraks">
+
+          <label>
+            Ekzaminimi
+          </label>
+
+          <select
+            id="examType"
+            required>
+
+            <option value="">
+              Zgjidh ekzaminimin
+            </option>
+
+            <option value="CT">
+              CT
+            </option>
+
+            <option value="MRI">
+              MRI
+            </option>
+
+            <option value="Radiografi">
+              Radiografi
+            </option>
+
+            <option value="Ekografi">
+              Ekografi
+            </option>
+
+            <option value="Mamografi">
+              Mamografi
+            </option>
+
+            <option value="Densitometri">
+              Densitometri
+            </option>
+
+          </select>
+
         </div>
 
+
+        <!-- ZONA -->
+
+        <div class="field">
+
+          <label>
+            Zona e trupit
+          </label>
+
+          <input
+            id="bodyArea"
+            placeholder="p.sh. Toraks">
+
+        </div>
+
+
+        <!-- STATUS -->
+
         <div class="field full">
-          <label>Statusi</label>
+
+          <label>
+            Statusi
+          </label>
 
           <select id="status">
-            <option value="Planifikuar">Planifikuar</option>
-            <option value="Në pritje">Në pritje</option>
-            <option value="Kryer">Kryer</option>
-            <option value="Anuluar">Anuluar</option>
+
+            <option value="Planifikuar">
+              Planifikuar
+            </option>
+
+            <option value="Në pritje">
+              Në pritje
+            </option>
+
+            <option value="Kryer">
+              Kryer
+            </option>
+
+            <option value="Anuluar">
+              Anuluar
+            </option>
+
           </select>
 
         </div>
 
+
+        <!-- SHENIME -->
+
         <div class="field full">
-          <label>Shënime</label>
+
+          <label>
+            Shënime
+          </label>
+
           <textarea id="notes"></textarea>
+
         </div>
 
       </div>
 
-      <div id="message" class="message"></div>
+
+      <div
+        id="message"
+        class="message">
+      </div>
+
 
       <div class="modal-actions">
 
@@ -539,13 +695,18 @@ body{
           type="button"
           class="cancel"
           onclick="closeModal()">
+
           Anulo
+
         </button>
+
 
         <button
           type="submit"
           class="save">
+
           Ruaj ekzaminimin
+
         </button>
 
       </div>
@@ -559,11 +720,16 @@ body{
 
 <script>
 
+/* ==============================
+   SUPABASE
+============================== */
+
 const SUPABASE_URL =
   "https://wevrbiserxyqmnllallk.supabase.co";
 
 const SUPABASE_ANON_KEY =
   "sb_publishable_y4UFkA3_mfVuZuyQTXogvw_ueg4Ge7b";
+
 
 const supabaseClient =
   window.supabase.createClient(
@@ -572,20 +738,30 @@ const supabaseClient =
   );
 
 
-let currentDate = new Date();
+/* ==============================
+   DATE
+============================== */
+
+let currentDate =
+  new Date();
 
 
 function formatDateForDB(date){
 
-  const y = date.getFullYear();
+  const year =
+    date.getFullYear();
 
-  const m =
-    String(date.getMonth() + 1).padStart(2,"0");
+  const month =
+    String(
+      date.getMonth() + 1
+    ).padStart(2,"0");
 
-  const d =
-    String(date.getDate()).padStart(2,"0");
+  const day =
+    String(
+      date.getDate()
+    ).padStart(2,"0");
 
-  return `${y}-${m}-${d}`;
+  return `${year}-${month}-${day}`;
 }
 
 
@@ -602,10 +778,14 @@ function updateDateLabel(){
       }
     );
 
-  document.getElementById("dateLabel").textContent =
-    label;
+  document.getElementById(
+    "dateLabel"
+  ).textContent = label;
 
-  document.getElementById("dateSmall").textContent =
+
+  document.getElementById(
+    "dateSmall"
+  ).textContent =
     formatDateForDB(currentDate);
 }
 
@@ -617,106 +797,205 @@ function changeDate(amount){
   );
 
   updateDateLabel();
+
   loadAppointments();
 }
 
 
+/* ==============================
+   ORARET
+   08:00 - 19:00
+   ÇDO 30 MINUTA
+============================== */
+
 function createTimes(){
 
   const select =
-    document.getElementById("appointmentTime");
+    document.getElementById(
+      "appointmentTime"
+    );
 
   select.innerHTML = "";
 
-  for(let hour=8; hour<=18; hour++){
 
-    for(let minute=0; minute<60; minute+=15){
+  for(
+    let hour = 8;
+    hour <= 19;
+    hour++
+  ){
 
-      if(hour === 18 && minute > 0){
+    for(
+      let minute = 0;
+      minute < 60;
+      minute += 30
+    ){
+
+      /*
+        Në 19:00 lejohet vetëm 19:00.
+        Nuk krijojmë 19:30.
+      */
+
+      if(
+        hour === 19 &&
+        minute > 0
+      ){
         continue;
       }
+
 
       const time =
         String(hour).padStart(2,"0") +
         ":" +
         String(minute).padStart(2,"0");
 
+
       const option =
-        document.createElement("option");
+        document.createElement(
+          "option"
+        );
 
-      option.value = time + ":00";
-      option.textContent = time;
 
-      select.appendChild(option);
+      option.value =
+        time + ":00";
+
+
+      option.textContent =
+        time;
+
+
+      select.appendChild(
+        option
+      );
+
     }
+
   }
+
 }
 
+
+/* ==============================
+   KRIJO AGJENDEN
+============================== */
 
 function createAgenda(){
 
   const body =
-    document.getElementById("agendaBody");
+    document.getElementById(
+      "agendaBody"
+    );
 
   body.innerHTML = "";
 
-  for(let hour=8; hour<=18; hour++){
 
-    for(let minute=0; minute<60; minute+=15){
+  for(
+    let hour = 8;
+    hour <= 19;
+    hour++
+  ){
 
-      if(hour === 18 && minute > 0){
+    for(
+      let minute = 0;
+      minute < 60;
+      minute += 30
+    ){
+
+      /*
+        Ora e fundit është 19:00.
+      */
+
+      if(
+        hour === 19 &&
+        minute > 0
+      ){
         continue;
       }
+
 
       const time =
         String(hour).padStart(2,"0") +
         ":" +
         String(minute).padStart(2,"0");
 
-      const slot =
-        document.createElement("div");
 
-      slot.className = "slot";
+      const slot =
+        document.createElement(
+          "div"
+        );
+
+
+      slot.className =
+        "slot";
+
 
       slot.dataset.time =
         time + ":00";
 
+
       slot.innerHTML = `
-        <div class="time">${time}</div>
+
+        <div class="time">
+          ${time}
+        </div>
 
         <div class="slot-content">
 
           <div
             class="empty"
             onclick="openModal('${time}:00')">
+
             Orar i lirë
+
           </div>
 
         </div>
+
       `;
 
-      body.appendChild(slot);
+
+      body.appendChild(
+        slot
+      );
+
     }
+
   }
+
 }
 
+
+/* ==============================
+   LOAD APPOINTMENTS
+============================== */
 
 async function loadAppointments(){
 
   createAgenda();
 
+
   const date =
-    formatDateForDB(currentDate);
+    formatDateForDB(
+      currentDate
+    );
 
-  const result =
+
+  const {
+    data,
+    error
+  } =
     await supabaseClient
-      .from("imaging_appointments")
+      .from(
+        "imaging_appointments"
+      )
       .select("*")
-      .eq("appointment_date",date)
-      .order("appointment_time");
+      .eq(
+        "appointment_date",
+        date
+      )
+      .order(
+        "appointment_time"
+      );
 
-  const data = result.data;
-  const error = result.error;
 
   if(error){
 
@@ -728,126 +1007,207 @@ async function loadAppointments(){
     return;
   }
 
+
   if(!data){
     return;
   }
 
-  data.forEach(item => {
 
-    const slot =
-      document.querySelector(
-        `.slot[data-time="${item.appointment_time}"]`
-      );
+  data.forEach(
+    item => {
 
-    if(!slot){
-      return;
-    }
+      const slot =
+        document.querySelector(
+          `.slot[data-time="${item.appointment_time}"]`
+        );
 
-    const content =
-      slot.querySelector(".slot-content");
 
-    let statusStyle =
-      "background:#eef5fb;color:#087fa8;";
+      if(!slot){
+        return;
+      }
 
-    if(item.status === "Kryer"){
-      statusStyle =
-        "background:#eaf6f1;color:#16845b;";
-    }
 
-    if(item.status === "Anuluar"){
-      statusStyle =
-        "background:#fff0f0;color:#c83d3d;";
-    }
+      const content =
+        slot.querySelector(
+          ".slot-content"
+        );
 
-    content.innerHTML = `
 
-      <div class="appointment">
+      let statusStyle =
+        "background:#eef5fb;color:#087fa8;";
 
-        <div>
 
-          <div class="patient">
-            ${escapeHtml(item.patient_name)}
+      if(
+        item.status === "Kryer"
+      ){
+
+        statusStyle =
+          "background:#eaf6f1;color:#16845b;";
+
+      }
+
+
+      if(
+        item.status === "Anuluar"
+      ){
+
+        statusStyle =
+          "background:#fff0f0;color:#c83d3d;";
+
+      }
+
+
+      if(
+        item.status === "Në pritje"
+      ){
+
+        statusStyle =
+          "background:#fff6e8;color:#d9822b;";
+
+      }
+
+
+      content.innerHTML = `
+
+        <div class="appointment">
+
+          <div>
+
+            <div class="patient">
+
+              ${escapeHtml(
+                item.patient_name
+              )}
+
+            </div>
+
+
+            <div class="details">
+
+              ${escapeHtml(
+                item.exam_type || ""
+              )}
+
+              ${
+                item.body_area
+                ?
+                " · " +
+                escapeHtml(
+                  item.body_area
+                )
+                :
+                ""
+              }
+
+              ${
+                item.card_number
+                ?
+                " · Kartela: " +
+                escapeHtml(
+                  item.card_number
+                )
+                :
+                ""
+              }
+
+            </div>
+
           </div>
 
-          <div class="details">
 
-            ${escapeHtml(item.exam_type || "")}
+          <div
+            class="status"
+            style="${statusStyle}">
 
-            ${
-              item.body_area
-              ? " · " + escapeHtml(item.body_area)
-              : ""
-            }
-
-            ${
-              item.card_number
-              ? " · Kartela: " +
-                escapeHtml(item.card_number)
-              : ""
-            }
+            ${escapeHtml(
+              item.status ||
+              "Planifikuar"
+            )}
 
           </div>
 
         </div>
 
-        <div
-          class="status"
-          style="${statusStyle}">
-          ${escapeHtml(
-            item.status || "Planifikuar"
-          )}
-        </div>
+      `;
 
-      </div>
+    }
+  );
 
-    `;
-  });
 }
 
 
+/* ==============================
+   MODAL
+============================== */
+
 function openModal(time){
 
-  document.getElementById("modalBg")
-    .style.display = "flex";
+  document.getElementById(
+    "modalBg"
+  ).style.display = "flex";
 
-  document.getElementById("message")
-    .style.display = "none";
+
+  document.getElementById(
+    "message"
+  ).style.display = "none";
+
 
   if(time){
 
-    document.getElementById("appointmentTime")
-      .value = time;
+    document.getElementById(
+      "appointmentTime"
+    ).value = time;
+
   }
+
 }
 
 
 function closeModal(){
 
-  document.getElementById("modalBg")
-    .style.display = "none";
+  document.getElementById(
+    "modalBg"
+  ).style.display = "none";
 
-  document.getElementById("appointmentForm")
-    .reset();
+
+  document.getElementById(
+    "appointmentForm"
+  ).reset();
+
 }
 
 
+/* ==============================
+   SAVE
+============================== */
+
 document
-  .getElementById("appointmentForm")
+  .getElementById(
+    "appointmentForm"
+  )
   .addEventListener(
     "submit",
     async function(e){
 
       e.preventDefault();
 
-      const message =
-        document.getElementById("message");
 
-      message.style.display = "none";
+      const message =
+        document.getElementById(
+          "message"
+        );
+
+
+      message.style.display =
+        "none";
+
 
       const record = {
 
         appointment_date:
-          formatDateForDB(currentDate),
+          formatDateForDB(
+            currentDate
+          ),
 
         appointment_time:
           document.getElementById(
@@ -883,30 +1243,42 @@ document
           document.getElementById(
             "notes"
           ).value.trim() || null
+
       };
 
 
-      const result =
+      const {
+        error
+      } =
         await supabaseClient
-          .from("imaging_appointments")
-          .insert(record);
+          .from(
+            "imaging_appointments"
+          )
+          .insert(
+            record
+          );
 
-      if(result.error){
+
+      if(error){
 
         console.error(
           "Insert error:",
-          result.error
+          error
         );
+
 
         message.textContent =
           "Gabim gjatë ruajtjes: " +
-          result.error.message;
+          error.message;
+
 
         message.style.color =
           "#b42318";
 
+
         message.style.display =
           "block";
+
 
         return;
       }
@@ -914,35 +1286,69 @@ document
 
       closeModal();
 
+
       await loadAppointments();
 
     }
   );
 
 
+/* ==============================
+   SECURITY
+============================== */
+
 function escapeHtml(value){
 
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+  return String(
+    value ?? ""
+  )
+  .replaceAll(
+    "&",
+    "&amp;"
+  )
+  .replaceAll(
+    "<",
+    "&lt;"
+  )
+  .replaceAll(
+    ">",
+    "&gt;"
+  )
+  .replaceAll(
+    '"',
+    "&quot;"
+  )
+  .replaceAll(
+    "'",
+    "&#039;"
+  );
+
 }
 
+
+/* ==============================
+   LOGOUT
+============================== */
 
 function logout(){
 
-  window.location.href = "index.html";
+  window.location.href =
+    "index.html";
+
 }
 
 
+/* ==============================
+   START
+============================== */
+
 updateDateLabel();
+
 createTimes();
+
 loadAppointments();
 
 </script>
 
 </body>
 </html>
-```
