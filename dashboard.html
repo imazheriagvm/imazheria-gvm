@@ -1951,44 +1951,46 @@ async function updateAppointmentStatus(
     selectElement,
     cardElement
 ){
-    const previousStatus = selectElement.dataset.previousStatus || selectElement.value;
+    const previousStatus =
+        selectElement.dataset.previousStatus ||
+        selectElement.value;
 
     try{
+
         selectElement.disabled = true;
 
-        const { data, error } = await supabaseClient
+        const { error } = await supabaseClient
             .from("appointments")
-            .update({ status: newStatus })
-            .eq("id", id)
-            .select("id,status");
+            .update({
+                status: newStatus
+            })
+            .eq("id", id);
 
         if(error){
             throw error;
         }
 
-        // Nëse nuk u kthye asnjë rresht, UPDATE nuk u aplikua
-        // (zakonisht për shkak të RLS policy).
-        if(!data || data.length === 0){
-            throw new Error(
-                "Statusi nuk u ruajt në databazë. Kontrolloni politikën UPDATE (RLS) të tabelës appointments në Supabase."
-            );
-        }
+        /*
+         * Nuk përdorim më .select("id,status")
+         * sepse RLS mund të lejojë UPDATE,
+         * por të mos lejojë kthimin e rreshtit.
+         */
 
-        const savedStatus = data[0].status;
+        selectElement.dataset.previousStatus = newStatus;
 
-        if(savedStatus !== newStatus){
-            throw new Error("Statusi nuk u ruajt siç u zgjodh.");
-        }
-
-        selectElement.dataset.previousStatus = savedStatus;
-
-        const newClass = getStatusClass(savedStatus);
+        const newClass =
+            getStatusClass(newStatus);
 
         selectElement.className =
             "status-select " + newClass;
 
         cardElement.className =
             "appointment " + newClass;
+
+        /*
+         * Rifresko agjendën nga databaza
+         */
+        await loadAppointments();
 
     }catch(error){
 
@@ -1997,19 +1999,24 @@ async function updateAppointmentStatus(
             error
         );
 
-        // Kthe dropdown-in te statusi i mëparshëm.
         if(previousStatus){
-            selectElement.value = previousStatus;
+
+            selectElement.value =
+                previousStatus;
+
             selectElement.className =
-                "status-select " + getStatusClass(previousStatus);
+                "status-select " +
+                getStatusClass(previousStatus);
         }
 
         alert(
-            error.message ||
-            "Statusi nuk u ndryshua."
+            "Statusi nuk u ruajt.\n\n" +
+            (error.message ||
+             "Gabim i panjohur.")
         );
 
     }finally{
+
         selectElement.disabled = false;
     }
 }
