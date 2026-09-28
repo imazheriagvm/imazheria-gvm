@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>GVM Care & Research — Imazheria</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -17,12 +16,10 @@
 :root{
   --navy:#073f63;
   --blue:#087fa8;
-  --light:#eef7fb;
   --border:#dce8ee;
   --text:#17384b;
   --muted:#718794;
   --green:#16845b;
-  --orange:#d9822b;
   --red:#c83d3d;
 }
 
@@ -43,7 +40,7 @@ body{
   bottom:0;
   width:245px;
   background:linear-gradient(180deg,#073f63,#052f4b);
-  color:white;
+  color:#fff;
   padding:28px 18px;
 }
 
@@ -108,7 +105,7 @@ body{
 
 .logout{
   border:1px solid var(--border);
-  background:white;
+  background:#fff;
   color:var(--navy);
   padding:10px 15px;
   border-radius:10px;
@@ -116,10 +113,10 @@ body{
   font-weight:700;
 }
 
-/* DATE BAR */
+/* DATE */
 
 .datebar{
-  background:white;
+  background:#fff;
   border:1px solid var(--border);
   border-radius:17px;
   padding:17px;
@@ -129,11 +126,6 @@ body{
   margin-bottom:20px;
 }
 
-.date-buttons{
-  display:flex;
-  gap:8px;
-}
-
 .date-btn{
   width:42px;
   height:40px;
@@ -141,7 +133,7 @@ body{
   background:#f8fbfc;
   border-radius:10px;
   cursor:pointer;
-  font-size:18px;
+  font-size:20px;
   color:var(--navy);
 }
 
@@ -153,6 +145,7 @@ body{
   font-weight:800;
   color:var(--navy);
   font-size:18px;
+  text-transform:capitalize;
 }
 
 .date-small{
@@ -163,10 +156,16 @@ body{
 
 /* ACTION */
 
+.action-row{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:14px;
+}
+
 .add-btn{
   border:0;
   background:linear-gradient(135deg,var(--blue),var(--navy));
-  color:white;
+  color:#fff;
   padding:12px 18px;
   border-radius:11px;
   font-weight:800;
@@ -176,7 +175,7 @@ body{
 /* AGENDA */
 
 .agenda{
-  background:white;
+  background:#fff;
   border:1px solid var(--border);
   border-radius:18px;
   overflow:hidden;
@@ -232,8 +231,6 @@ body{
   cursor:pointer;
 }
 
-/* APPOINTMENT CARD */
-
 .appointment{
   min-height:58px;
   border:1px solid #d9e7ed;
@@ -278,7 +275,7 @@ body{
 
 .modal{
   width:min(540px,100%);
-  background:white;
+  background:#fff;
   border-radius:20px;
   padding:27px;
   box-shadow:0 25px 70px rgba(0,0,0,.2);
@@ -322,7 +319,7 @@ body{
   padding:11px 12px;
   font-size:14px;
   outline:none;
-  background:white;
+  background:#fff;
 }
 
 .field textarea{
@@ -339,7 +336,7 @@ body{
 
 .cancel{
   border:1px solid var(--border);
-  background:white;
+  background:#fff;
   padding:11px 17px;
   border-radius:10px;
   cursor:pointer;
@@ -348,7 +345,7 @@ body{
 .save{
   border:0;
   background:var(--blue);
-  color:white;
+  color:#fff;
   padding:11px 20px;
   border-radius:10px;
   font-weight:800;
@@ -361,8 +358,6 @@ body{
   display:none;
 }
 
-/* MOBILE */
-
 @media(max-width:800px){
 
   .sidebar{
@@ -372,10 +367,6 @@ body{
   .main{
     margin-left:0;
     padding:15px;
-  }
-
-  .topbar{
-    gap:15px;
   }
 
   .page-title h1{
@@ -435,23 +426,23 @@ body{
 
   <div class="datebar">
 
-    <div class="date-buttons">
-      <button class="date-btn" onclick="changeDate(-1)">‹</button>
-    </div>
+    <button class="date-btn" onclick="changeDate(-1)">
+      ‹
+    </button>
 
     <div class="date-center">
       <div id="dateLabel" class="date-label"></div>
       <div id="dateSmall" class="date-small"></div>
     </div>
 
-    <div class="date-buttons">
-      <button class="date-btn" onclick="changeDate(1)">›</button>
-    </div>
+    <button class="date-btn" onclick="changeDate(1)">
+      ›
+    </button>
 
   </div>
 
 
-  <div style="display:flex;justify-content:flex-end;margin-bottom:14px;">
+  <div class="action-row">
     <button class="add-btn" onclick="openModal()">
       + Shto ekzaminim
     </button>
@@ -471,8 +462,6 @@ body{
 
 </main>
 
-
-<!-- MODAL -->
 
 <div id="modalBg" class="modal-bg">
 
@@ -546,11 +535,16 @@ body{
 
       <div class="modal-actions">
 
-        <button type="button" class="cancel" onclick="closeModal()">
+        <button
+          type="button"
+          class="cancel"
+          onclick="closeModal()">
           Anulo
         </button>
 
-        <button type="submit" class="save">
+        <button
+          type="submit"
+          class="save">
           Ruaj ekzaminimin
         </button>
 
@@ -565,10 +559,6 @@ body{
 
 <script>
 
-/* =========================================================
-   SUPABASE
-========================================================= */
-
 const SUPABASE_URL =
   "https://wevrbiserxyqmnllallk.supabase.co";
 
@@ -582,18 +572,15 @@ const supabaseClient =
   );
 
 
-/* =========================================================
-   DATE
-========================================================= */
-
 let currentDate = new Date();
+
 
 function formatDateForDB(date){
 
   const y = date.getFullYear();
 
   const m =
-    String(date.getMonth()+1).padStart(2,"0");
+    String(date.getMonth() + 1).padStart(2,"0");
 
   const d =
     String(date.getDate()).padStart(2,"0");
@@ -630,14 +617,9 @@ function changeDate(amount){
   );
 
   updateDateLabel();
-
   loadAppointments();
 }
 
-
-/* =========================================================
-   HOURS
-========================================================= */
 
 function createTimes(){
 
@@ -646,17 +628,13 @@ function createTimes(){
 
   select.innerHTML = "";
 
-  /*
-    Orari:
-    08:00 - 18:00
-    çdo 15 minuta
-  */
-
   for(let hour=8; hour<=18; hour++){
 
     for(let minute=0; minute<60; minute+=15){
 
-      if(hour===18 && minute>0) continue;
+      if(hour === 18 && minute > 0){
+        continue;
+      }
 
       const time =
         String(hour).padStart(2,"0") +
@@ -666,21 +644,14 @@ function createTimes(){
       const option =
         document.createElement("option");
 
-      option.value =
-        time + ":00";
-
-      option.textContent =
-        time;
+      option.value = time + ":00";
+      option.textContent = time;
 
       select.appendChild(option);
     }
   }
 }
 
-
-/* =========================================================
-   AGENDA
-========================================================= */
 
 function createAgenda(){
 
@@ -693,7 +664,9 @@ function createAgenda(){
 
     for(let minute=0; minute<60; minute+=15){
 
-      if(hour===18 && minute>0) continue;
+      if(hour === 18 && minute > 0){
+        continue;
+      }
 
       const time =
         String(hour).padStart(2,"0") +
@@ -715,8 +688,7 @@ function createAgenda(){
 
           <div
             class="empty"
-            onclick="openModal('${time}:00')"
-          >
+            onclick="openModal('${time}:00')">
             Orar i lirë
           </div>
 
@@ -729,10 +701,6 @@ function createAgenda(){
 }
 
 
-/* =========================================================
-   LOAD APPOINTMENTS
-========================================================= */
-
 async function loadAppointments(){
 
   createAgenda();
@@ -740,12 +708,15 @@ async function loadAppointments(){
   const date =
     formatDateForDB(currentDate);
 
-  const { data, error } =
+  const result =
     await supabaseClient
       .from("imaging_appointments")
       .select("*")
-      .eq("appointment_date", date)
+      .eq("appointment_date",date)
       .order("appointment_time");
+
+  const data = result.data;
+  const error = result.error;
 
   if(error){
 
@@ -757,7 +728,9 @@ async function loadAppointments(){
     return;
   }
 
-  if(!data) return;
+  if(!data){
+    return;
+  }
 
   data.forEach(item => {
 
@@ -766,7 +739,9 @@ async function loadAppointments(){
         `.slot[data-time="${item.appointment_time}"]`
       );
 
-    if(!slot) return;
+    if(!slot){
+      return;
+    }
 
     const content =
       slot.querySelector(".slot-content");
@@ -817,22 +792,18 @@ async function loadAppointments(){
 
         <div
           class="status"
-          style="${statusStyle}"
-        >
+          style="${statusStyle}">
           ${escapeHtml(
             item.status || "Planifikuar"
           )}
         </div>
 
       </div>
+
     `;
   });
 }
 
-
-/* =========================================================
-   MODAL
-========================================================= */
 
 function openModal(time){
 
@@ -859,10 +830,6 @@ function closeModal(){
     .reset();
 }
 
-
-/* =========================================================
-   SAVE APPOINTMENT
-========================================================= */
 
 document
   .getElementById("appointmentForm")
@@ -916,26 +883,24 @@ document
           document.getElementById(
             "notes"
           ).value.trim() || null
-
       };
 
 
-      const { error } =
+      const result =
         await supabaseClient
           .from("imaging_appointments")
           .insert(record);
 
-
-      if(error){
+      if(result.error){
 
         console.error(
           "Insert error:",
-          error
+          result.error
         );
 
         message.textContent =
           "Gabim gjatë ruajtjes: " +
-          error.message;
+          result.error.message;
 
         message.style.color =
           "#b42318";
@@ -955,10 +920,6 @@ document
   );
 
 
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
 function escapeHtml(value){
 
   return String(value ?? "")
@@ -970,25 +931,14 @@ function escapeHtml(value){
 }
 
 
-/* =========================================================
-   LOGOUT
-========================================================= */
-
 function logout(){
 
-  window.location.href =
-    "index.html";
+  window.location.href = "index.html";
 }
 
 
-/* =========================================================
-   START
-========================================================= */
-
 updateDateLabel();
-
 createTimes();
-
 loadAppointments();
 
 </script>
