@@ -24,12 +24,16 @@
     --border:#dce6ed;
     --text:#193247;
     --muted:#708394;
+
     --green:#198754;
     --green-bg:#eaf8f1;
+
     --orange:#c27a00;
     --orange-bg:#fff7e5;
+
     --red:#b42318;
     --red-bg:#fff0ef;
+
     --shadow:0 5px 20px rgba(13,48,73,.07);
 }
 
@@ -172,7 +176,7 @@ body{
 }
 
 /* =========================================================
-   TOP HEADER
+   TOPBAR
 ========================================================= */
 
 .topbar{
@@ -288,7 +292,7 @@ body{
 }
 
 /* =========================================================
-   STATISTICS
+   STATS
 ========================================================= */
 
 .stats{
@@ -333,6 +337,16 @@ body{
     grid-template-columns:minmax(0,1fr) 375px;
     gap:20px;
     align-items:start;
+}
+
+/*
+    IMPORTANT:
+    Formulari nuk është sticky.
+    Gjithçka lëviz normalisht me scroll.
+*/
+
+.form-card{
+    position:relative;
 }
 
 /* =========================================================
@@ -472,6 +486,10 @@ body{
     border-left:1px solid #e3ebf0;
 }
 
+/* =========================================================
+   EMPTY SLOT
+========================================================= */
+
 .empty-slot{
     min-height:48px;
     border:1px dashed #dce6ec;
@@ -490,13 +508,30 @@ body{
 
 .appointment{
     width:100%;
+    min-width:0;
     min-height:48px;
+
     border-radius:9px;
-    padding:9px 11px;
+
+    padding:8px 9px;
+
     display:grid;
-    grid-template-columns:minmax(150px,1.1fr) minmax(170px,1fr) 150px 38px;
+
+    /*
+       4 kolona:
+       pacienti | ekzaminimi | statusi | fshi
+    */
+    grid-template-columns:
+        minmax(115px,1.05fr)
+        minmax(125px,1fr)
+        minmax(115px,135px)
+        32px;
+
     align-items:center;
-    gap:12px;
+
+    gap:8px;
+
+    overflow:hidden;
 }
 
 .appointment.status-waiting{
@@ -522,35 +557,60 @@ body{
 
 .patient-name{
     color:#183247;
-    font-size:14px;
+    font-size:13px;
     font-weight:800;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 .patient-phone{
     margin-top:3px;
     color:#778996;
-    font-size:11px;
+    font-size:10px;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 .exam-name{
     color:#23475f;
-    font-size:13px;
+    font-size:12px;
     font-weight:800;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 .exam-meta{
     margin-top:3px;
     color:#778996;
-    font-size:11px;
+    font-size:10px;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
+
+/* =========================================================
+   STATUS
+========================================================= */
 
 .status-select{
     width:100%;
-    height:36px;
+    min-width:0;
+    height:34px;
+
     border-radius:7px;
-    padding:0 7px;
-    font-size:11px;
+
+    padding:0 5px;
+
+    font-size:10px;
     font-weight:800;
+
     cursor:pointer;
 }
 
@@ -578,25 +638,39 @@ body{
     color:#8b2722;
 }
 
+/* =========================================================
+   DELETE
+========================================================= */
+
 .delete-btn{
-    width:34px;
-    height:34px;
+    width:32px;
+    min-width:32px;
+    height:32px;
+
     border:1px solid #e1c1be;
+
     background:#fffafa;
+
     color:#ad332b;
+
     border-radius:7px;
+
     cursor:pointer;
-    font-size:14px;
+
+    font-size:17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:0;
+
+    margin:0;
 }
 
 /* =========================================================
    FORM
 ========================================================= */
-
-.form-card{
-    position:sticky;
-    top:20px;
-}
 
 .form-body{
     padding:19px;
@@ -618,12 +692,19 @@ input,
 select{
     width:100%;
     height:43px;
+
     border:1px solid #ccd9e1;
+
     border-radius:8px;
+
     background:white;
+
     color:#1c3447;
+
     padding:0 11px;
+
     font-size:13px;
+
     outline:none;
 }
 
@@ -652,13 +733,19 @@ select:focus{
 
 .radio-box{
     height:43px;
+
     border:1px solid #ccd9e1;
+
     border-radius:8px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     color:#526b7a;
+
     background:#fff;
+
     font-size:13px;
     font-weight:800;
 }
@@ -684,16 +771,23 @@ select:focus{
 }
 
 .contrast-option{
-    height:40px;
+    min-height:40px;
+
     border:1px solid #ccd9e1;
+
     border-radius:8px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     gap:6px;
+
     color:#526b7a;
+
     font-size:12px;
     font-weight:700;
+
     cursor:pointer;
 }
 
@@ -705,36 +799,52 @@ select:focus{
 .btn-save{
     width:100%;
     height:46px;
+
     margin-top:4px;
+
     border:0;
+
     border-radius:8px;
+
     background:var(--blue);
+
     color:white;
+
     font-size:14px;
     font-weight:800;
+
     cursor:pointer;
 }
 
 .form-note{
     margin-top:10px;
+
     text-align:center;
+
     color:#8b9ba7;
+
     font-size:10px;
+
     line-height:1.5;
 }
 
 /* =========================================================
-   CALENDAR MODAL
+   CALENDAR
 ========================================================= */
 
 .calendar-overlay{
     position:fixed;
     inset:0;
+
     background:rgba(6,30,46,.45);
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     z-index:100;
+
     padding:20px;
 }
 
@@ -745,18 +855,27 @@ select:focus{
 .calendar-modal{
     width:430px;
     max-width:100%;
+
     background:white;
+
     border-radius:15px;
+
     border:1px solid var(--border);
+
     box-shadow:0 20px 60px rgba(0,0,0,.22);
+
     overflow:hidden;
 }
 
 .calendar-modal-header{
     padding:18px 20px;
+
     background:#f8fbfd;
+
     border-bottom:1px solid var(--border);
+
     display:flex;
+
     justify-content:space-between;
     align-items:center;
 }
@@ -770,11 +889,17 @@ select:focus{
 .close-calendar{
     width:34px;
     height:34px;
+
     border:1px solid var(--border);
+
     background:white;
+
     border-radius:7px;
+
     cursor:pointer;
+
     font-size:18px;
+
     color:#607584;
 }
 
@@ -784,8 +909,11 @@ select:focus{
 
 .calendar-head{
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     margin-bottom:14px;
 }
 
@@ -803,39 +931,60 @@ select:focus{
 .calendar-nav button{
     width:34px;
     height:34px;
+
     border:1px solid var(--border);
+
     border-radius:7px;
+
     background:white;
+
     cursor:pointer;
+
     color:var(--navy);
 }
 
 .calendar-weekdays,
 .calendar-days{
     display:grid;
-    grid-template-columns:repeat(7,1fr);
+
+    grid-template-columns:
+        repeat(7,1fr);
+
     gap:4px;
 }
 
 .weekday{
     padding:6px 0;
+
     text-align:center;
+
     color:#81919d;
+
     font-size:11px;
+
     font-weight:800;
 }
 
 .calendar-day{
     height:44px;
+
     border:1px solid transparent;
+
     border-radius:7px;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     position:relative;
+
     color:#30495b;
+
     font-size:13px;
+
     font-weight:700;
+
     cursor:pointer;
 }
 
@@ -856,11 +1005,16 @@ select:focus{
 
 .calendar-day.has-appointments::after{
     content:"";
+
     position:absolute;
+
     bottom:4px;
+
     width:5px;
     height:5px;
+
     border-radius:50%;
+
     background:#d98d20;
 }
 
@@ -870,10 +1024,15 @@ select:focus{
 
 .calendar-footer{
     margin-top:16px;
+
     padding-top:14px;
+
     border-top:1px solid #edf1f4;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 }
 
@@ -884,13 +1043,21 @@ select:focus{
 
 .calendar-today{
     height:35px;
+
     padding:0 12px;
+
     border:1px solid #c5dce8;
+
     border-radius:7px;
+
     background:#eef7fb;
+
     color:#175878;
+
     font-size:11px;
+
     font-weight:800;
+
     cursor:pointer;
 }
 
@@ -900,8 +1067,11 @@ select:focus{
 
 .empty-agenda{
     padding:45px 20px;
+
     text-align:center;
+
     color:#94a3ad;
+
     font-size:13px;
 }
 
@@ -911,17 +1081,27 @@ select:focus{
 
 .toast{
     position:fixed;
+
     right:22px;
     bottom:22px;
+
     min-width:260px;
     max-width:390px;
+
     padding:13px 16px;
+
     border-radius:9px;
+
     background:var(--navy-dark);
+
     color:white;
+
     box-shadow:0 10px 30px rgba(0,0,0,.2);
+
     font-size:13px;
+
     z-index:200;
+
     display:none;
 }
 
@@ -939,13 +1119,24 @@ select:focus{
         grid-template-columns:1fr;
     }
 
-    .form-card{
-        position:static;
-    }
-
     .stats{
         grid-template-columns:repeat(2,1fr);
     }
+
+}
+
+@media(max-width:1000px){
+
+    .appointment{
+        grid-template-columns:
+            minmax(105px,1fr)
+            minmax(110px,1fr)
+            115px
+            32px;
+
+        gap:6px;
+    }
+
 }
 
 @media(max-width:900px){
@@ -962,18 +1153,16 @@ select:focus{
         padding:20px;
     }
 
-    .appointment{
-        grid-template-columns:minmax(130px,1fr) minmax(140px,1fr) 125px 35px;
-        gap:8px;
-    }
 }
 
 @media(max-width:700px){
 
     .sidebar{
         position:relative;
+
         width:100%;
         height:auto;
+
         padding:15px;
     }
 
@@ -994,7 +1183,9 @@ select:focus{
     .topbar{
         height:auto;
         min-height:70px;
+
         padding:12px 15px;
+
         gap:10px;
     }
 
@@ -1034,17 +1225,33 @@ select:focus{
         flex-direction:column;
     }
 
+    /*
+       Në telefon karta e ekzaminimit bëhet vertikale,
+       kështu asnjë buton nuk del jashtë.
+    */
+
     .appointment{
         grid-template-columns:1fr;
         gap:7px;
+        padding:10px;
     }
 
-    .delete-btn{
-        width:100%;
+    .patient-name,
+    .patient-phone,
+    .exam-name,
+    .exam-meta{
+        white-space:normal;
+        overflow:visible;
+        text-overflow:initial;
     }
 
     .status-select{
         width:100%;
+    }
+
+    .delete-btn{
+        width:100%;
+        height:34px;
     }
 
     .time-row{
@@ -1054,6 +1261,7 @@ select:focus{
     .time{
         font-size:11px;
     }
+
 }
 </style>
 </head>
@@ -1067,8 +1275,13 @@ select:focus{
 <aside class="sidebar">
 
     <div class="brand">
-        <div class="brand-main">GVM Care</div>
-        <div class="brand-sub">Care & Research</div>
+        <div class="brand-main">
+            GVM Care
+        </div>
+
+        <div class="brand-sub">
+            Care & Research
+        </div>
     </div>
 
     <div class="department">
@@ -1125,8 +1338,6 @@ select:focus{
 
 <main class="main">
 
-    <!-- TOPBAR -->
-
     <header class="topbar">
 
         <div class="topbar-left">
@@ -1136,6 +1347,7 @@ select:focus{
             </div>
 
             <div>
+
                 <div class="top-title">
                     GVM Care & Research
                 </div>
@@ -1143,6 +1355,7 @@ select:focus{
                 <div class="top-subtitle">
                     Departamenti i Imazherisë
                 </div>
+
             </div>
 
         </div>
@@ -1167,8 +1380,6 @@ select:focus{
 
     </header>
 
-
-    <!-- CONTENT -->
 
     <div class="content">
 
@@ -1204,7 +1415,9 @@ select:focus{
         </div>
 
 
-        <!-- STATISTICS -->
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
 
         <section class="stats">
 
@@ -1274,7 +1487,9 @@ select:focus{
         </section>
 
 
-        <!-- PRIMARY -->
+        <!-- =================================================
+             PRIMARY
+        ================================================== -->
 
         <section class="primary-layout">
 
@@ -1306,6 +1521,7 @@ select:focus{
                         </div>
 
                     </div>
+
 
                     <button
                         class="today-btn"
@@ -1977,6 +2193,7 @@ function parseDateInput(value){
         parts[1] - 1,
         parts[2]
     );
+
 }
 
 
@@ -2018,7 +2235,7 @@ function formatShortDate(date){
 
 
 /* =========================================================
-   TIME OPTIONS
+   TIMES
 ========================================================= */
 
 function populateTimes(){
@@ -2047,13 +2264,19 @@ function populateTimes(){
                 ":" +
                 String(minute).padStart(2,"0");
 
+
             const option =
                 document.createElement("option");
 
-            option.value = time;
-            option.textContent = time;
+            option.value =
+                time;
 
-            appointmentTime.appendChild(option);
+            option.textContent =
+                time;
+
+            appointmentTime.appendChild(
+                option
+            );
 
         }
 
@@ -2073,7 +2296,8 @@ function populateExamOptions(type){
     const placeholder =
         document.createElement("option");
 
-    placeholder.value = "";
+    placeholder.value =
+        "";
 
     placeholder.textContent =
         type === "MRI"
@@ -2095,10 +2319,15 @@ function populateExamOptions(type){
         function(exam){
 
             const option =
-                document.createElement("option");
+                document.createElement(
+                    "option"
+                );
 
-            option.value = exam;
-            option.textContent = exam;
+            option.value =
+                exam;
+
+            option.textContent =
+                exam;
 
             examNameSelect.appendChild(
                 option
@@ -2108,7 +2337,8 @@ function populateExamOptions(type){
     );
 
 
-    examNameSelect.disabled = false;
+    examNameSelect.disabled =
+        false;
 
 }
 
@@ -2124,15 +2354,21 @@ function showToast(message){
     toast.textContent =
         message;
 
-    toast.classList.add("show");
+    toast.classList.add(
+        "show"
+    );
 
-    clearTimeout(toastTimer);
+    clearTimeout(
+        toastTimer
+    );
 
     toastTimer =
         setTimeout(
             function(){
 
-                toast.classList.remove("show");
+                toast.classList.remove(
+                    "show"
+                );
 
             },
             3000
@@ -2152,21 +2388,26 @@ function updateDateLabels(){
             selectedDate
         );
 
+
     scheduleDate.textContent =
         longDate;
 
+
     headingDate.textContent =
         longDate;
+
 
     topDateText.textContent =
         formatShortDate(
             selectedDate
         );
 
+
     appointmentDate.value =
         formatDateInput(
             selectedDate
         );
+
 
     calendarSelectedText.textContent =
         "Zgjedhur: " + longDate;
@@ -2175,7 +2416,7 @@ function updateDateLabels(){
 
 
 /* =========================================================
-   CALENDAR DATA
+   CALENDAR APPOINTMENTS
 ========================================================= */
 
 async function loadCalendarAppointments(){
@@ -2188,6 +2429,7 @@ async function loadCalendarAppointments(){
                 1
             )
         );
+
 
     const lastDay =
         formatDateInput(
@@ -2237,12 +2479,14 @@ async function loadCalendarAppointments(){
 
 
 /* =========================================================
-   RENDER CALENDAR
+   CALENDAR
 ========================================================= */
 
 async function renderCalendar(){
 
-    calendarDays.innerHTML = "";
+    calendarDays.innerHTML =
+        "";
+
 
     const year =
         calendarDate.getFullYear();
@@ -2252,13 +2496,16 @@ async function renderCalendar(){
 
 
     calendarMonth.textContent =
-        months[month] + " " + year;
+        months[month] +
+        " " +
+        year;
 
 
     const appointmentDates =
         new Set(
             currentCalendarAppointments.map(
-                a => a.appointment_date
+                a =>
+                    a.appointment_date
             )
         );
 
@@ -2309,6 +2556,7 @@ async function renderCalendar(){
                 previousMonthDays - i
             );
 
+
         createCalendarDay(
             date,
             true,
@@ -2331,6 +2579,7 @@ async function renderCalendar(){
                 day
             );
 
+
         createCalendarDay(
             date,
             false,
@@ -2341,12 +2590,15 @@ async function renderCalendar(){
 
 
     const totalCells =
-        startDay + daysInMonth;
+        startDay +
+        daysInMonth;
+
 
     const remaining =
         Math.ceil(
             totalCells / 7
-        ) * 7 - totalCells;
+        ) * 7 -
+        totalCells;
 
 
     for(
@@ -2361,6 +2613,7 @@ async function renderCalendar(){
                 month + 1,
                 day
             );
+
 
         createCalendarDay(
             date,
@@ -2380,16 +2633,21 @@ function createCalendarDay(
 ){
 
     const button =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     button.className =
         "calendar-day";
 
 
     if(otherMonth){
+
         button.classList.add(
             "other-month"
         );
+
     }
 
 
@@ -2399,9 +2657,11 @@ function createCalendarDay(
             new Date()
         )
     ){
+
         button.classList.add(
             "today"
         );
+
     }
 
 
@@ -2411,9 +2671,11 @@ function createCalendarDay(
             selectedDate
         )
     ){
+
         button.classList.add(
             "selected"
         );
+
     }
 
 
@@ -2519,12 +2781,14 @@ async function loadAppointments(){
             result.error
         );
 
+
         scheduleList.innerHTML =
             `
             <div class="empty-agenda">
                 Nuk u arrit të ngarkohej agjenda.
             </div>
             `;
+
 
         return;
 
@@ -2547,7 +2811,10 @@ async function loadAppointments(){
     );
 
 
-    await loadTodayStats();
+    updateStats(
+        appointments
+    );
+
 
     await refreshCalendar();
 
@@ -2555,45 +2822,8 @@ async function loadAppointments(){
 
 
 /* =========================================================
-   TODAY / SELECTED STATS
+   STATS
 ========================================================= */
-
-async function loadTodayStats(){
-
-    const date =
-        formatDateInput(
-            selectedDate
-        );
-
-
-    const result =
-        await supabaseClient
-            .from("appointments")
-            .select("*")
-            .eq(
-                "appointment_date",
-                date
-            );
-
-
-    if(result.error){
-
-        console.error(
-            "Stats error:",
-            result.error
-        );
-
-        return;
-
-    }
-
-
-    updateStats(
-        result.data || []
-    );
-
-}
-
 
 function updateStats(
     appointments
@@ -2651,14 +2881,15 @@ function updateStats(
 
 
 /* =========================================================
-   SCHEDULE
+   RENDER SCHEDULE
 ========================================================= */
 
 function renderSchedule(
     appointments
 ){
 
-    scheduleList.innerHTML = "";
+    scheduleList.innerHTML =
+        "";
 
 
     for(
@@ -2686,24 +2917,34 @@ function renderSchedule(
 
 
             const row =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             row.className =
                 "time-row";
 
 
             const timeDiv =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             timeDiv.className =
                 "time";
+
 
             timeDiv.textContent =
                 time;
 
 
             const slot =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             slot.className =
                 "slot";
@@ -2714,8 +2955,7 @@ function renderSchedule(
                     a =>
                         String(
                             a.appointment_time
-                        ).slice(0,5)
-                        === time
+                        ).slice(0,5) === time
                 );
 
 
@@ -2734,11 +2974,14 @@ function renderSchedule(
                         "div"
                     );
 
+
                 empty.className =
                     "empty-slot";
 
+
                 empty.textContent =
                     "E lirë";
+
 
                 slot.appendChild(
                     empty
@@ -2751,9 +2994,11 @@ function renderSchedule(
                 timeDiv
             );
 
+
             row.appendChild(
                 slot
             );
+
 
             scheduleList.appendChild(
                 row
@@ -2786,7 +3031,10 @@ function createAppointmentCard(
 
 
     const card =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     card.className =
         "appointment " +
@@ -2794,7 +3042,9 @@ function createAppointmentCard(
 
 
     const patient =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     patient.innerHTML =
@@ -2815,7 +3065,9 @@ function createAppointmentCard(
 
 
     const exam =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     exam.innerHTML =
@@ -2872,11 +3124,14 @@ function createAppointmentCard(
                     "option"
                 );
 
+
             option.value =
                 status;
 
+
             option.textContent =
                 status;
+
 
             if(
                 status === currentStatus
@@ -2886,6 +3141,7 @@ function createAppointmentCard(
                     true;
 
             }
+
 
             statusSelect.appendChild(
                 option
@@ -2919,11 +3175,20 @@ function createAppointmentCard(
     deleteButton.type =
         "button";
 
+
     deleteButton.className =
         "delete-btn";
 
+
     deleteButton.title =
         "Fshi ekzaminimin";
+
+
+    deleteButton.setAttribute(
+        "aria-label",
+        "Fshi ekzaminimin"
+    );
+
 
     deleteButton.textContent =
         "×";
@@ -2945,13 +3210,16 @@ function createAppointmentCard(
         patient
     );
 
+
     card.appendChild(
         exam
     );
 
+
     card.appendChild(
         statusSelect
     );
+
 
     card.appendChild(
         deleteButton
@@ -2964,7 +3232,7 @@ function createAppointmentCard(
 
 
 /* =========================================================
-   ESCAPE
+   ESCAPE HTML
 ========================================================= */
 
 function escapeHtml(value){
@@ -3026,6 +3294,7 @@ async function updateAppointmentStatus(
         console.error(
             result.error
         );
+
 
         showToast(
             "Gabim gjatë ndryshimit të statusit."
@@ -3101,11 +3370,14 @@ appointmentForm.addEventListener(
         const name =
             patientName.value.trim();
 
+
         const phoneValue =
             phone.value.trim();
 
+
         const date =
             appointmentDate.value;
+
 
         const time =
             appointmentTime.value;
@@ -3188,7 +3460,7 @@ appointmentForm.addEventListener(
                 : null;
 
 
-        /* CHECK SLOT */
+        /* CHECK DUPLICATE */
 
         const duplicate =
             await supabaseClient
@@ -3211,9 +3483,11 @@ appointmentForm.addEventListener(
                 duplicate.error
             );
 
+
             showToast(
                 "Nuk u kontrollua dot orari."
             );
+
 
             return;
 
@@ -3229,6 +3503,7 @@ appointmentForm.addEventListener(
                 "Kjo orë është tashmë e zënë."
             );
 
+
             return;
 
         }
@@ -3241,6 +3516,7 @@ appointmentForm.addEventListener(
                 .from("appointments")
                 .insert([
                     {
+
                         appointment_date:
                             date,
 
@@ -3264,6 +3540,7 @@ appointmentForm.addEventListener(
 
                         status:
                             STATUS.WAITING
+
                     }
                 ]);
 
@@ -3275,9 +3552,11 @@ appointmentForm.addEventListener(
                 result.error
             );
 
+
             showToast(
                 "Gabim gjatë ruajtjes së ekzaminimit."
             );
+
 
             return;
 
@@ -3293,6 +3572,7 @@ appointmentForm.addEventListener(
 
         patientName.value =
             "";
+
 
         phone.value =
             "";
@@ -3350,6 +3630,7 @@ appointmentForm.addEventListener(
 
 
         updateDateLabels();
+
 
         await loadAppointments();
 
@@ -3427,6 +3708,7 @@ appointmentDate.addEventListener(
 
         updateDateLabels();
 
+
         await loadAppointments();
 
     }
@@ -3438,7 +3720,9 @@ appointmentDate.addEventListener(
 ========================================================= */
 
 document
-    .getElementById("previousDay")
+    .getElementById(
+        "previousDay"
+    )
     .addEventListener(
         "click",
         async function(){
@@ -3458,6 +3742,7 @@ document
 
             updateDateLabels();
 
+
             await loadAppointments();
 
         }
@@ -3469,7 +3754,9 @@ document
 ========================================================= */
 
 document
-    .getElementById("nextDay")
+    .getElementById(
+        "nextDay"
+    )
     .addEventListener(
         "click",
         async function(){
@@ -3489,6 +3776,7 @@ document
 
             updateDateLabels();
 
+
             await loadAppointments();
 
         }
@@ -3500,7 +3788,9 @@ document
 ========================================================= */
 
 document
-    .getElementById("todayButton")
+    .getElementById(
+        "todayButton"
+    )
     .addEventListener(
         "click",
         async function(){
@@ -3525,6 +3815,7 @@ document
 
             updateDateLabels();
 
+
             await loadAppointments();
 
         }
@@ -3536,7 +3827,9 @@ document
 ========================================================= */
 
 document
-    .getElementById("openCalendarBtn")
+    .getElementById(
+        "openCalendarBtn"
+    )
     .addEventListener(
         "click",
         async function(){
@@ -3550,6 +3843,7 @@ document
 
 
             await refreshCalendar();
+
 
             calendarOverlay.classList.add(
                 "show"
@@ -3573,7 +3867,9 @@ function closeCalendar(){
 
 
 document
-    .getElementById("closeCalendarBtn")
+    .getElementById(
+        "closeCalendarBtn"
+    )
     .addEventListener(
         "click",
         closeCalendar
@@ -3602,7 +3898,9 @@ calendarOverlay.addEventListener(
 ========================================================= */
 
 document
-    .getElementById("previousMonth")
+    .getElementById(
+        "previousMonth"
+    )
     .addEventListener(
         "click",
         async function(){
@@ -3623,7 +3921,9 @@ document
 ========================================================= */
 
 document
-    .getElementById("nextMonth")
+    .getElementById(
+        "nextMonth"
+    )
     .addEventListener(
         "click",
         async function(){
@@ -3644,7 +3944,9 @@ document
 ========================================================= */
 
 document
-    .getElementById("calendarTodayBtn")
+    .getElementById(
+        "calendarTodayBtn"
+    )
     .addEventListener(
         "click",
         async function(){
@@ -3669,7 +3971,9 @@ document
 
             updateDateLabels();
 
+
             closeCalendar();
+
 
             await loadAppointments();
 
@@ -3678,7 +3982,7 @@ document
 
 
 /* =========================================================
-   DELETE
+   DELETE APPOINTMENT
 ========================================================= */
 
 async function deleteAppointment(id){
@@ -3710,9 +4014,11 @@ async function deleteAppointment(id){
             result.error
         );
 
+
         showToast(
             "Gabim gjatë fshirjes."
         );
+
 
         return;
 
@@ -3734,7 +4040,9 @@ async function deleteAppointment(id){
 ========================================================= */
 
 document
-    .getElementById("logoutBtn")
+    .getElementById(
+        "logoutBtn"
+    )
     .addEventListener(
         "click",
         async function(){
