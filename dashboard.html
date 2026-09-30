@@ -20,7 +20,7 @@
     --blue-light:#eaf5fb;
     --cyan:#35a6c8;
     --bg:#f3f7fa;
-    --white:#ffffff;
+    --white:#fff;
     --border:#dce6ed;
     --text:#193247;
     --muted:#708394;
@@ -44,14 +44,14 @@ html{
 body{
     margin:0;
     min-height:100vh;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:var(--bg);
     color:var(--text);
 }
 
-/* =========================================================
+/* =====================================================
    SIDEBAR
-========================================================= */
+===================================================== */
 
 .sidebar{
     position:fixed;
@@ -61,8 +61,8 @@ body{
     width:250px;
     background:linear-gradient(
         180deg,
-        var(--navy-dark) 0%,
-        var(--navy) 100%
+        var(--navy-dark),
+        var(--navy)
     );
     color:white;
     z-index:50;
@@ -79,14 +79,12 @@ body{
 .brand-main{
     font-size:25px;
     font-weight:800;
-    letter-spacing:-.4px;
 }
 
 .brand-sub{
     margin-top:5px;
     font-size:13px;
     color:#a9c1d1;
-    letter-spacing:.3px;
 }
 
 .department{
@@ -107,6 +105,7 @@ body{
 }
 
 .menu-item{
+    width:100%;
     min-height:48px;
     padding:0 14px;
     border-radius:9px;
@@ -116,6 +115,7 @@ body{
     color:#d9e6ee;
     font-size:15px;
     cursor:pointer;
+    user-select:none;
 }
 
 .menu-item.active{
@@ -166,18 +166,14 @@ body{
     cursor:pointer;
 }
 
-/* =========================================================
+/* =====================================================
    MAIN
-========================================================= */
+===================================================== */
 
 .main{
     margin-left:250px;
     min-height:100vh;
 }
-
-/* =========================================================
-   TOPBAR
-========================================================= */
 
 .topbar{
     height:76px;
@@ -243,9 +239,9 @@ body{
     cursor:pointer;
 }
 
-/* =========================================================
+/* =====================================================
    CONTENT
-========================================================= */
+===================================================== */
 
 .content{
     width:100%;
@@ -291,9 +287,9 @@ body{
     font-weight:800;
 }
 
-/* =========================================================
+/* =====================================================
    STATS
-========================================================= */
+===================================================== */
 
 .stats{
     display:grid;
@@ -328,9 +324,9 @@ body{
     font-weight:800;
 }
 
-/* =========================================================
-   PRIMARY LAYOUT
-========================================================= */
+/* =====================================================
+   LAYOUT
+===================================================== */
 
 .primary-layout{
     display:grid;
@@ -339,19 +335,9 @@ body{
     align-items:start;
 }
 
-/*
-    IMPORTANT:
-    Formulari nuk është sticky.
-    Gjithçka lëviz normalisht me scroll.
-*/
-
 .form-card{
     position:relative;
 }
-
-/* =========================================================
-   CARD
-========================================================= */
 
 .card{
     background:white;
@@ -402,13 +388,9 @@ body{
     font-size:12px;
 }
 
-/* =========================================================
+/* =====================================================
    AGENDA
-========================================================= */
-
-.agenda-card{
-    min-width:0;
-}
+===================================================== */
 
 .agenda-toolbar{
     padding:13px 18px;
@@ -486,10 +468,6 @@ body{
     border-left:1px solid #e3ebf0;
 }
 
-/* =========================================================
-   EMPTY SLOT
-========================================================= */
-
 .empty-slot{
     min-height:48px;
     border:1px dashed #dce6ec;
@@ -502,35 +480,24 @@ body{
     background:#fcfdfe;
 }
 
-/* =========================================================
+/* =====================================================
    APPOINTMENT
-========================================================= */
+===================================================== */
 
 .appointment{
     width:100%;
     min-width:0;
     min-height:48px;
-
     border-radius:9px;
-
     padding:8px 9px;
-
     display:grid;
-
-    /*
-       4 kolona:
-       pacienti | ekzaminimi | statusi | fshi
-    */
     grid-template-columns:
         minmax(115px,1.05fr)
         minmax(125px,1fr)
         minmax(115px,135px)
         32px;
-
     align-items:center;
-
     gap:8px;
-
     overflow:hidden;
 }
 
@@ -559,7 +526,6 @@ body{
     color:#183247;
     font-size:13px;
     font-weight:800;
-
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
@@ -569,7 +535,6 @@ body{
     margin-top:3px;
     color:#778996;
     font-size:10px;
-
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
@@ -579,7 +544,6 @@ body{
     color:#23475f;
     font-size:12px;
     font-weight:800;
-
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
@@ -589,28 +553,23 @@ body{
     margin-top:3px;
     color:#778996;
     font-size:10px;
-
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
 }
 
-/* =========================================================
+/* =====================================================
    STATUS
-========================================================= */
+===================================================== */
 
 .status-select{
     width:100%;
     min-width:0;
     height:34px;
-
     border-radius:7px;
-
     padding:0 5px;
-
     font-size:10px;
     font-weight:800;
-
     cursor:pointer;
 }
 
@@ -638,39 +597,30 @@ body{
     color:#8b2722;
 }
 
-/* =========================================================
+/* =====================================================
    DELETE
-========================================================= */
+===================================================== */
 
 .delete-btn{
     width:32px;
     min-width:32px;
     height:32px;
-
     border:1px solid #e1c1be;
-
     background:#fffafa;
-
     color:#ad332b;
-
     border-radius:7px;
-
     cursor:pointer;
-
     font-size:17px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     padding:0;
-
     margin:0;
 }
 
-/* =========================================================
+/* =====================================================
    FORM
-========================================================= */
+===================================================== */
 
 .form-body{
     padding:19px;
@@ -692,19 +642,12 @@ input,
 select{
     width:100%;
     height:43px;
-
     border:1px solid #ccd9e1;
-
     border-radius:8px;
-
     background:white;
-
     color:#1c3447;
-
     padding:0 11px;
-
     font-size:13px;
-
     outline:none;
 }
 
@@ -733,19 +676,13 @@ select:focus{
 
 .radio-box{
     height:43px;
-
     border:1px solid #ccd9e1;
-
     border-radius:8px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:#526b7a;
-
     background:#fff;
-
     font-size:13px;
     font-weight:800;
 }
@@ -772,22 +709,15 @@ select:focus{
 
 .contrast-option{
     min-height:40px;
-
     border:1px solid #ccd9e1;
-
     border-radius:8px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     gap:6px;
-
     color:#526b7a;
-
     font-size:12px;
     font-weight:700;
-
     cursor:pointer;
 }
 
@@ -799,52 +729,136 @@ select:focus{
 .btn-save{
     width:100%;
     height:46px;
-
     margin-top:4px;
-
     border:0;
-
     border-radius:8px;
-
     background:var(--blue);
-
     color:white;
-
     font-size:14px;
     font-weight:800;
-
     cursor:pointer;
 }
 
 .form-note{
     margin-top:10px;
-
     text-align:center;
-
     color:#8b9ba7;
-
     font-size:10px;
-
     line-height:1.5;
 }
 
-/* =========================================================
+/* =====================================================
+   REPORTS
+===================================================== */
+
+.reports-section{
+    display:none;
+}
+
+.reports-section.active{
+    display:block;
+}
+
+.reports-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.report-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+    box-shadow:var(--shadow);
+}
+
+.report-card-title{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:700;
+}
+
+.report-card-value{
+    margin-top:8px;
+    font-size:28px;
+    color:var(--navy);
+    font-weight:800;
+}
+
+.report-card-description{
+    margin-top:6px;
+    font-size:11px;
+    color:#8495a1;
+}
+
+.report-table-wrap{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:13px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+.report-table-header{
+    padding:18px 20px;
+    border-bottom:1px solid var(--border);
+}
+
+.report-table-title{
+    margin:0;
+    color:var(--navy);
+    font-size:17px;
+    font-weight:800;
+}
+
+.report-table-subtitle{
+    margin-top:4px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.report-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.report-table th{
+    background:#f8fbfd;
+    color:#708394;
+    font-size:11px;
+    text-align:left;
+    padding:12px 15px;
+    border-bottom:1px solid var(--border);
+}
+
+.report-table td{
+    padding:12px 15px;
+    border-bottom:1px solid #edf2f5;
+    font-size:12px;
+    color:#30495b;
+}
+
+.report-empty{
+    padding:35px;
+    text-align:center;
+    color:#94a3ad;
+    font-size:13px;
+}
+
+/* =====================================================
    CALENDAR
-========================================================= */
+===================================================== */
 
 .calendar-overlay{
     position:fixed;
     inset:0;
-
     background:rgba(6,30,46,.45);
-
     display:none;
-
     align-items:center;
     justify-content:center;
-
     z-index:100;
-
     padding:20px;
 }
 
@@ -855,27 +869,18 @@ select:focus{
 .calendar-modal{
     width:430px;
     max-width:100%;
-
     background:white;
-
     border-radius:15px;
-
     border:1px solid var(--border);
-
     box-shadow:0 20px 60px rgba(0,0,0,.22);
-
     overflow:hidden;
 }
 
 .calendar-modal-header{
     padding:18px 20px;
-
     background:#f8fbfd;
-
     border-bottom:1px solid var(--border);
-
     display:flex;
-
     justify-content:space-between;
     align-items:center;
 }
@@ -889,17 +894,11 @@ select:focus{
 .close-calendar{
     width:34px;
     height:34px;
-
     border:1px solid var(--border);
-
     background:white;
-
     border-radius:7px;
-
     cursor:pointer;
-
     font-size:18px;
-
     color:#607584;
 }
 
@@ -909,11 +908,8 @@ select:focus{
 
 .calendar-head{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     margin-bottom:14px;
 }
 
@@ -931,60 +927,39 @@ select:focus{
 .calendar-nav button{
     width:34px;
     height:34px;
-
     border:1px solid var(--border);
-
     border-radius:7px;
-
     background:white;
-
     cursor:pointer;
-
     color:var(--navy);
 }
 
 .calendar-weekdays,
 .calendar-days{
     display:grid;
-
-    grid-template-columns:
-        repeat(7,1fr);
-
+    grid-template-columns:repeat(7,1fr);
     gap:4px;
 }
 
 .weekday{
     padding:6px 0;
-
     text-align:center;
-
     color:#81919d;
-
     font-size:11px;
-
     font-weight:800;
 }
 
 .calendar-day{
     height:44px;
-
     border:1px solid transparent;
-
     border-radius:7px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     position:relative;
-
     color:#30495b;
-
     font-size:13px;
-
     font-weight:700;
-
     cursor:pointer;
 }
 
@@ -1005,16 +980,11 @@ select:focus{
 
 .calendar-day.has-appointments::after{
     content:"";
-
     position:absolute;
-
     bottom:4px;
-
     width:5px;
     height:5px;
-
     border-radius:50%;
-
     background:#d98d20;
 }
 
@@ -1024,15 +994,10 @@ select:focus{
 
 .calendar-footer{
     margin-top:16px;
-
     padding-top:14px;
-
     border-top:1px solid #edf1f4;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 }
 
@@ -1043,65 +1008,33 @@ select:focus{
 
 .calendar-today{
     height:35px;
-
     padding:0 12px;
-
     border:1px solid #c5dce8;
-
     border-radius:7px;
-
     background:#eef7fb;
-
     color:#175878;
-
     font-size:11px;
-
     font-weight:800;
-
     cursor:pointer;
 }
 
-/* =========================================================
-   EMPTY
-========================================================= */
-
-.empty-agenda{
-    padding:45px 20px;
-
-    text-align:center;
-
-    color:#94a3ad;
-
-    font-size:13px;
-}
-
-/* =========================================================
+/* =====================================================
    TOAST
-========================================================= */
+===================================================== */
 
 .toast{
     position:fixed;
-
     right:22px;
     bottom:22px;
-
     min-width:260px;
     max-width:390px;
-
     padding:13px 16px;
-
     border-radius:9px;
-
     background:var(--navy-dark);
-
     color:white;
-
     box-shadow:0 10px 30px rgba(0,0,0,.2);
-
     font-size:13px;
-
     z-index:200;
-
     display:none;
 }
 
@@ -1109,9 +1042,9 @@ select:focus{
     display:block;
 }
 
-/* =========================================================
+/* =====================================================
    RESPONSIVE
-========================================================= */
+===================================================== */
 
 @media(max-width:1200px){
 
@@ -1123,6 +1056,9 @@ select:focus{
         grid-template-columns:repeat(2,1fr);
     }
 
+    .reports-grid{
+        grid-template-columns:1fr 1fr;
+    }
 }
 
 @media(max-width:1000px){
@@ -1133,10 +1069,8 @@ select:focus{
             minmax(110px,1fr)
             115px
             32px;
-
         gap:6px;
     }
-
 }
 
 @media(max-width:900px){
@@ -1152,17 +1086,14 @@ select:focus{
     .content{
         padding:20px;
     }
-
 }
 
 @media(max-width:700px){
 
     .sidebar{
         position:relative;
-
         width:100%;
         height:auto;
-
         padding:15px;
     }
 
@@ -1183,9 +1114,7 @@ select:focus{
     .topbar{
         height:auto;
         min-height:70px;
-
         padding:12px 15px;
-
         gap:10px;
     }
 
@@ -1225,11 +1154,6 @@ select:focus{
         flex-direction:column;
     }
 
-    /*
-       Në telefon karta e ekzaminimit bëhet vertikale,
-       kështu asnjë buton nuk del jashtë.
-    */
-
     .appointment{
         grid-template-columns:1fr;
         gap:7px;
@@ -1262,15 +1186,26 @@ select:focus{
         font-size:11px;
     }
 
+    .reports-grid{
+        grid-template-columns:1fr;
+    }
+
+    .report-table-wrap{
+        overflow-x:auto;
+    }
+
+    .report-table{
+        min-width:650px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- =======================================================
+<!-- =====================================================
      SIDEBAR
-======================================================= -->
+===================================================== -->
 
 <aside class="sidebar">
 
@@ -1290,22 +1225,34 @@ select:focus{
 
     <nav class="menu">
 
-        <div class="menu-item active">
+        <div
+            class="menu-item active"
+            data-section="agenda"
+        >
             <span class="menu-icon">▦</span>
             <span>Agjenda</span>
         </div>
 
-        <div class="menu-item">
+        <div
+            class="menu-item"
+            data-section="mri"
+        >
             <span class="menu-icon">◉</span>
             <span>MRI</span>
         </div>
 
-        <div class="menu-item">
+        <div
+            class="menu-item"
+            data-section="ct"
+        >
             <span class="menu-icon">▣</span>
             <span>CT</span>
         </div>
 
-        <div class="menu-item">
+        <div
+            class="menu-item"
+            data-section="reports"
+        >
             <span class="menu-icon">▤</span>
             <span>Raporte</span>
         </div>
@@ -1332,9 +1279,9 @@ select:focus{
 </aside>
 
 
-<!-- =======================================================
+<!-- =====================================================
      MAIN
-======================================================= -->
+===================================================== -->
 
 <main class="main">
 
@@ -1347,7 +1294,6 @@ select:focus{
             </div>
 
             <div>
-
                 <div class="top-title">
                     GVM Care & Research
                 </div>
@@ -1355,11 +1301,9 @@ select:focus{
                 <div class="top-subtitle">
                     Departamenti i Imazherisë
                 </div>
-
             </div>
 
         </div>
-
 
         <div class="top-date">
 
@@ -1383,20 +1327,29 @@ select:focus{
 
     <div class="content">
 
+        <!-- =================================================
+             PAGE HEADING
+        ================================================== -->
+
         <div class="page-heading">
 
             <div>
 
-                <h1 class="heading-title">
+                <h1
+                    class="heading-title"
+                    id="pageTitle"
+                >
                     Agjenda e Imazherisë
                 </h1>
 
-                <p class="heading-sub">
+                <p
+                    class="heading-sub"
+                    id="pageSubtitle"
+                >
                     Menaxhimi ditor i ekzaminimeve MRI dhe CT
                 </p>
 
             </div>
-
 
             <div class="heading-date">
 
@@ -1416,10 +1369,13 @@ select:focus{
 
 
         <!-- =================================================
-             STATISTICS
+             STATS
         ================================================== -->
 
-        <section class="stats">
+        <section
+            class="stats"
+            id="statsSection"
+        >
 
             <div class="stat-card">
 
@@ -1436,7 +1392,6 @@ select:focus{
 
             </div>
 
-
             <div class="stat-card">
 
                 <div class="stat-label">
@@ -1452,7 +1407,6 @@ select:focus{
 
             </div>
 
-
             <div class="stat-card">
 
                 <div class="stat-label">
@@ -1467,7 +1421,6 @@ select:focus{
                 </div>
 
             </div>
-
 
             <div class="stat-card">
 
@@ -1488,15 +1441,13 @@ select:focus{
 
 
         <!-- =================================================
-             PRIMARY
+             AGENDA SECTION
         ================================================== -->
 
-        <section class="primary-layout">
-
-
-            <!-- =================================================
-                 AGENDA
-            ================================================== -->
+        <section
+            id="agendaSection"
+            class="primary-layout"
+        >
 
             <div class="card agenda-card">
 
@@ -1510,7 +1461,10 @@ select:focus{
 
                         <div>
 
-                            <h2 class="card-title">
+                            <h2
+                                class="card-title"
+                                id="agendaCardTitle"
+                            >
                                 Agjenda ditore
                             </h2>
 
@@ -1521,7 +1475,6 @@ select:focus{
                         </div>
 
                     </div>
-
 
                     <button
                         class="today-btn"
@@ -1553,14 +1506,12 @@ select:focus{
 
                     </div>
 
-
                     <div class="agenda-actions">
 
                         <button
                             class="day-btn"
                             id="previousDay"
                             type="button"
-                            title="Dita e mëparshme"
                         >
                             ‹
                         </button>
@@ -1569,7 +1520,6 @@ select:focus{
                             class="day-btn"
                             id="nextDay"
                             type="button"
-                            title="Dita tjetër"
                         >
                             ›
                         </button>
@@ -1581,17 +1531,14 @@ select:focus{
 
                 <div class="schedule">
 
-                    <div id="scheduleList">
-                    </div>
+                    <div id="scheduleList"></div>
 
                 </div>
 
             </div>
 
 
-            <!-- =================================================
-                 ADD EXAM
-            ================================================== -->
+            <!-- FORM -->
 
             <div class="card form-card">
 
@@ -1623,7 +1570,6 @@ select:focus{
                 <div class="form-body">
 
                     <form id="appointmentForm">
-
 
                         <div class="form-group">
 
@@ -1694,8 +1640,7 @@ select:focus{
                             <select
                                 id="appointmentTime"
                                 required
-                            >
-                            </select>
+                            ></select>
 
                         </div>
 
@@ -1721,7 +1666,6 @@ select:focus{
                                     </div>
 
                                 </label>
-
 
                                 <label class="radio-label">
 
@@ -1789,7 +1733,6 @@ select:focus{
 
                                 </label>
 
-
                                 <label class="contrast-option">
 
                                     <input
@@ -1814,7 +1757,6 @@ select:focus{
                             + &nbsp; Ruaj ekzaminimin
                         </button>
 
-
                         <div class="form-note">
                             Pas ruajtjes, ekzaminimi shfaqet menjëherë
                             në agjendën e ditës.
@@ -1828,14 +1770,115 @@ select:focus{
 
         </section>
 
+
+        <!-- =================================================
+             REPORTS SECTION
+        ================================================== -->
+
+        <section
+            id="reportsSection"
+            class="reports-section"
+        >
+
+            <div class="reports-grid">
+
+                <div class="report-card">
+
+                    <div class="report-card-title">
+                        TOTALI I EKZAMINIMEVE
+                    </div>
+
+                    <div
+                        class="report-card-value"
+                        id="reportTotal"
+                    >
+                        0
+                    </div>
+
+                    <div class="report-card-description">
+                        Për datën e zgjedhur
+                    </div>
+
+                </div>
+
+
+                <div class="report-card">
+
+                    <div class="report-card-title">
+                        MRI
+                    </div>
+
+                    <div
+                        class="report-card-value"
+                        id="reportMRI"
+                    >
+                        0
+                    </div>
+
+                    <div class="report-card-description">
+                        Ekzaminime MRI
+                    </div>
+
+                </div>
+
+
+                <div class="report-card">
+
+                    <div class="report-card-title">
+                        CT
+                    </div>
+
+                    <div
+                        class="report-card-value"
+                        id="reportCT"
+                    >
+                        0
+                    </div>
+
+                    <div class="report-card-description">
+                        Ekzaminime CT
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-table-wrap">
+
+                <div class="report-table-header">
+
+                    <h2 class="report-table-title">
+                        Përmbledhja e ekzaminimeve
+                    </h2>
+
+                    <div class="report-table-subtitle">
+                        Lista e ekzaminimeve për datën e zgjedhur
+                    </div>
+
+                </div>
+
+
+                <div id="reportTableContainer">
+
+                    <div class="report-empty">
+                        Nuk ka të dhëna për këtë datë.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </div>
 
 </main>
 
 
-<!-- =======================================================
-     CALENDAR MODAL
-======================================================= -->
+<!-- =====================================================
+     CALENDAR
+===================================================== -->
 
 <div
     class="calendar-overlay"
@@ -1868,8 +1911,7 @@ select:focus{
                 <div
                     class="calendar-month"
                     id="calendarMonth"
-                >
-                </div>
+                ></div>
 
                 <div class="calendar-nav">
 
@@ -1908,8 +1950,7 @@ select:focus{
             <div
                 class="calendar-days"
                 id="calendarDays"
-            >
-            </div>
+            ></div>
 
 
             <div class="calendar-footer">
@@ -1917,8 +1958,7 @@ select:focus{
                 <div
                     class="calendar-selected-text"
                     id="calendarSelectedText"
-                >
-                </div>
+                ></div>
 
                 <button
                     class="calendar-today"
@@ -1937,20 +1977,17 @@ select:focus{
 </div>
 
 
-<!-- TOAST -->
-
 <div
     class="toast"
     id="toast"
->
-</div>
+></div>
 
 
 <script>
 
-/* =========================================================
+/* =====================================================
    SUPABASE
-========================================================= */
+===================================================== */
 
 const SUPABASE_URL =
     "https://wevrbiserxyqmnllallk.supabase.co";
@@ -1965,9 +2002,96 @@ const supabaseClient =
     );
 
 
-/* =========================================================
+/* =====================================================
+   DATA
+===================================================== */
+
+const MRI_EXAMS = [
+
+    "MRI e trurit",
+    "MRI e trurit + angio",
+    "MRI e hipofizës",
+    "MRI e orbitave",
+    "MRI e qafës",
+    "MRI e shtyllës cervikale",
+    "MRI e shtyllës torakale",
+    "MRI e shtyllës lumbare",
+    "MRI e abdomenit",
+    "MRI e abdomenit + pelvis",
+    "MRI e pelvisit",
+    "MRI e prostatës",
+    "MRI e gjirit",
+    "MRI e shpatullës",
+    "MRI e bërrylit",
+    "MRI e kyçit të dorës",
+    "MRI e dorës",
+    "MRI e legenit",
+    "MRI e ijes",
+    "MRI e gjurit",
+    "MRI e kyçit të këmbës",
+    "MRI e këmbës"
+
+];
+
+const CT_EXAMS = [
+
+    "CT e trurit",
+    "CT e trurit + angio",
+    "CT e sinuseve",
+    "CT e qafës",
+    "CT e toraksit",
+    "CT e toraksit + angio",
+    "CT e abdomenit",
+    "CT e abdomenit + pelvis",
+    "CT e pelvisit",
+    "CT abdomen + pelvis",
+    "CT e shtyllës cervikale",
+    "CT e shtyllës torakale",
+    "CT e shpatullës",
+    "CT e bërrylit",
+    "CT e kyçit të dorës",
+    "CT e dorës",
+    "CT e legenit",
+    "CT e ijes",
+    "CT e gjurit",
+    "CT e këmbës"
+
+];
+
+const STATUS = {
+    WAITING:"Në pritje",
+    ARRIVED:"Ka ardhur",
+    FINISHED:"Ka mbaruar",
+    CANCELLED:"Anulluar"
+};
+
+const months = [
+    "Janar","Shkurt","Mars","Prill","Maj","Qershor",
+    "Korrik","Gusht","Shtator","Tetor","Nëntor","Dhjetor"
+];
+
+const weekdays = [
+    "E diel","E hënë","E martë","E mërkurë",
+    "E enjte","E premte","E shtunë"
+];
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let selectedDate = new Date();
+
+let calendarDate = new Date();
+
+let currentAppointments = [];
+
+let currentFilter = "ALL";
+
+
+/* =====================================================
    DOM
-========================================================= */
+===================================================== */
 
 const appointmentForm =
     document.getElementById("appointmentForm");
@@ -2020,168 +2144,40 @@ const topDateText =
 const headingDate =
     document.getElementById("headingDate");
 
+const pageTitle =
+    document.getElementById("pageTitle");
 
-/* =========================================================
-   EXAM LISTS
-========================================================= */
+const pageSubtitle =
+    document.getElementById("pageSubtitle");
 
-const MRI_EXAMS = [
+const agendaCardTitle =
+    document.getElementById("agendaCardTitle");
 
-    "MRI e trurit",
-    "MRI e trurit + angio",
-    "MRI e hipofizës",
-    "MRI e orbitave",
-    "MRI e qafës",
-    "MRI e shtyllës cervikale",
-    "MRI e shtyllës torakale",
-    "MRI e shtyllës lumbare",
-    "MRI e abdomenit",
-    "MRI e abdomenit + pelvis",
-    "MRI e pelvisit",
-    "MRI e prostatës",
-    "MRI e gjirit",
-    "MRI e shpatullës",
-    "MRI e bërrylit",
-    "MRI e kyçit të dorës",
-    "MRI e dorës",
-    "MRI e legenit",
-    "MRI e ijes",
-    "MRI e gjurit",
-    "MRI e kyçit të këmbës",
-    "MRI e këmbës"
+const statsSection =
+    document.getElementById("statsSection");
 
-];
+const agendaSection =
+    document.getElementById("agendaSection");
+
+const reportsSection =
+    document.getElementById("reportsSection");
 
 
-const CT_EXAMS = [
-
-    "CT e trurit",
-    "CT e trurit + angio",
-    "CT e sinuseve",
-    "CT e qafës",
-    "CT e toraksit",
-    "CT e toraksit + angio",
-    "CT e abdomenit",
-    "CT e abdomenit + pelvis",
-    "CT e pelvisit",
-    "CT abdomen + pelvis",
-    "CT e shtyllës cervikale",
-    "CT e shtyllës torakale",
-    "CT e shpatullës",
-    "CT e bërrylit",
-    "CT e kyçit të dorës",
-    "CT e dorës",
-    "CT e legenit",
-    "CT e ijes",
-    "CT e gjurit",
-    "CT e këmbës"
-
-];
-
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-const STATUS = {
-
-    WAITING:"Në pritje",
-    ARRIVED:"Ka ardhur",
-    FINISHED:"Ka mbaruar",
-    CANCELLED:"Anulluar"
-
-};
-
-
-function getStatusClass(status){
-
-    if(status === STATUS.ARRIVED){
-        return "status-arrived";
-    }
-
-    if(status === STATUS.FINISHED){
-        return "status-finished";
-    }
-
-    if(status === STATUS.CANCELLED){
-        return "status-cancelled";
-    }
-
-    return "status-waiting";
-}
-
-
-/* =========================================================
-   DATE STATE
-========================================================= */
-
-let selectedDate =
-    new Date();
-
-let calendarDate =
-    new Date();
-
-let currentCalendarAppointments =
-    [];
-
-
-/* =========================================================
-   ALBANIAN
-========================================================= */
-
-const months = [
-
-    "Janar",
-    "Shkurt",
-    "Mars",
-    "Prill",
-    "Maj",
-    "Qershor",
-    "Korrik",
-    "Gusht",
-    "Shtator",
-    "Tetor",
-    "Nëntor",
-    "Dhjetor"
-
-];
-
-
-const weekdays = [
-
-    "E diel",
-    "E hënë",
-    "E martë",
-    "E mërkurë",
-    "E enjte",
-    "E premte",
-    "E shtunë"
-
-];
-
-
-/* =========================================================
-   DATE HELPERS
-========================================================= */
+/* =====================================================
+   DATE
+===================================================== */
 
 function formatDateInput(date){
 
-    const year =
-        date.getFullYear();
+    return (
+        date.getFullYear() +
+        "-" +
+        String(date.getMonth()+1).padStart(2,"0") +
+        "-" +
+        String(date.getDate()).padStart(2,"0")
+    );
 
-    const month =
-        String(
-            date.getMonth() + 1
-        ).padStart(2,"0");
-
-    const day =
-        String(
-            date.getDate()
-        ).padStart(2,"0");
-
-    return `${year}-${month}-${day}`;
 }
-
 
 function parseDateInput(value){
 
@@ -2190,12 +2186,11 @@ function parseDateInput(value){
 
     return new Date(
         parts[0],
-        parts[1] - 1,
+        parts[1]-1,
         parts[2]
     );
 
 }
-
 
 function isSameDate(a,b){
 
@@ -2206,7 +2201,6 @@ function isSameDate(a,b){
     );
 
 }
-
 
 function formatLongDate(date){
 
@@ -2222,7 +2216,6 @@ function formatLongDate(date){
 
 }
 
-
 function formatShortDate(date){
 
     return (
@@ -2234,28 +2227,19 @@ function formatShortDate(date){
 }
 
 
-/* =========================================================
-   TIMES
-========================================================= */
+/* =====================================================
+   TIME
+===================================================== */
 
 function populateTimes(){
 
     appointmentTime.innerHTML = "";
 
-    for(
-        let hour = 8;
-        hour <= 19;
-        hour++
-    ){
+    for(let hour=8; hour<=19; hour++){
 
-        for(
-            let minute of [0,30]
-        ){
+        for(const minute of [0,30]){
 
-            if(
-                hour === 19 &&
-                minute === 30
-            ){
+            if(hour===19 && minute===30){
                 continue;
             }
 
@@ -2264,30 +2248,21 @@ function populateTimes(){
                 ":" +
                 String(minute).padStart(2,"0");
 
-
             const option =
                 document.createElement("option");
 
-            option.value =
-                time;
+            option.value = time;
+            option.textContent = time;
 
-            option.textContent =
-                time;
-
-            appointmentTime.appendChild(
-                option
-            );
-
+            appointmentTime.appendChild(option);
         }
-
     }
-
 }
 
 
-/* =========================================================
+/* =====================================================
    EXAM OPTIONS
-========================================================= */
+===================================================== */
 
 function populateExamOptions(type){
 
@@ -2296,118 +2271,115 @@ function populateExamOptions(type){
     const placeholder =
         document.createElement("option");
 
-    placeholder.value =
-        "";
+    placeholder.value = "";
 
     placeholder.textContent =
         type === "MRI"
             ? "Zgjidhni ekzaminimin MRI"
             : "Zgjidhni ekzaminimin CT";
 
-    examNameSelect.appendChild(
-        placeholder
-    );
-
+    examNameSelect.appendChild(placeholder);
 
     const exams =
         type === "MRI"
             ? MRI_EXAMS
             : CT_EXAMS;
 
+    exams.forEach(exam => {
 
-    exams.forEach(
-        function(exam){
+        const option =
+            document.createElement("option");
 
-            const option =
-                document.createElement(
-                    "option"
-                );
+        option.value = exam;
+        option.textContent = exam;
 
-            option.value =
-                exam;
+        examNameSelect.appendChild(option);
 
-            option.textContent =
-                exam;
+    });
 
-            examNameSelect.appendChild(
-                option
-            );
-
-        }
-    );
+    examNameSelect.disabled = false;
+}
 
 
-    examNameSelect.disabled =
-        false;
+/* =====================================================
+   STATUS CLASS
+===================================================== */
+
+function getStatusClass(status){
+
+    if(status === STATUS.ARRIVED)
+        return "status-arrived";
+
+    if(status === STATUS.FINISHED)
+        return "status-finished";
+
+    if(status === STATUS.CANCELLED)
+        return "status-cancelled";
+
+    return "status-waiting";
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
 
 }
 
 
-/* =========================================================
+/* =====================================================
    TOAST
-========================================================= */
+===================================================== */
 
 let toastTimer;
 
 function showToast(message){
 
-    toast.textContent =
-        message;
+    toast.textContent = message;
 
-    toast.classList.add(
-        "show"
-    );
+    toast.classList.add("show");
 
-    clearTimeout(
-        toastTimer
-    );
+    clearTimeout(toastTimer);
 
     toastTimer =
-        setTimeout(
-            function(){
+        setTimeout(() => {
 
-                toast.classList.remove(
-                    "show"
-                );
+            toast.classList.remove("show");
 
-            },
-            3000
-        );
+        },3000);
 
 }
 
 
-/* =========================================================
+/* =====================================================
    DATE LABELS
-========================================================= */
+===================================================== */
 
 function updateDateLabels(){
 
     const longDate =
-        formatLongDate(
-            selectedDate
-        );
-
+        formatLongDate(selectedDate);
 
     scheduleDate.textContent =
         longDate;
 
-
     headingDate.textContent =
         longDate;
 
-
     topDateText.textContent =
-        formatShortDate(
-            selectedDate
-        );
-
+        formatShortDate(selectedDate);
 
     appointmentDate.value =
-        formatDateInput(
-            selectedDate
-        );
-
+        formatDateInput(selectedDate);
 
     calendarSelectedText.textContent =
         "Zgjedhur: " + longDate;
@@ -2415,9 +2387,1126 @@ function updateDateLabels(){
 }
 
 
-/* =========================================================
-   CALENDAR APPOINTMENTS
-========================================================= */
+/* =====================================================
+   LOAD APPOINTMENTS
+===================================================== */
+
+async function loadAppointments(){
+
+    const date =
+        formatDateInput(selectedDate);
+
+    const result =
+        await supabaseClient
+            .from("appointments")
+            .select("*")
+            .eq("appointment_date",date)
+            .order("appointment_time",{
+                ascending:true
+            });
+
+    if(result.error){
+
+        console.error(result.error);
+
+        scheduleList.innerHTML = `
+            <div class="empty-agenda">
+                Nuk u arrit të ngarkohej agjenda.
+            </div>
+        `;
+
+        return;
+    }
+
+    currentAppointments =
+        result.data || [];
+
+    updateStats(
+        currentAppointments
+    );
+
+    renderSchedule(
+        currentAppointments
+    );
+
+    renderReports(
+        currentAppointments
+    );
+
+}
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+function getFilteredAppointments(){
+
+    if(currentFilter === "MRI"){
+
+        return currentAppointments.filter(
+            item => item.exam_type === "MRI"
+        );
+
+    }
+
+    if(currentFilter === "CT"){
+
+        return currentAppointments.filter(
+            item => item.exam_type === "CT"
+        );
+
+    }
+
+    return currentAppointments;
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+function updateStats(appointments){
+
+    const total =
+        appointments.length;
+
+    const mri =
+        appointments.filter(
+            a => a.exam_type === "MRI"
+        ).length;
+
+    const ct =
+        appointments.filter(
+            a => a.exam_type === "CT"
+        ).length;
+
+    const finished =
+        appointments.filter(
+            a => a.status === STATUS.FINISHED
+        ).length;
+
+    document.getElementById(
+        "statTotal"
+    ).textContent = total;
+
+    document.getElementById(
+        "statMRI"
+    ).textContent = mri;
+
+    document.getElementById(
+        "statCT"
+    ).textContent = ct;
+
+    document.getElementById(
+        "statFinished"
+    ).textContent = finished;
+
+}
+
+
+/* =====================================================
+   RENDER SCHEDULE
+===================================================== */
+
+function renderSchedule(appointments){
+
+    scheduleList.innerHTML = "";
+
+    const filtered =
+        getFilteredAppointments();
+
+    if(currentFilter === "MRI"){
+
+        agendaCardTitle.textContent =
+            "Agjenda MRI";
+
+    }else if(currentFilter === "CT"){
+
+        agendaCardTitle.textContent =
+            "Agjenda CT";
+
+    }else{
+
+        agendaCardTitle.textContent =
+            "Agjenda ditore";
+
+    }
+
+    scheduleCount.textContent =
+        filtered.length === 1
+            ? "1 ekzaminim"
+            : filtered.length + " ekzaminime";
+
+
+    for(let hour=8; hour<=19; hour++){
+
+        for(const minute of [0,30]){
+
+            if(hour===19 && minute===30){
+                continue;
+            }
+
+            const time =
+                String(hour).padStart(2,"0") +
+                ":" +
+                String(minute).padStart(2,"0");
+
+            const row =
+                document.createElement("div");
+
+            row.className = "time-row";
+
+            const timeDiv =
+                document.createElement("div");
+
+            timeDiv.className = "time";
+            timeDiv.textContent = time;
+
+            const slot =
+                document.createElement("div");
+
+            slot.className = "slot";
+
+            const appointment =
+                filtered.find(
+                    a =>
+                        String(
+                            a.appointment_time
+                        ).slice(0,5) === time
+                );
+
+            if(appointment){
+
+                slot.appendChild(
+                    createAppointmentCard(
+                        appointment
+                    )
+                );
+
+            }else{
+
+                const empty =
+                    document.createElement("div");
+
+                empty.className =
+                    "empty-slot";
+
+                empty.textContent =
+                    "E lirë";
+
+                slot.appendChild(empty);
+
+            }
+
+            row.appendChild(timeDiv);
+            row.appendChild(slot);
+
+            scheduleList.appendChild(row);
+        }
+    }
+}
+
+
+/* =====================================================
+   APPOINTMENT CARD
+===================================================== */
+
+function createAppointmentCard(appointment){
+
+    const status =
+        appointment.status ||
+        STATUS.WAITING;
+
+    const statusClass =
+        getStatusClass(status);
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "appointment " +
+        statusClass;
+
+
+    const patient =
+        document.createElement("div");
+
+    patient.innerHTML = `
+        <div class="patient-name">
+            ${escapeHtml(
+                appointment.patient_name
+            )}
+        </div>
+
+        <div class="patient-phone">
+            ${escapeHtml(
+                appointment.phone || "Pa telefon"
+            )}
+        </div>
+    `;
+
+
+    const exam =
+        document.createElement("div");
+
+    exam.innerHTML = `
+        <div class="exam-name">
+            ${escapeHtml(
+                appointment.exam_name || ""
+            )}
+        </div>
+
+        <div class="exam-meta">
+            ${escapeHtml(
+                appointment.exam_type || ""
+            )}
+            ${
+                appointment.contrast_type
+                    ? " · " +
+                      escapeHtml(
+                          appointment.contrast_type
+                      )
+                    : ""
+            }
+        </div>
+    `;
+
+
+    const statusSelect =
+        document.createElement("select");
+
+    statusSelect.className =
+        "status-select " +
+        statusClass;
+
+    statusSelect.dataset.previousStatus =
+        status;
+
+
+    [
+        STATUS.WAITING,
+        STATUS.ARRIVED,
+        STATUS.FINISHED,
+        STATUS.CANCELLED
+
+    ].forEach(item => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = item;
+        option.textContent = item;
+
+        if(item === status){
+            option.selected = true;
+        }
+
+        statusSelect.appendChild(option);
+
+    });
+
+
+    statusSelect.addEventListener(
+        "change",
+        () => {
+
+            updateAppointmentStatus(
+                appointment.id,
+                statusSelect.value,
+                statusSelect,
+                card
+            );
+
+        }
+    );
+
+
+    const deleteButton =
+        document.createElement("button");
+
+    deleteButton.type = "button";
+
+    deleteButton.className =
+        "delete-btn";
+
+    deleteButton.title =
+        "Fshi ekzaminimin";
+
+    deleteButton.textContent = "×";
+
+
+    deleteButton.addEventListener(
+        "click",
+        () => {
+
+            deleteAppointment(
+                appointment.id
+            );
+
+        }
+    );
+
+
+    card.appendChild(patient);
+    card.appendChild(exam);
+    card.appendChild(statusSelect);
+    card.appendChild(deleteButton);
+
+    return card;
+}
+
+
+/* =====================================================
+   UPDATE STATUS
+===================================================== */
+
+async function updateAppointmentStatus(
+    id,
+    newStatus,
+    selectElement,
+    cardElement
+){
+
+    const previous =
+        selectElement.dataset.previousStatus;
+
+    const result =
+        await supabaseClient
+            .from("appointments")
+            .update({
+                status:newStatus
+            })
+            .eq("id",id);
+
+    if(result.error){
+
+        console.error(result.error);
+
+        selectElement.value =
+            previous;
+
+        showToast(
+            "Gabim gjatë ndryshimit të statusit."
+        );
+
+        return;
+    }
+
+    selectElement.dataset.previousStatus =
+        newStatus;
+
+    showToast(
+        "Statusi u ndryshua."
+    );
+
+    await loadAppointments();
+}
+
+
+/* =====================================================
+   DELETE
+===================================================== */
+
+async function deleteAppointment(id){
+
+    const confirmed =
+        confirm(
+            "Jeni të sigurt që dëshironi ta fshini këtë ekzaminim?"
+        );
+
+    if(!confirmed){
+        return;
+    }
+
+    const result =
+        await supabaseClient
+            .from("appointments")
+            .delete()
+            .eq("id",id);
+
+    if(result.error){
+
+        console.error(result.error);
+
+        showToast(
+            "Gabim gjatë fshirjes."
+        );
+
+        return;
+    }
+
+    showToast(
+        "Ekzaminimi u fshi."
+    );
+
+    await loadAppointments();
+}
+
+
+/* =====================================================
+   SAVE
+===================================================== */
+
+appointmentForm.addEventListener(
+    "submit",
+    async event => {
+
+        event.preventDefault();
+
+        const name =
+            patientName.value.trim();
+
+        const phoneValue =
+            phone.value.trim();
+
+        const date =
+            appointmentDate.value;
+
+        const time =
+            appointmentTime.value;
+
+        const examType =
+            document.querySelector(
+                'input[name="examType"]:checked'
+            );
+
+        const examName =
+            examNameSelect.value;
+
+        const contrast =
+            document.querySelector(
+                'input[name="contrastType"]:checked'
+            );
+
+
+        if(!name){
+
+            showToast(
+                "Vendosni emrin e pacientit."
+            );
+
+            return;
+        }
+
+        if(!date){
+
+            showToast(
+                "Zgjidhni datën."
+            );
+
+            return;
+        }
+
+        if(!time){
+
+            showToast(
+                "Zgjidhni orën."
+            );
+
+            return;
+        }
+
+        if(!examType){
+
+            showToast(
+                "Zgjidhni MRI ose CT."
+            );
+
+            return;
+        }
+
+        if(!examName){
+
+            showToast(
+                "Zgjidhni ekzaminimin."
+            );
+
+            return;
+        }
+
+
+        const duplicate =
+            await supabaseClient
+                .from("appointments")
+                .select("id")
+                .eq("appointment_date",date)
+                .eq("appointment_time",time)
+                .limit(1);
+
+
+        if(duplicate.error){
+
+            console.error(
+                duplicate.error
+            );
+
+            showToast(
+                "Nuk u kontrollua dot orari."
+            );
+
+            return;
+        }
+
+
+        if(
+            duplicate.data &&
+            duplicate.data.length > 0
+        ){
+
+            showToast(
+                "Kjo orë është tashmë e zënë."
+            );
+
+            return;
+        }
+
+
+        const result =
+            await supabaseClient
+                .from("appointments")
+                .insert([
+                    {
+                        appointment_date:date,
+                        appointment_time:time,
+                        patient_name:name,
+                        phone:phoneValue,
+                        exam_type:examType.value,
+                        contrast_type:
+                            contrast
+                                ? contrast.value
+                                : null,
+                        exam_name:examName,
+                        status:STATUS.WAITING
+                    }
+                ]);
+
+
+        if(result.error){
+
+            console.error(
+                "Insert error:",
+                result.error
+            );
+
+            showToast(
+                "Gabim gjatë ruajtjes së ekzaminimit."
+            );
+
+            return;
+        }
+
+
+        showToast(
+            "Ekzaminimi u ruajt me sukses."
+        );
+
+
+        patientName.value = "";
+        phone.value = "";
+
+
+        document
+            .querySelectorAll(
+                'input[name="examType"]'
+            )
+            .forEach(
+                input => input.checked = false
+            );
+
+
+        document
+            .querySelectorAll(
+                'input[name="contrastType"]'
+            )
+            .forEach(
+                input => input.checked = false
+            );
+
+
+        examNameSelect.innerHTML = `
+            <option value="">
+                Zgjidhni fillimisht MRI ose CT
+            </option>
+        `;
+
+        examNameSelect.disabled = true;
+
+        contrastSection.classList.remove(
+            "show"
+        );
+
+
+        selectedDate =
+            parseDateInput(date);
+
+        calendarDate =
+            new Date(
+                selectedDate.getFullYear(),
+                selectedDate.getMonth(),
+                1
+            );
+
+
+        updateDateLabels();
+
+        await loadAppointments();
+
+    }
+);
+
+
+/* =====================================================
+   MRI / CT FORM
+===================================================== */
+
+document
+    .querySelectorAll(
+        'input[name="examType"]'
+    )
+    .forEach(radio => {
+
+        radio.addEventListener(
+            "change",
+            function(){
+
+                populateExamOptions(
+                    this.value
+                );
+
+                contrastSection.classList.add(
+                    "show"
+                );
+
+                document
+                    .querySelectorAll(
+                        'input[name="contrastType"]'
+                    )
+                    .forEach(
+                        input =>
+                            input.checked = false
+                    );
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   DATE INPUT
+===================================================== */
+
+appointmentDate.addEventListener(
+    "change",
+    async function(){
+
+        if(!this.value){
+            return;
+        }
+
+        selectedDate =
+            parseDateInput(
+                this.value
+            );
+
+        calendarDate =
+            new Date(
+                selectedDate.getFullYear(),
+                selectedDate.getMonth(),
+                1
+            );
+
+        updateDateLabels();
+
+        await loadAppointments();
+
+    }
+);
+
+
+/* =====================================================
+   DAY NAVIGATION
+===================================================== */
+
+document
+    .getElementById("previousDay")
+    .addEventListener(
+        "click",
+        async () => {
+
+            selectedDate.setDate(
+                selectedDate.getDate() - 1
+            );
+
+            calendarDate =
+                new Date(
+                    selectedDate.getFullYear(),
+                    selectedDate.getMonth(),
+                    1
+                );
+
+            updateDateLabels();
+
+            await loadAppointments();
+
+        }
+    );
+
+
+document
+    .getElementById("nextDay")
+    .addEventListener(
+        "click",
+        async () => {
+
+            selectedDate.setDate(
+                selectedDate.getDate() + 1
+            );
+
+            calendarDate =
+                new Date(
+                    selectedDate.getFullYear(),
+                    selectedDate.getMonth(),
+                    1
+                );
+
+            updateDateLabels();
+
+            await loadAppointments();
+
+        }
+    );
+
+
+document
+    .getElementById("todayButton")
+    .addEventListener(
+        "click",
+        async () => {
+
+            selectedDate =
+                new Date();
+
+            calendarDate =
+                new Date(
+                    selectedDate.getFullYear(),
+                    selectedDate.getMonth(),
+                    1
+                );
+
+            currentFilter = "ALL";
+
+            updateDateLabels();
+
+            setActiveMenu("agenda");
+
+            await loadAppointments();
+
+        }
+    );
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+function setActiveMenu(section){
+
+    document
+        .querySelectorAll(".menu-item")
+        .forEach(item => {
+
+            item.classList.toggle(
+                "active",
+                item.dataset.section === section
+            );
+
+        });
+
+}
+
+
+function showAgenda(){
+
+    currentFilter = "ALL";
+
+    agendaSection.style.display =
+        "grid";
+
+    statsSection.style.display =
+        "grid";
+
+    reportsSection.classList.remove(
+        "active"
+    );
+
+    pageTitle.textContent =
+        "Agjenda e Imazherisë";
+
+    pageSubtitle.textContent =
+        "Menaxhimi ditor i ekzaminimeve MRI dhe CT";
+
+    setActiveMenu("agenda");
+
+    renderSchedule(
+        currentAppointments
+    );
+
+}
+
+
+function showMRI(){
+
+    currentFilter = "MRI";
+
+    agendaSection.style.display =
+        "grid";
+
+    statsSection.style.display =
+        "grid";
+
+    reportsSection.classList.remove(
+        "active"
+    );
+
+    pageTitle.textContent =
+        "Agjenda MRI";
+
+    pageSubtitle.textContent =
+        "Ekzaminimet MRI për datën e zgjedhur";
+
+    setActiveMenu("mri");
+
+    renderSchedule(
+        currentAppointments
+    );
+
+}
+
+
+function showCT(){
+
+    currentFilter = "CT";
+
+    agendaSection.style.display =
+        "grid";
+
+    statsSection.style.display =
+        "grid";
+
+    reportsSection.classList.remove(
+        "active"
+    );
+
+    pageTitle.textContent =
+        "Agjenda CT";
+
+    pageSubtitle.textContent =
+        "Ekzaminimet CT për datën e zgjedhur";
+
+    setActiveMenu("ct");
+
+    renderSchedule(
+        currentAppointments
+    );
+
+}
+
+
+function showReports(){
+
+    currentFilter = "ALL";
+
+    agendaSection.style.display =
+        "none";
+
+    statsSection.style.display =
+        "none";
+
+    reportsSection.classList.add(
+        "active"
+    );
+
+    pageTitle.textContent =
+        "Raporte";
+
+    pageSubtitle.textContent =
+        "Përmbledhje e ekzaminimeve për datën e zgjedhur";
+
+    setActiveMenu("reports");
+
+    renderReports(
+        currentAppointments
+    );
+
+}
+
+
+document
+    .querySelectorAll(".menu-item")
+    .forEach(item => {
+
+        item.addEventListener(
+            "click",
+            async function(){
+
+                const section =
+                    this.dataset.section;
+
+                if(section === "agenda"){
+
+                    showAgenda();
+
+                }
+
+                else if(section === "mri"){
+
+                    showMRI();
+
+                }
+
+                else if(section === "ct"){
+
+                    showCT();
+
+                }
+
+                else if(section === "reports"){
+
+                    showReports();
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   REPORTS
+===================================================== */
+
+function renderReports(appointments){
+
+    const total =
+        appointments.length;
+
+    const mri =
+        appointments.filter(
+            a => a.exam_type === "MRI"
+        );
+
+    const ct =
+        appointments.filter(
+            a => a.exam_type === "CT"
+        );
+
+
+    document.getElementById(
+        "reportTotal"
+    ).textContent = total;
+
+    document.getElementById(
+        "reportMRI"
+    ).textContent = mri.length;
+
+    document.getElementById(
+        "reportCT"
+    ).textContent = ct.length;
+
+
+    const container =
+        document.getElementById(
+            "reportTableContainer"
+        );
+
+
+    if(!appointments.length){
+
+        container.innerHTML = `
+            <div class="report-empty">
+                Nuk ka ekzaminime për këtë datë.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    let rows = "";
+
+    appointments.forEach(item => {
+
+        rows += `
+            <tr>
+                <td>
+                    ${escapeHtml(
+                        String(
+                            item.appointment_time || ""
+                        ).slice(0,5)
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        item.patient_name || ""
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        item.exam_type || ""
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        item.exam_name || ""
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        item.status || ""
+                    )}
+                </td>
+            </tr>
+        `;
+
+    });
+
+
+    container.innerHTML = `
+        <table class="report-table">
+
+            <thead>
+
+                <tr>
+                    <th>Ora</th>
+                    <th>Pacienti</th>
+                    <th>Modaliteti</th>
+                    <th>Ekzaminimi</th>
+                    <th>Statusi</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                ${rows}
+            </tbody>
+
+        </table>
+    `;
+
+}
+
+
+/* =====================================================
+   CALENDAR
+===================================================== */
 
 async function loadCalendarAppointments(){
 
@@ -2430,12 +3519,11 @@ async function loadCalendarAppointments(){
             )
         );
 
-
     const lastDay =
         formatDateInput(
             new Date(
                 calendarDate.getFullYear(),
-                calendarDate.getMonth() + 1,
+                calendarDate.getMonth()+1,
                 0
             )
         );
@@ -2445,7 +3533,7 @@ async function loadCalendarAppointments(){
         await supabaseClient
             .from("appointments")
             .select(
-                "id,appointment_date,appointment_time"
+                "id,appointment_date"
             )
             .gte(
                 "appointment_date",
@@ -2457,35 +3545,25 @@ async function loadCalendarAppointments(){
             );
 
 
-    if(result.error){
-
-        console.error(
-            "Calendar error:",
-            result.error
-        );
-
-        currentCalendarAppointments =
-            [];
-
-        return;
-
-    }
-
-
-    currentCalendarAppointments =
-        result.data || [];
+    return result.data || [];
 
 }
 
 
-/* =========================================================
-   CALENDAR
-========================================================= */
-
 async function renderCalendar(){
 
-    calendarDays.innerHTML =
-        "";
+    calendarDays.innerHTML = "";
+
+    const appointments =
+        await loadCalendarAppointments();
+
+    const appointmentDates =
+        new Set(
+            appointments.map(
+                item =>
+                    item.appointment_date
+            )
+        );
 
 
     const year =
@@ -2501,15 +3579,6 @@ async function renderCalendar(){
         year;
 
 
-    const appointmentDates =
-        new Set(
-            currentCalendarAppointments.map(
-                a =>
-                    a.appointment_date
-            )
-        );
-
-
     const firstDay =
         new Date(
             year,
@@ -2521,7 +3590,6 @@ async function renderCalendar(){
     let startDay =
         firstDay.getDay() - 1;
 
-
     if(startDay < 0){
         startDay = 6;
     }
@@ -2530,7 +3598,7 @@ async function renderCalendar(){
     const daysInMonth =
         new Date(
             year,
-            month + 1,
+            month+1,
             0
         ).getDate();
 
@@ -2544,21 +3612,17 @@ async function renderCalendar(){
 
 
     for(
-        let i = startDay - 1;
-        i >= 0;
+        let i=startDay-1;
+        i>=0;
         i--
     ){
 
-        const date =
+        createCalendarDay(
             new Date(
                 year,
-                month - 1,
-                previousMonthDays - i
-            );
-
-
-        createCalendarDay(
-            date,
+                month-1,
+                previousMonthDays-i
+            ),
             true,
             appointmentDates
         );
@@ -2567,21 +3631,17 @@ async function renderCalendar(){
 
 
     for(
-        let day = 1;
-        day <= daysInMonth;
+        let day=1;
+        day<=daysInMonth;
         day++
     ){
 
-        const date =
+        createCalendarDay(
             new Date(
                 year,
                 month,
                 day
-            );
-
-
-        createCalendarDay(
-            date,
+            ),
             false,
             appointmentDates
         );
@@ -2590,33 +3650,25 @@ async function renderCalendar(){
 
 
     const totalCells =
-        startDay +
-        daysInMonth;
-
+        startDay + daysInMonth;
 
     const remaining =
-        Math.ceil(
-            totalCells / 7
-        ) * 7 -
+        Math.ceil(totalCells/7)*7 -
         totalCells;
 
 
     for(
-        let day = 1;
-        day <= remaining;
+        let day=1;
+        day<=remaining;
         day++
     ){
 
-        const date =
+        createCalendarDay(
             new Date(
                 year,
-                month + 1,
+                month+1,
                 day
-            );
-
-
-        createCalendarDay(
-            date,
+            ),
             true,
             appointmentDates
         );
@@ -2632,19 +3684,16 @@ function createCalendarDay(
     appointmentDates
 ){
 
-    const button =
-        document.createElement(
-            "div"
-        );
+    const element =
+        document.createElement("div");
 
-
-    button.className =
+    element.className =
         "calendar-day";
 
 
     if(otherMonth){
 
-        button.classList.add(
+        element.classList.add(
             "other-month"
         );
 
@@ -2658,7 +3707,7 @@ function createCalendarDay(
         )
     ){
 
-        button.classList.add(
+        element.classList.add(
             "today"
         );
 
@@ -2672,7 +3721,7 @@ function createCalendarDay(
         )
     ){
 
-        button.classList.add(
+        element.classList.add(
             "selected"
         );
 
@@ -2685,20 +3734,20 @@ function createCalendarDay(
         )
     ){
 
-        button.classList.add(
+        element.classList.add(
             "has-appointments"
         );
 
     }
 
 
-    button.textContent =
+    element.textContent =
         date.getDate();
 
 
-    button.addEventListener(
+    element.addEventListener(
         "click",
-        async function(){
+        async () => {
 
             selectedDate =
                 new Date(
@@ -2707,14 +3756,12 @@ function createCalendarDay(
                     date.getDate()
                 );
 
-
             calendarDate =
                 new Date(
                     selectedDate.getFullYear(),
                     selectedDate.getMonth(),
                     1
                 );
-
 
             updateDateLabels();
 
@@ -2727,1010 +3774,28 @@ function createCalendarDay(
 
 
     calendarDays.appendChild(
-        button
+        element
     );
 
 }
 
 
-/* =========================================================
-   REFRESH CALENDAR
-========================================================= */
-
 async function refreshCalendar(){
-
-    await loadCalendarAppointments();
 
     await renderCalendar();
 
 }
 
 
-/* =========================================================
-   LOAD APPOINTMENTS
-========================================================= */
-
-async function loadAppointments(){
-
-    const dateString =
-        formatDateInput(
-            selectedDate
-        );
-
-
-    const result =
-        await supabaseClient
-            .from("appointments")
-            .select("*")
-            .eq(
-                "appointment_date",
-                dateString
-            )
-            .order(
-                "appointment_time",
-                {
-                    ascending:true
-                }
-            );
-
-
-    if(result.error){
-
-        console.error(
-            "Appointments error:",
-            result.error
-        );
-
-
-        scheduleList.innerHTML =
-            `
-            <div class="empty-agenda">
-                Nuk u arrit të ngarkohej agjenda.
-            </div>
-            `;
-
-
-        return;
-
-    }
-
-
-    const appointments =
-        result.data || [];
-
-
-    scheduleCount.textContent =
-        appointments.length === 1
-            ? "1 ekzaminim"
-            : appointments.length +
-              " ekzaminime";
-
-
-    renderSchedule(
-        appointments
-    );
-
-
-    updateStats(
-        appointments
-    );
-
-
-    await refreshCalendar();
-
-}
-
-
-/* =========================================================
-   STATS
-========================================================= */
-
-function updateStats(
-    appointments
-){
-
-    const total =
-        appointments.length;
-
-
-    const mri =
-        appointments.filter(
-            a =>
-                a.exam_type === "MRI"
-        ).length;
-
-
-    const ct =
-        appointments.filter(
-            a =>
-                a.exam_type === "CT"
-        ).length;
-
-
-    const finished =
-        appointments.filter(
-            a =>
-                a.status === STATUS.FINISHED
-        ).length;
-
-
-    document.getElementById(
-        "statTotal"
-    ).textContent =
-        total;
-
-
-    document.getElementById(
-        "statMRI"
-    ).textContent =
-        mri;
-
-
-    document.getElementById(
-        "statCT"
-    ).textContent =
-        ct;
-
-
-    document.getElementById(
-        "statFinished"
-    ).textContent =
-        finished;
-
-}
-
-
-/* =========================================================
-   RENDER SCHEDULE
-========================================================= */
-
-function renderSchedule(
-    appointments
-){
-
-    scheduleList.innerHTML =
-        "";
-
-
-    for(
-        let hour = 8;
-        hour <= 19;
-        hour++
-    ){
-
-        for(
-            let minute of [0,30]
-        ){
-
-            if(
-                hour === 19 &&
-                minute === 30
-            ){
-                continue;
-            }
-
-
-            const time =
-                String(hour).padStart(2,"0") +
-                ":" +
-                String(minute).padStart(2,"0");
-
-
-            const row =
-                document.createElement(
-                    "div"
-                );
-
-
-            row.className =
-                "time-row";
-
-
-            const timeDiv =
-                document.createElement(
-                    "div"
-                );
-
-
-            timeDiv.className =
-                "time";
-
-
-            timeDiv.textContent =
-                time;
-
-
-            const slot =
-                document.createElement(
-                    "div"
-                );
-
-
-            slot.className =
-                "slot";
-
-
-            const appointment =
-                appointments.find(
-                    a =>
-                        String(
-                            a.appointment_time
-                        ).slice(0,5) === time
-                );
-
-
-            if(appointment){
-
-                slot.appendChild(
-                    createAppointmentCard(
-                        appointment
-                    )
-                );
-
-            }else{
-
-                const empty =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                empty.className =
-                    "empty-slot";
-
-
-                empty.textContent =
-                    "E lirë";
-
-
-                slot.appendChild(
-                    empty
-                );
-
-            }
-
-
-            row.appendChild(
-                timeDiv
-            );
-
-
-            row.appendChild(
-                slot
-            );
-
-
-            scheduleList.appendChild(
-                row
-            );
-
-        }
-
-    }
-
-}
-
-
-/* =========================================================
-   APPOINTMENT CARD
-========================================================= */
-
-function createAppointmentCard(
-    appointment
-){
-
-    const currentStatus =
-        appointment.status ||
-        STATUS.WAITING;
-
-
-    const statusClass =
-        getStatusClass(
-            currentStatus
-        );
-
-
-    const card =
-        document.createElement(
-            "div"
-        );
-
-
-    card.className =
-        "appointment " +
-        statusClass;
-
-
-    const patient =
-        document.createElement(
-            "div"
-        );
-
-
-    patient.innerHTML =
-        `
-        <div class="patient-name">
-            ${escapeHtml(
-                appointment.patient_name || ""
-            )}
-        </div>
-
-        <div class="patient-phone">
-            ${escapeHtml(
-                appointment.phone ||
-                "Pa telefon"
-            )}
-        </div>
-        `;
-
-
-    const exam =
-        document.createElement(
-            "div"
-        );
-
-
-    exam.innerHTML =
-        `
-        <div class="exam-name">
-            ${escapeHtml(
-                appointment.exam_name || ""
-            )}
-        </div>
-
-        <div class="exam-meta">
-            ${escapeHtml(
-                appointment.exam_type || ""
-            )}
-
-            ${
-                appointment.contrast_type
-                    ? " · " +
-                      escapeHtml(
-                          appointment.contrast_type
-                      )
-                    : ""
-            }
-        </div>
-        `;
-
-
-    const statusSelect =
-        document.createElement(
-            "select"
-        );
-
-
-    statusSelect.className =
-        "status-select " +
-        statusClass;
-
-
-    statusSelect.dataset.previousStatus =
-        currentStatus;
-
-
-    [
-        STATUS.WAITING,
-        STATUS.ARRIVED,
-        STATUS.FINISHED,
-        STATUS.CANCELLED
-
-    ].forEach(
-        function(status){
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-
-            option.value =
-                status;
-
-
-            option.textContent =
-                status;
-
-
-            if(
-                status === currentStatus
-            ){
-
-                option.selected =
-                    true;
-
-            }
-
-
-            statusSelect.appendChild(
-                option
-            );
-
-        }
-    );
-
-
-    statusSelect.addEventListener(
-        "change",
-        function(){
-
-            updateAppointmentStatus(
-                appointment.id,
-                statusSelect.value,
-                statusSelect,
-                card
-            );
-
-        }
-    );
-
-
-    const deleteButton =
-        document.createElement(
-            "button"
-        );
-
-
-    deleteButton.type =
-        "button";
-
-
-    deleteButton.className =
-        "delete-btn";
-
-
-    deleteButton.title =
-        "Fshi ekzaminimin";
-
-
-    deleteButton.setAttribute(
-        "aria-label",
-        "Fshi ekzaminimin"
-    );
-
-
-    deleteButton.textContent =
-        "×";
-
-
-    deleteButton.addEventListener(
-        "click",
-        function(){
-
-            deleteAppointment(
-                appointment.id
-            );
-
-        }
-    );
-
-
-    card.appendChild(
-        patient
-    );
-
-
-    card.appendChild(
-        exam
-    );
-
-
-    card.appendChild(
-        statusSelect
-    );
-
-
-    card.appendChild(
-        deleteButton
-    );
-
-
-    return card;
-
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHtml(value){
-
-    return String(value)
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
-
-}
-
-
-/* =========================================================
-   UPDATE STATUS
-========================================================= */
-
-async function updateAppointmentStatus(
-    id,
-    newStatus,
-    selectElement,
-    cardElement
-){
-
-    const previousStatus =
-        selectElement.dataset.previousStatus;
-
-
-    const result =
-        await supabaseClient
-            .from("appointments")
-            .update({
-                status:newStatus
-            })
-            .eq(
-                "id",
-                id
-            );
-
-
-    if(result.error){
-
-        console.error(
-            result.error
-        );
-
-
-        showToast(
-            "Gabim gjatë ndryshimit të statusit."
-        );
-
-
-        selectElement.value =
-            previousStatus;
-
-
-        const oldClass =
-            getStatusClass(
-                previousStatus
-            );
-
-
-        selectElement.className =
-            "status-select " +
-            oldClass;
-
-
-        cardElement.className =
-            "appointment " +
-            oldClass;
-
-
-        return;
-
-    }
-
-
-    selectElement.dataset.previousStatus =
-        newStatus;
-
-
-    const newClass =
-        getStatusClass(
-            newStatus
-        );
-
-
-    selectElement.className =
-        "status-select " +
-        newClass;
-
-
-    cardElement.className =
-        "appointment " +
-        newClass;
-
-
-    showToast(
-        "Statusi u ndryshua."
-    );
-
-
-    await loadAppointments();
-
-}
-
-
-/* =========================================================
-   SAVE APPOINTMENT
-========================================================= */
-
-appointmentForm.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        const name =
-            patientName.value.trim();
-
-
-        const phoneValue =
-            phone.value.trim();
-
-
-        const date =
-            appointmentDate.value;
-
-
-        const time =
-            appointmentTime.value;
-
-
-        const examType =
-            document.querySelector(
-                'input[name="examType"]:checked'
-            );
-
-
-        const examName =
-            examNameSelect.value;
-
-
-        const contrast =
-            document.querySelector(
-                'input[name="contrastType"]:checked'
-            );
-
-
-        if(!name){
-
-            showToast(
-                "Vendosni emrin e pacientit."
-            );
-
-            return;
-
-        }
-
-
-        if(!date){
-
-            showToast(
-                "Zgjidhni datën."
-            );
-
-            return;
-
-        }
-
-
-        if(!time){
-
-            showToast(
-                "Zgjidhni orën."
-            );
-
-            return;
-
-        }
-
-
-        if(!examType){
-
-            showToast(
-                "Zgjidhni MRI ose CT."
-            );
-
-            return;
-
-        }
-
-
-        if(!examName){
-
-            showToast(
-                "Zgjidhni ekzaminimin."
-            );
-
-            return;
-
-        }
-
-
-        const contrastType =
-            contrast
-                ? contrast.value
-                : null;
-
-
-        /* CHECK DUPLICATE */
-
-        const duplicate =
-            await supabaseClient
-                .from("appointments")
-                .select("id")
-                .eq(
-                    "appointment_date",
-                    date
-                )
-                .eq(
-                    "appointment_time",
-                    time
-                )
-                .limit(1);
-
-
-        if(duplicate.error){
-
-            console.error(
-                duplicate.error
-            );
-
-
-            showToast(
-                "Nuk u kontrollua dot orari."
-            );
-
-
-            return;
-
-        }
-
-
-        if(
-            duplicate.data &&
-            duplicate.data.length > 0
-        ){
-
-            showToast(
-                "Kjo orë është tashmë e zënë."
-            );
-
-
-            return;
-
-        }
-
-
-        /* INSERT */
-
-        const result =
-            await supabaseClient
-                .from("appointments")
-                .insert([
-                    {
-
-                        appointment_date:
-                            date,
-
-                        appointment_time:
-                            time,
-
-                        patient_name:
-                            name,
-
-                        phone:
-                            phoneValue,
-
-                        exam_type:
-                            examType.value,
-
-                        contrast_type:
-                            contrastType,
-
-                        exam_name:
-                            examName,
-
-                        status:
-                            STATUS.WAITING
-
-                    }
-                ]);
-
-
-        if(result.error){
-
-            console.error(
-                "Insert error:",
-                result.error
-            );
-
-
-            showToast(
-                "Gabim gjatë ruajtjes së ekzaminimit."
-            );
-
-
-            return;
-
-        }
-
-
-        showToast(
-            "Ekzaminimi u ruajt me sukses."
-        );
-
-
-        /* RESET */
-
-        patientName.value =
-            "";
-
-
-        phone.value =
-            "";
-
-
-        document
-            .querySelectorAll(
-                'input[name="examType"]'
-            )
-            .forEach(
-                input =>
-                    input.checked = false
-            );
-
-
-        document
-            .querySelectorAll(
-                'input[name="contrastType"]'
-            )
-            .forEach(
-                input =>
-                    input.checked = false
-            );
-
-
-        examNameSelect.innerHTML =
-            `
-            <option value="">
-                Zgjidhni fillimisht MRI ose CT
-            </option>
-            `;
-
-
-        examNameSelect.disabled =
-            true;
-
-
-        contrastSection.classList.remove(
-            "show"
-        );
-
-
-        selectedDate =
-            parseDateInput(
-                date
-            );
-
-
-        calendarDate =
-            new Date(
-                selectedDate.getFullYear(),
-                selectedDate.getMonth(),
-                1
-            );
-
-
-        updateDateLabels();
-
-
-        await loadAppointments();
-
-    }
-);
-
-
-/* =========================================================
-   MRI / CT
-========================================================= */
+/* =====================================================
+   CALENDAR EVENTS
+===================================================== */
 
 document
-    .querySelectorAll(
-        'input[name="examType"]'
-    )
-    .forEach(
-        function(radio){
-
-            radio.addEventListener(
-                "change",
-                function(){
-
-                    populateExamOptions(
-                        this.value
-                    );
-
-
-                    contrastSection
-                        .classList
-                        .add("show");
-
-
-                    document
-                        .querySelectorAll(
-                            'input[name="contrastType"]'
-                        )
-                        .forEach(
-                            input =>
-                                input.checked = false
-                        );
-
-                }
-            );
-
-        }
-    );
-
-
-/* =========================================================
-   DATE INPUT
-========================================================= */
-
-appointmentDate.addEventListener(
-    "change",
-    async function(){
-
-        if(!this.value){
-            return;
-        }
-
-
-        selectedDate =
-            parseDateInput(
-                this.value
-            );
-
-
-        calendarDate =
-            new Date(
-                selectedDate.getFullYear(),
-                selectedDate.getMonth(),
-                1
-            );
-
-
-        updateDateLabels();
-
-
-        await loadAppointments();
-
-    }
-);
-
-
-/* =========================================================
-   PREVIOUS DAY
-========================================================= */
-
-document
-    .getElementById(
-        "previousDay"
-    )
+    .getElementById("openCalendarBtn")
     .addEventListener(
         "click",
-        async function(){
-
-            selectedDate.setDate(
-                selectedDate.getDate() - 1
-            );
-
+        async () => {
 
             calendarDate =
                 new Date(
@@ -3738,112 +3803,8 @@ document
                     selectedDate.getMonth(),
                     1
                 );
-
-
-            updateDateLabels();
-
-
-            await loadAppointments();
-
-        }
-    );
-
-
-/* =========================================================
-   NEXT DAY
-========================================================= */
-
-document
-    .getElementById(
-        "nextDay"
-    )
-    .addEventListener(
-        "click",
-        async function(){
-
-            selectedDate.setDate(
-                selectedDate.getDate() + 1
-            );
-
-
-            calendarDate =
-                new Date(
-                    selectedDate.getFullYear(),
-                    selectedDate.getMonth(),
-                    1
-                );
-
-
-            updateDateLabels();
-
-
-            await loadAppointments();
-
-        }
-    );
-
-
-/* =========================================================
-   TODAY
-========================================================= */
-
-document
-    .getElementById(
-        "todayButton"
-    )
-    .addEventListener(
-        "click",
-        async function(){
-
-            const today =
-                new Date();
-
-
-            selectedDate =
-                new Date(
-                    today
-                );
-
-
-            calendarDate =
-                new Date(
-                    today.getFullYear(),
-                    today.getMonth(),
-                    1
-                );
-
-
-            updateDateLabels();
-
-
-            await loadAppointments();
-
-        }
-    );
-
-
-/* =========================================================
-   OPEN CALENDAR
-========================================================= */
-
-document
-    .getElementById(
-        "openCalendarBtn"
-    )
-    .addEventListener(
-        "click",
-        async function(){
-
-            calendarDate =
-                new Date(
-                    selectedDate.getFullYear(),
-                    selectedDate.getMonth(),
-                    1
-                );
-
 
             await refreshCalendar();
-
 
             calendarOverlay.classList.add(
                 "show"
@@ -3852,10 +3813,6 @@ document
         }
     );
 
-
-/* =========================================================
-   CLOSE CALENDAR
-========================================================= */
 
 function closeCalendar(){
 
@@ -3867,9 +3824,7 @@ function closeCalendar(){
 
 
 document
-    .getElementById(
-        "closeCalendarBtn"
-    )
+    .getElementById("closeCalendarBtn")
     .addEventListener(
         "click",
         closeCalendar
@@ -3878,7 +3833,7 @@ document
 
 calendarOverlay.addEventListener(
     "click",
-    function(event){
+    event => {
 
         if(
             event.target ===
@@ -3893,22 +3848,15 @@ calendarOverlay.addEventListener(
 );
 
 
-/* =========================================================
-   CALENDAR PREVIOUS MONTH
-========================================================= */
-
 document
-    .getElementById(
-        "previousMonth"
-    )
+    .getElementById("previousMonth")
     .addEventListener(
         "click",
-        async function(){
+        async () => {
 
             calendarDate.setMonth(
-                calendarDate.getMonth() - 1
+                calendarDate.getMonth()-1
             );
-
 
             await refreshCalendar();
 
@@ -3916,22 +3864,15 @@ document
     );
 
 
-/* =========================================================
-   CALENDAR NEXT MONTH
-========================================================= */
-
 document
-    .getElementById(
-        "nextMonth"
-    )
+    .getElementById("nextMonth")
     .addEventListener(
         "click",
-        async function(){
+        async () => {
 
             calendarDate.setMonth(
-                calendarDate.getMonth() + 1
+                calendarDate.getMonth()+1
             );
-
 
             await refreshCalendar();
 
@@ -3939,41 +3880,25 @@ document
     );
 
 
-/* =========================================================
-   CALENDAR TODAY
-========================================================= */
-
 document
-    .getElementById(
-        "calendarTodayBtn"
-    )
+    .getElementById("calendarTodayBtn")
     .addEventListener(
         "click",
-        async function(){
-
-            const today =
-                new Date();
-
+        async () => {
 
             selectedDate =
-                new Date(
-                    today
-                );
-
+                new Date();
 
             calendarDate =
                 new Date(
-                    today.getFullYear(),
-                    today.getMonth(),
+                    selectedDate.getFullYear(),
+                    selectedDate.getMonth(),
                     1
                 );
 
-
             updateDateLabels();
 
-
             closeCalendar();
-
 
             await loadAppointments();
 
@@ -3981,76 +3906,19 @@ document
     );
 
 
-/* =========================================================
-   DELETE APPOINTMENT
-========================================================= */
-
-async function deleteAppointment(id){
-
-    const confirmed =
-        confirm(
-            "Jeni të sigurt që dëshironi ta fshini këtë ekzaminim?"
-        );
-
-
-    if(!confirmed){
-        return;
-    }
-
-
-    const result =
-        await supabaseClient
-            .from("appointments")
-            .delete()
-            .eq(
-                "id",
-                id
-            );
-
-
-    if(result.error){
-
-        console.error(
-            result.error
-        );
-
-
-        showToast(
-            "Gabim gjatë fshirjes."
-        );
-
-
-        return;
-
-    }
-
-
-    showToast(
-        "Ekzaminimi u fshi."
-    );
-
-
-    await loadAppointments();
-
-}
-
-
-/* =========================================================
+/* =====================================================
    LOGOUT
-========================================================= */
+===================================================== */
 
 document
-    .getElementById(
-        "logoutBtn"
-    )
+    .getElementById("logoutBtn")
     .addEventListener(
         "click",
-        async function(){
+        async () => {
 
             await supabaseClient
                 .auth
                 .signOut();
-
 
             window.location.href =
                 "index.html";
@@ -4059,9 +3927,9 @@ document
     );
 
 
-/* =========================================================
+/* =====================================================
    SESSION
-========================================================= */
+===================================================== */
 
 async function checkSession(){
 
@@ -4071,15 +3939,12 @@ async function checkSession(){
             .getSession();
 
 
-    if(
-        !result.data.session
-    ){
+    if(!result.data.session){
 
         window.location.href =
             "index.html";
 
         return false;
-
     }
 
 
@@ -4088,15 +3953,14 @@ async function checkSession(){
 }
 
 
-/* =========================================================
-   INITIALIZE
-========================================================= */
+/* =====================================================
+   INIT
+===================================================== */
 
 async function init(){
 
     const authenticated =
         await checkSession();
-
 
     if(!authenticated){
         return;
@@ -4126,9 +3990,9 @@ async function init(){
 }
 
 
-/* =========================================================
+/* =====================================================
    START
-========================================================= */
+===================================================== */
 
 init();
 
